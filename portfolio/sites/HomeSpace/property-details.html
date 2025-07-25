@@ -1,0 +1,688 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>Detalhes do Imóvel - HomeSpace Imobiliária</title>
+  <meta name="description" content="">
+  <meta name="keywords" content="">
+
+  <!-- Favicons -->
+  <link href="assets/img/favicon.png" rel="icon">
+  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+  <!-- Main CSS File -->
+  <link href="assets/css/main.css" rel="stylesheet">
+
+  <!-- =======================================================
+  * Template Name: HomeSpace
+  * Template URL: https://bootstrapmade.com/homespace-bootstrap-real-estate-template/
+  * Updated: Jul 05 2025 with Bootstrap v5.3.7
+  * Author: BootstrapMade.com
+  * License: https://bootstrapmade.com/license/
+  ======================================================== -->
+</head>
+
+<body class="property-details-page">
+
+  <header id="header" class="header d-flex align-items-center sticky-top">
+    <div class="container-fluid container-xl position-relative d-flex align-items-center justify-content-between">
+
+      <a href="index.html" class="logo d-flex align-items-center">
+        <!-- Uncomment the line below if you also wish to use an image logo -->
+        <!-- <img src="assets/img/logo.webp" alt=""> -->
+        <svg class="my-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <g id="bgCarrier" stroke-width="0"></g>
+          <g id="tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+          <g id="iconCarrier">
+            <path d="M22 22L2 22" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"></path>
+            <path d="M2 11L6.06296 7.74968M22 11L13.8741 4.49931C12.7784 3.62279 11.2216 3.62279 10.1259 4.49931L9.34398 5.12486" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"></path>
+            <path d="M15.5 5.5V3.5C15.5 3.22386 15.7239 3 16 3H18.5C18.7761 3 19 3.22386 19 3.5V8.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"></path>
+            <path d="M4 22V9.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"></path>
+            <path d="M20 9.5V13.5M20 22V17.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"></path>
+            <path d="M15 22V17C15 15.5858 15 14.8787 14.5607 14.4393C14.1213 14 13.4142 14 12 14C10.5858 14 9.87868 14 9.43934 14.4393M9 22V17" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+            <path d="M14 9.5C14 10.6046 13.1046 11.5 12 11.5C10.8954 11.5 10 10.6046 10 9.5C10 8.39543 10.8954 7.5 12 7.5C13.1046 7.5 14 8.39543 14 9.5Z" stroke="currentColor" stroke-width="1.5"></path>
+          </g>
+        </svg>
+        <h1 class="sitename">HomeSpace</h1>
+      </a>
+
+      <nav id="navmenu" class="navmenu">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="properties.html">Properties</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="agents.html">Agents</a></li>
+          <li><a href="blog.html">Blog</a></li>
+          <li class="dropdown"><a href="#"><span>More Pages</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+            <ul>
+              <li><a href="property-details.html" class="active">Property Details</a></li>
+              <li><a href="service-details.html">Service Details</a></li>
+              <li><a href="agent-profile.html">Agent Profile</a></li>
+              <li><a href="blog-details.html">Blog Details</a></li>
+              <li><a href="terms.html">Terms</a></li>
+              <li><a href="privacy.html">Privacy</a></li>
+              <li><a href="404.html">404</a></li>
+            </ul>
+          </li>
+
+          <li class="dropdown"><a href="#"><span>Dropdown</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+            <ul>
+              <li><a href="#">Dropdown 1</a></li>
+              <li class="dropdown"><a href="#"><span>Deep Dropdown</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+                <ul>
+                  <li><a href="#">Deep Dropdown 1</a></li>
+                  <li><a href="#">Deep Dropdown 2</a></li>
+                  <li><a href="#">Deep Dropdown 3</a></li>
+                  <li><a href="#">Deep Dropdown 4</a></li>
+                  <li><a href="#">Deep Dropdown 5</a></li>
+                </ul>
+              </li>
+              <li><a href="#">Dropdown 2</a></li>
+              <li><a href="#">Dropdown 3</a></li>
+              <li><a href="#">Dropdown 4</a></li>
+            </ul>
+          </li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+        <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+      </nav>
+
+    </div>
+  </header>
+
+  <main class="main">
+
+    <!-- Page Title -->
+    <div class="page-title light-background">
+      <div class="container d-lg-flex justify-content-between align-items-center">
+        <h1 class="mb-2 mb-lg-0">Detalhes do Imóvel</h1>
+        <nav class="breadcrumbs">
+          <ol>
+            <li><a href="index.html">Início</a></li>
+            <li class="current">Detalhes do Imóvel</li>
+          </ol>
+        </nav>
+      </div>
+    </div><!-- End Page Title -->
+
+    <!-- Property Details Section -->
+    <section id="property-details" class="property-details section">
+
+      <div class="container" data-aos="fade-up" data-aos-delay="100">
+
+        <div class="row">
+          <div class="col-lg-7">
+
+            <!-- Property Hero Section -->
+            <div class="property-hero mb-5" data-aos="fade-up" data-aos-delay="200">
+              <div class="hero-image-container">
+                <div class="property-gallery-slider swiper init-swiper">
+                  <script type="application/json" class="swiper-config">
+                    {
+                      "loop": true,
+                      "speed": 600,
+                      "autoplay": {
+                        "delay": 5000
+                      },
+                      "navigation": {
+                        "nextEl": ".swiper-button-next",
+                        "prevEl": ".swiper-button-prev"
+                      },
+                      "thumbs": {
+                        "swiper": ".property-thumbnails-slider"
+                      }
+                    }
+                  </script>
+                  <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                      <img src="assets/img/real-estate/property-exterior-7.webp" class="img-fluid hero-image" alt="Property Main Image">
+                      <div class="hero-overlay">
+                        <div class="property-badge">
+                          <span class="status-badge for-rent">Para Locação</span>
+                          <span class="featured-badge">Destaque</span>
+                        </div>
+                        <button class="virtual-tour-btn">
+                          <i class="bi bi-play-circle"></i>
+                          Tour Virtual
+                        </button>
+                      </div>
+                    </div>
+                    <div class="swiper-slide">
+                      <img src="assets/img/real-estate/property-interior-7.webp" class="img-fluid hero-image" alt="Interior View">
+                    </div>
+                    <div class="swiper-slide">
+                      <img src="assets/img/real-estate/property-exterior-9.webp" class="img-fluid hero-image" alt="Exterior View">
+                    </div>
+                    <div class="swiper-slide">
+                      <img src="assets/img/real-estate/features-5.webp" class="img-fluid hero-image" alt="Features">
+                    </div>
+                    <div class="swiper-slide">
+                      <img src="assets/img/real-estate/property-interior-8.webp" class="img-fluid hero-image" alt="More Photos">
+                    </div>
+                    <div class="swiper-slide">
+                      <img src="assets/img/real-estate/property-exterior-3.webp" class="img-fluid hero-image" alt="Exterior Detail">
+                    </div>
+                    <div class="swiper-slide">
+                      <img src="assets/img/real-estate/property-interior-4.webp" class="img-fluid hero-image" alt="Living Area">
+                    </div>
+                    <div class="swiper-slide">
+                      <img src="assets/img/real-estate/features-2.webp" class="img-fluid hero-image" alt="Kitchen">
+                    </div>
+                    <div class="swiper-slide">
+                      <img src="assets/img/real-estate/property-interior-5.webp" class="img-fluid hero-image" alt="Bedroom">
+                    </div>
+                    <div class="swiper-slide">
+                      <img src="assets/img/real-estate/property-exterior-1.webp" class="img-fluid hero-image" alt="Building View">
+                    </div>
+                    <div class="swiper-slide">
+                      <img src="assets/img/real-estate/features-3.webp" class="img-fluid hero-image" alt="Bathroom">
+                    </div>
+                    <div class="swiper-slide">
+                      <img src="assets/img/real-estate/property-interior-2.webp" class="img-fluid hero-image" alt="Dining Area">
+                    </div>
+                    <div class="swiper-slide">
+                      <img src="assets/img/real-estate/property-exterior-8.webp" class="img-fluid hero-image" alt="Balcony View">
+                    </div>
+                    <div class="swiper-slide">
+                      <img src="assets/img/real-estate/features-1.webp" class="img-fluid hero-image" alt="Amenities">
+                    </div>
+                  </div>
+                  <div class="swiper-button-next"></div>
+                  <div class="swiper-button-prev"></div>
+                </div>
+              </div>
+
+              <div class="thumbnail-gallery mt-3">
+                <div class="property-thumbnails-slider swiper init-swiper">
+                  <script type="application/json" class="swiper-config">
+                    {
+                      "loop": true,
+                      "spaceBetween": 10,
+                      "slidesPerView": 4,
+                      "freeMode": true,
+                      "watchSlidesProgress": true,
+                      "breakpoints": {
+                        "576": {
+                          "slidesPerView": 5
+                        },
+                        "768": {
+                          "slidesPerView": 6
+                        }
+                      }
+                    }
+                  </script>
+                  <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                      <img src="assets/img/real-estate/property-exterior-7.webp" class="img-fluid thumbnail-img" alt="Property Main Image">
+                    </div>
+                    <div class="swiper-slide">
+                      <img src="assets/img/real-estate/property-interior-7.webp" class="img-fluid thumbnail-img" alt="Interior View">
+                    </div>
+                    <div class="swiper-slide">
+                      <img src="assets/img/real-estate/property-exterior-9.webp" class="img-fluid thumbnail-img" alt="Exterior View">
+                    </div>
+                    <div class="swiper-slide">
+                      <img src="assets/img/real-estate/features-5.webp" class="img-fluid thumbnail-img" alt="Features">
+                    </div>
+                    <div class="swiper-slide">
+                      <img src="assets/img/real-estate/property-interior-8.webp" class="img-fluid thumbnail-img" alt="More Photos">
+                    </div>
+                    <div class="swiper-slide">
+                      <img src="assets/img/real-estate/property-exterior-3.webp" class="img-fluid thumbnail-img" alt="Exterior Detail">
+                    </div>
+                    <div class="swiper-slide">
+                      <img src="assets/img/real-estate/property-interior-4.webp" class="img-fluid thumbnail-img" alt="Living Area">
+                    </div>
+                    <div class="swiper-slide">
+                      <img src="assets/img/real-estate/features-2.webp" class="img-fluid thumbnail-img" alt="Kitchen">
+                    </div>
+                    <div class="swiper-slide">
+                      <img src="assets/img/real-estate/property-interior-5.webp" class="img-fluid thumbnail-img" alt="Bedroom">
+                    </div>
+                    <div class="swiper-slide">
+                      <img src="assets/img/real-estate/property-exterior-1.webp" class="img-fluid thumbnail-img" alt="Building View">
+                    </div>
+                    <div class="swiper-slide">
+                      <img src="assets/img/real-estate/features-3.webp" class="img-fluid thumbnail-img" alt="Bathroom">
+                    </div>
+                    <div class="swiper-slide">
+                      <img src="assets/img/real-estate/property-interior-2.webp" class="img-fluid thumbnail-img" alt="Dining Area">
+                    </div>
+                    <div class="swiper-slide">
+                      <img src="assets/img/real-estate/property-exterior-8.webp" class="img-fluid thumbnail-img" alt="Balcony View">
+                    </div>
+                    <div class="swiper-slide">
+                      <img src="assets/img/real-estate/features-1.webp" class="img-fluid thumbnail-img" alt="Amenities">
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div><!-- End Property Hero -->
+
+            <!-- Property Information -->
+            <div class="property-info mb-5" data-aos="fade-up" data-aos-delay="300">
+              <div class="property-header">
+                <h1 class="property-title">Penthouse Executivo com Vista da Cidade</h1>
+                <div class="property-meta">
+                  <span class="address"><i class="bi bi-geo-alt"></i> Av. Paulista, 4751, São Paulo, SP 01311-917</span>
+                  <span class="listing-id">ID: #PE-2024-0847</span>
+                </div>
+              </div>
+
+              <div class="pricing-section">
+                <div class="main-price">R$ 14.800<span class="period">/mês</span></div>
+                <div class="price-breakdown">
+                  <span class="deposit">Caução: R$ 29.600</span>
+                  <span class="available">Disponível a partir de 15 de março</span>
+                </div>
+              </div>
+
+              <div class="quick-stats">
+                <div class="stat-grid">
+                  <div class="stat-card">
+                    <div class="stat-icon">
+                      <i class="bi bi-house"></i>
+                    </div>
+                    <div class="stat-content">
+                      <span class="stat-number">3</span>
+                      <span class="stat-label">Quartos</span>
+                    </div>
+                  </div>
+                  <div class="stat-card">
+                    <div class="stat-icon">
+                      <i class="bi bi-droplet"></i>
+                    </div>
+                    <div class="stat-content">
+                      <span class="stat-number">2.5</span>
+                      <span class="stat-label">Banheiros</span>
+                    </div>
+                  </div>
+                  <div class="stat-card">
+                    <div class="stat-icon">
+                      <i class="bi bi-arrows-angle-expand"></i>
+                    </div>
+                    <div class="stat-content">
+                      <span class="stat-number">175</span>
+                      <span class="stat-label">m²</span>
+                    </div>
+                  </div>
+                  <div class="stat-card">
+                    <div class="stat-icon">
+                      <i class="bi bi-car-front"></i>
+                    </div>
+                    <div class="stat-content">
+                      <span class="stat-number">2</span>
+                      <span class="stat-label">Vagas</span>
+                    </div>
+                  </div>
+                  <div class="stat-card">
+                    <div class="stat-icon">
+                      <i class="bi bi-building"></i>
+                    </div>
+                    <div class="stat-content">
+                      <span class="stat-number">15º</span>
+                      <span class="stat-label">Andar</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div><!-- End Property Information -->
+
+            <!-- Description & Features -->
+            <div class="property-details mb-5" data-aos="fade-up" data-aos-delay="400">
+              <h3>Descrição do Imóvel</h3>
+              <p>Experimente o luxo neste deslumbrante apartamento penthouse com vistas panorâmicas da cidade e acabamentos premium em todos os ambientes. Localizado na prestigiosa Avenida Paulista, este imóvel oferece o que há de melhor em conforto e sofisticação.</p>
+
+              <p>Com 175m² de área útil, o imóvel conta com amplos espaços integrados, acabamentos de alto padrão e uma localização privilegiada no coração de São Paulo. Ideal para quem busca qualidade de vida e praticidade urbana.</p>
+
+              <div class="features-grid mt-4">
+                <div class="row">
+                  <div class="col-md-6">
+                    <h5>Características Internas</h5>
+                    <ul class="feature-list">
+                      <li><i class="bi bi-check2"></i> Janelas do chão ao teto</li>
+                      <li><i class="bi bi-check2"></i> Piso de madeira</li>
+                      <li><i class="bi bi-check2"></i> Cozinha gourmet</li>
+                      <li><i class="bi bi-check2"></i> Área de serviço privativa</li>
+                      <li><i class="bi bi-check2"></i> Closets espaçosos</li>
+                    </ul>
+                  </div>
+                  <div class="col-md-6">
+                    <h5>Comodidades do Edifício</h5>
+                    <ul class="feature-list">
+                      <li><i class="bi bi-check2"></i> Terraço na cobertura</li>
+                      <li><i class="bi bi-check2"></i> Academia</li>
+                      <li><i class="bi bi-check2"></i> Portaria 24h</li>
+                      <li><i class="bi bi-check2"></i> Piscina coberta</li>
+                      <li><i class="bi bi-check2"></i> Pet friendly</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div><!-- End Description & Features -->
+
+            <!-- Floor Plan -->
+            <div class="floor-plan-section mb-5" data-aos="fade-up" data-aos-delay="500">
+              <h3>Planta do Imóvel</h3>
+              <div class="floor-plan-card">
+                <img src="assets/img/real-estate/property-interior-9.webp" class="img-fluid" alt="Floor Plan">
+                <div class="plan-details">
+                  <h5>Layout Penthouse 3 Quartos</h5>
+                  <p>Conceito aberto integrando sala e jantar com acesso a varanda privativa. Suíte master com banheiro privativo e vista da cidade.</p>
+                </div>
+              </div>
+            </div><!-- End Floor Plan -->
+
+          </div>
+
+          <!-- Sidebar -->
+          <div class="col-lg-5">
+            <div class="sticky-sidebar">
+
+              <!-- Quick Actions -->
+              <div class="actions-card mb-4" data-aos="fade-up" data-aos-delay="250">
+                <div class="action-buttons">
+                  <button class="btn btn-primary btn-lg w-100 mb-3">
+                    <i class="bi bi-calendar-check"></i>
+                    Agendar Visita
+                  </button>
+                  <div class="row g-2">
+                    <div class="col-6">
+                      <button class="btn btn-outline-primary w-100">
+                        <i class="bi bi-heart"></i>
+                        Salvar
+                      </button>
+                    </div>
+                    <div class="col-6">
+                      <button class="btn btn-outline-primary w-100">
+                        <i class="bi bi-share"></i>
+                        Compartilhar
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div><!-- End Quick Actions -->
+
+              <!-- Agent Card -->
+              <div class="agent-card mb-4" data-aos="fade-up" data-aos-delay="350">
+                <div class="agent-header">
+                  <div class="agent-avatar">
+                    <img src="assets/img/person/person-f-12.webp" class="img-fluid" alt="Agent Photo">
+                    <div class="online-status"></div>
+                  </div>
+                  <div class="agent-info">
+                    <h4>Sarah Johnson</h4>
+                    <p class="agent-role">Corretora de Imóveis Licenciada</p>
+                    <div class="agent-rating">
+                      <div class="stars">
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                      </div>
+                      <span class="rating-text">5.0 (127 avaliações)</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="agent-contact">
+                  <div class="contact-item">
+                    <i class="bi bi-telephone"></i>
+                    <span>+55 (11) 99876-5432</span>
+                  </div>
+                  <div class="contact-item">
+                    <i class="bi bi-envelope"></i>
+                    <span>s.johnson@homespace.com.br</span>
+                  </div>
+                </div>
+
+                <div class="agent-actions mt-3">
+                  <button class="btn btn-success w-100 mb-2">
+                    <i class="bi bi-telephone"></i>
+                    Ligar Agora
+                  </button>
+                  <button class="btn btn-outline w-100">
+                    <i class="bi bi-chat-dots"></i>
+                    Enviar Mensagem
+                  </button>
+                </div>
+              </div><!-- End Agent Card -->
+
+              <!-- Contact Form -->
+              <div class="contact-form-card mb-4" data-aos="fade-up" data-aos-delay="450">
+                <h4>Solicitar Informações</h4>
+                <form action="forms/contact.php" method="post" class="php-email-form">
+                  <div class="row">
+                    <div class="col-12 mb-3">
+                      <input type="text" name="name" class="form-control" placeholder="Nome Completo" required="">
+                    </div>
+                    <div class="col-12 mb-3">
+                      <input type="email" name="email" class="form-control" placeholder="Endereço de Email" required="">
+                    </div>
+                    <div class="col-12 mb-3">
+                      <input type="tel" name="phone" class="form-control" placeholder="Número de Telefone">
+                    </div>
+                    <div class="col-12 mb-3">
+                      <select name="subject" class="form-select" required="">
+                        <option value="">Tenho interesse em...</option>
+                        <option value="Scheduling a viewing">Agendar uma visita</option>
+                        <option value="Getting more information">Obter mais informações</option>
+                        <option value="Submitting an application">Enviar uma proposta</option>
+                      </select>
+                    </div>
+                    <div class="col-12 mb-3">
+                      <textarea name="message" class="form-control" rows="4" placeholder="Perguntas adicionais ou horários preferenciais para visita..."></textarea>
+                    </div>
+                  </div>
+
+                  <div class="loading">Carregando</div>
+                  <div class="error-message"></div>
+                  <div class="sent-message">Sua solicitação foi enviada com sucesso!</div>
+
+                  <button type="submit" class="btn btn-primary w-100">Enviar Solicitação</button>
+                </form>
+              </div><!-- End Contact Form -->
+
+              <!-- Rental Calculator -->
+              <div class="calculator-card mb-4" data-aos="fade-up" data-aos-delay="550">
+                <h4>Calculadora de Custos Mensais</h4>
+                <div class="calculator-content">
+                  <div class="cost-item">
+                    <span class="cost-label">Aluguel Mensal</span>
+                    <span class="cost-value">R$ 14.800</span>
+                  </div>
+                  <div class="cost-item">
+                    <span class="cost-label">Utilidades (estimado)</span>
+                    <span class="cost-value">R$ 550</span>
+                  </div>
+                  <div class="cost-item">
+                    <span class="cost-label">Estacionamento</span>
+                    <span class="cost-value">R$ 750</span>
+                  </div>
+                  <div class="cost-item">
+                    <span class="cost-label">Taxa Pet</span>
+                    <span class="cost-value">R$ 150</span>
+                  </div>
+                  <div class="total-cost">
+                    <span class="total-label">Custo Mensal Total</span>
+                    <span class="total-value">R$ 16.250</span>
+                  </div>
+                </div>
+              </div><!-- End Rental Calculator -->
+
+              <!-- Similar Properties -->
+              <div class="similar-properties" data-aos="fade-up" data-aos-delay="650">
+                <h4>Imóveis Similares</h4>
+                <div class="similar-property-item">
+                  <img src="assets/img/real-estate/property-exterior-4.webp" class="img-fluid" alt="Similar Property">
+                  <div class="similar-info">
+                    <h6>Apartamento de Luxo no Centro</h6>
+                    <p class="similar-price">R$ 12.800/mês</p>
+                    <p class="similar-specs">2 quartos • 2 banheiros • 153 m²</p>
+                  </div>
+                </div>
+
+                <div class="similar-property-item">
+                  <img src="assets/img/real-estate/property-interior-6.webp" class="img-fluid" alt="Similar Property">
+                  <div class="similar-info">
+                    <h6>Suíte Penthouse Moderna</h6>
+                    <p class="similar-price">R$ 15.500/mês</p>
+                    <p class="similar-specs">3 quartos • 2.5 banheiros • 178 m²</p>
+                  </div>
+                </div>
+              </div><!-- End Similar Properties -->
+
+            </div>
+          </div><!-- End Sidebar -->
+
+        </div>
+
+        <!-- Location Section -->
+        <div class="location-section mt-5" data-aos="fade-up" data-aos-delay="700">
+          <h3>Localização e Vizinhança</h3>
+          <div class="row">
+            <div class="col-lg-8">
+              <div class="map-wrapper">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3021.5!2d-73.935!3d40.796!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDDCsDQ3JzQ1LjYiTiA3M8KwNTYnMDYuMCJX!5e0!3m2!1sen!2sus!4v1234567890" width="100%" height="350" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+              </div>
+            </div>
+            <div class="col-lg-4">
+              <div class="neighborhood-info">
+                <h5>Destaques da Vizinhança</h5>
+                <div class="poi-item">
+                  <i class="bi bi-mortarboard"></i>
+                  <div class="poi-content">
+                    <span class="poi-name">Universidade de São Paulo</span>
+                    <span class="poi-distance">0.6 km</span>
+                  </div>
+                </div>
+                <div class="poi-item">
+                  <i class="bi bi-cup-hot"></i>
+                  <div class="poi-content">
+                    <span class="poi-name">Cafeterias Locais</span>
+                    <span class="poi-distance">2 min a pé</span>
+                  </div>
+                </div>
+                <div class="poi-item">
+                  <i class="bi bi-tree"></i>
+                  <div class="poi-content">
+                    <span class="poi-name">Parque Ibirapuera</span>
+                    <span class="poi-distance">0.5 km</span>
+                  </div>
+                </div>
+                <div class="poi-item">
+                  <i class="bi bi-train-lightrail-front"></i>
+                  <div class="poi-content">
+                    <span class="poi-name">Estação Trianon-MASP</span>
+                    <span class="poi-distance">1.0 km</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div><!-- End Location Section -->
+
+      </div>
+
+    </section><!-- /Property Details Section -->
+
+  </main>
+
+  <footer id="footer" class="footer accent-background">
+
+    <div class="container footer-top">
+      <div class="row gy-4">
+        <div class="col-lg-5 col-md-12 footer-about">
+          <a href="index.html" class="logo d-flex align-items-center">
+            <span class="sitename">HomeSpace</span>
+          </a>
+          <p>A HomeSpace é uma imobiliária moderna e confiável, especializada em conectar pessoas aos seus lares ideais. Oferecemos serviços completos de compra, venda e locação de imóveis em todo o Brasil.</p>
+          <div class="social-links d-flex mt-4">
+            <a href=""><i class="bi bi-twitter-x"></i></a>
+            <a href=""><i class="bi bi-facebook"></i></a>
+            <a href=""><i class="bi bi-instagram"></i></a>
+            <a href=""><i class="bi bi-linkedin"></i></a>
+          </div>
+        </div>
+
+        <div class="col-lg-2 col-6 footer-links">
+          <h4>Links Úteis</h4>
+          <ul>
+            <li><a href="#">Início</a></li>
+            <li><a href="#">Sobre Nós</a></li>
+            <li><a href="#">Serviços</a></li>
+            <li><a href="#">Termos de Serviço</a></li>
+            <li><a href="#">Política de Privacidade</a></li>
+          </ul>
+        </div>
+
+        <div class="col-lg-2 col-6 footer-links">
+          <h4>Nossos Serviços</h4>
+          <ul>
+            <li><a href="#">Compra de Imóveis</a></li>
+            <li><a href="#">Venda de Imóveis</a></li>
+            <li><a href="#">Locação</a></li>
+            <li><a href="#">Avaliação Imobiliária</a></li>
+            <li><a href="#">Consultoria de Investimentos</a></li>
+          </ul>
+        </div>
+
+        <div class="col-lg-3 col-md-12 footer-contact text-center text-md-start">
+          <h4>Fale Conosco</h4>
+          <p>Rua Oscar Freire, 158</p>
+          <p>Jardins, São Paulo, SP 01426-000</p>
+          <p>Brasil</p>
+          <p class="mt-4"><strong>Telefone:</strong> <span>+55 (11) 2345-6789</span></p>
+          <p><strong>Email:</strong> <span>contato@homespace.com.br</span></p>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="container copyright text-center mt-4">
+      <p>© <span>Copyright</span> <strong class="px-1 sitename">HomeSpace</strong> <span>All Rights Reserved</span></p>
+      <div class="credits">
+        <!-- All the links in the footer should remain intact. -->
+        <!-- You can delete the links only if you've purchased the pro version. -->
+        <!-- Licensing information: https://bootstrapmade.com/license/ -->
+        <!-- Purchase the pro version with working PHP/AJAX contact form: [buy-url] -->
+        Designed by evo cloud applications ltda
+      </div>
+    </div>
+
+  </footer>
+
+  <!-- Scroll Top -->
+  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Preloader -->
+  <div id="preloader"></div>
+
+  <!-- Vendor JS Files -->
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/php-email-form/validate.js"></script>
+  <script src="assets/vendor/aos/aos.js"></script>
+  <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
+  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+
+  <!-- Main JS File -->
+  <script src="assets/js/main.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,26 @@
+{
+  "name": "evo-portfolio",
+  "version": "1.0.0",
+  "description": "Portfolio de sites institucionais da Evo Softwares",
+  "main": "index.html",
+  "scripts": {
+    "dev": "live-server --port=3000 --open=/",
+    "portfolio": "live-server --port=3001 --open=/portfolio/ --mount=/portfolio:portfolio",
+    "start": "npm run dev"
+  },
+  "keywords": [
+    "portfolio",
+    "websites",
+    "html",
+    "css",
+    "javascript"
+  ],
+  "author": "Evo Softwares",
+  "license": "MIT",
+  "devDependencies": {
+    "live-server": "^1.2.2"
+  },
+  "dependencies": {
+    "leaflet": "^1.9.4"
+  }
+}

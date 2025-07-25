@@ -1,0 +1,885 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/MotionPathPlugin.min.js"></script>
+    <style>
+        /* Minimalist Design Principles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        @import url('https://fonts.googleapis.com/css2?family=Google+Sans:wght@300;400;500;600;700&family=Google+Sans+Display:wght@400;500;600;700&display=swap');
+        
+        body {
+            font-family: 'Google Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+            background-color: #fff;
+            min-height: 100vh;
+            padding: 3rem; /* Increased padding for more white space */
+            color: #3c4043;
+            line-height: 1.6;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        /* Background Animation */
+        .tech-background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            pointer-events: none;
+        }
+
+
+
+        @keyframes float {
+            0% { transform: translateY(100vh) rotate(0deg); }
+            100% { transform: translateY(-100px) rotate(360deg); }
+        }
+
+
+        .floating-code {
+            position: absolute;
+            font-family: 'Courier New', monospace;
+            font-size: 14px;
+            color: #1a73e8;
+            opacity: 0.3;
+            animation: codeFloat 12s infinite linear;
+            white-space: nowrap;
+            text-shadow: 0 0 5px rgba(26, 115, 232, 0.3);
+        }
+
+        .code-matrix {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 500px;
+            height: 500px;
+            pointer-events: none;
+            z-index: -2;
+        }
+
+        .matrix-char {
+            position: absolute;
+            font-family: 'Courier New', monospace;
+            font-size: 16px;
+            color: rgba(26, 115, 232, 0.1);
+            animation: matrixFall 4s infinite linear;
+        }
+
+        @keyframes matrixFall {
+            0% { 
+                transform: translateY(-50px);
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+            }
+            90% {
+                opacity: 1;
+            }
+            100% { 
+                transform: translateY(550px);
+                opacity: 0;
+            }
+        }
+
+        .code-snippet {
+            position: absolute;
+            font-family: 'Courier New', monospace;
+            font-size: 10px;
+            color: #1a73e8;
+            pointer-events: none;
+            animation: codeSnippetFade 2s ease-out forwards;
+            background: rgba(255, 255, 255, 0.8);
+            padding: 2px 6px;
+            border-radius: 4px;
+            border-left: 3px solid #1a73e8;
+            white-space: nowrap;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        @keyframes codeSnippetFade {
+            0% { 
+                opacity: 1; 
+                transform: translateY(0) scale(1); 
+            }
+            100% { 
+                opacity: 0; 
+                transform: translateY(-20px) scale(0.9); 
+            }
+        }
+
+        @keyframes codeFloat {
+            0% { transform: translateX(-100px); }
+            100% { transform: translateX(calc(100vw + 100px)); }
+        }
+
+        .container {
+            max-width: 1000px; /* Slightly narrower for focus */
+            margin: 0 auto;
+            padding: 0 1rem; /* Padding for smaller screens */
+        }
+
+        h1 {
+            text-align: center;
+            color: #3c4043;
+            font-size: clamp(2.5rem, 8vw, 4rem);
+            margin-bottom: 0.5rem;
+            font-weight: 400;
+            font-family: 'Google Sans Display', sans-serif;
+            letter-spacing: -0.02em;
+            line-height: 1.1;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: #5f6368;
+            font-size: clamp(1rem, 3vw, 1.25rem);
+            margin-bottom: 4rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            font-family: 'Google Sans', sans-serif;
+            font-weight: 400;
+            line-height: 1.5;
+        }
+
+        .sites-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 4rem; /* Gap muito maior para respiro */
+            margin-top: 5rem;
+        }
+
+        .site-card {
+            background: #fff;
+            border-radius: 20px;
+            padding: 3rem; /* Mais padding interno */
+            text-align: left;
+            transition: all 0.3s ease;
+            border: 1px solid #e8eaed;
+            box-shadow: 0 1px 6px rgba(32,33,36,.28);
+            margin-bottom: 2rem; /* Espaço extra entre cards */
+            position: relative;
+            overflow: hidden;
+        }
+
+
+        .site-card:hover {
+            transform: translateY(-5px) scale(1.02);
+            box-shadow: 0 8px 32px rgba(26, 115, 232, 0.15);
+        }
+
+        .site-card h3 {
+            color: #3c4043;
+            font-size: clamp(1.25rem, 4vw, 1.5rem);
+            margin-bottom: 0.75rem;
+            font-weight: 500;
+            font-family: 'Google Sans', sans-serif;
+            line-height: 1.3;
+        }
+
+        .site-card p {
+            color: #5f6368;
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+            font-size: 0.9rem;
+            font-family: 'Google Sans', sans-serif;
+            font-weight: 400;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            padding: 10px 24px;
+            background: #1a73e8;
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            transition: all 0.2s cubic-bezier(0.4, 0.0, 0.2, 1);
+            border: none;
+            font-weight: 500;
+            font-size: 0.875rem;
+            font-family: 'Google Sans', sans-serif;
+            text-transform: none;
+            min-height: 36px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+        }
+
+        .btn:hover {
+            background: #1557b0;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15), 0 1px 4px rgba(0,0,0,0.3);
+        }
+
+        .hero-section {
+            text-align: center;
+            margin-bottom: 8rem; /* Muito mais espaço */
+            padding-top: 3rem;
+        }
+
+        .logo {
+            max-width: 360px; /* 2x o tamanho original */
+            margin-bottom: 3rem; /* Mais espaço */
+            opacity: 0.9;
+            transition: all 0.3s ease;
+            border-radius: 10%; /* Roundness total */
+            position: relative;
+            overflow: hidden;
+        }
+
+        .logo::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: conic-gradient(
+                from 0deg,
+                transparent,
+                rgba(26, 115, 232, 0.3),
+                transparent,
+                rgba(52, 168, 83, 0.3),
+                transparent,
+                rgba(234, 67, 53, 0.3),
+                transparent
+            );
+            animation: logoSpin 8s linear infinite;
+            z-index: -1;
+            border-radius: 10%;
+        }
+
+        @keyframes logoSpin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .logo:hover {
+            transform: translateY(-2px); /* Leve elevação no hover */
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15); /* Sombra mais intensa no hover */
+        }
+
+        .portfolio-section {
+            margin-bottom: 6rem; /* More space below section */
+        }
+
+        .section-title {
+            color: #222;
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            font-weight: 700;
+            text-align: center;
+        }
+
+        .section-subtitle {
+            color: #555;
+            font-size: 1.2rem;
+            margin-bottom: 4rem;
+            text-align: center;
+        }
+
+        /* App Store Buttons - Minimalist adjustments */
+        .app-stores {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem; /* Reduced gap for tighter grouping */
+            flex-wrap: wrap;
+        }
+
+        .store-btn {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            padding: 0.8rem 1.5rem; /* Slightly smaller padding */
+            background: #fff;
+            border-radius: 4px; /* Sharper corners */
+            text-decoration: none;
+            color: #333;
+            transition: all 0.2s ease;
+            border: 1px solid #ddd;
+            min-width: 160px; /* Slightly smaller min-width */
+            box-shadow: 0 2px 5px rgba(0,0,0,0.02); /* Very subtle shadow */
+        }
+
+        .store-btn:hover {
+            background: #f5f5f5; /* Lighter gray on hover */
+            transform: translateY(-1px);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+        }
+
+        .store-btn.playstore {
+            background: #eaf7ed; /* Very light green */
+            color: #28a745;
+            border-color: #c8e6c9; /* Lighter border */
+        }
+
+        .store-btn.appstore {
+            background: #e9e9e9; /* Very light gray */
+            color: #333;
+            border-color: #dcdcdc; /* Lighter border */
+        }
+
+        .store-icon {
+            flex-shrink: 0;
+            opacity: 0.8; /* Slightly faded icon */
+        }
+
+        .store-text {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        .store-label {
+            font-size: 0.75rem; /* Smaller label */
+            opacity: 0.7;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .store-name {
+            font-size: 1rem; /* Slightly smaller name */
+            font-weight: 600;
+        }
+
+        .card-app-stores {
+            display: flex;
+            gap: 0.4rem; /* Reduced gap */
+            margin-top: 1.2rem;
+            justify-content: center;
+        }
+
+        .card-store-btn {
+            display: flex;
+            align-items: center;
+            gap: 0.3rem;
+            padding: 8px 12px;
+            border-radius: 50px;
+            text-decoration: none;
+            color: #5f6368;
+            font-size: 0.75rem;
+            transition: all 0.2s ease;
+            border: 1px solid #dadce0;
+            flex: 1;
+            justify-content: center;
+            box-shadow: 0 1px 2px rgba(60,64,67,.3), 0 1px 3px 1px rgba(60,64,67,.15);
+            font-family: 'Google Sans', sans-serif;
+            font-weight: 500;
+        }
+
+        .card-store-btn:hover {
+            background: #f8f9fa;
+            box-shadow: 0 1px 3px rgba(60,64,67,.3), 0 4px 8px 3px rgba(60,64,67,.15);
+        }
+
+        .card-store-btn.playstore {
+            background: #e8f5e8;
+            color: #137333;
+            border-color: #c8e6c9;
+        }
+
+        .card-store-btn.appstore {
+            background: #f1f3f4;
+            color: #3c4043;
+            border-color: #dadce0;
+        }
+
+        .card-store-btn span {
+            font-weight: 500;
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 1.5rem;
+            }
+            h1 {
+                font-size: 2.5rem;
+            }
+            .subtitle {
+                font-size: 1.1rem;
+                margin-bottom: 3rem;
+            }
+            .section-title {
+                font-size: 2.2rem;
+            }
+            .section-subtitle {
+                font-size: 1rem;
+                margin-bottom: 2.5rem;
+            }
+            .sites-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            .site-card {
+                padding: 2rem;
+            }
+            .site-card h3 {
+                font-size: 1.6rem;
+            }
+            .site-card p {
+                font-size: 0.95rem;
+            }
+            .btn {
+                padding: 10px 20px;
+                font-size: 0.85rem;
+            }
+            .app-stores {
+                flex-direction: column;
+                align-items: center;
+            }
+            .store-btn {
+                min-width: 180px;
+                padding: 0.7rem 1.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="tech-background" id="techBackground"></div>
+    <div class="container">
+        <header class="hero-section">
+            <div class="code-matrix" id="codeMatrix"></div>
+            <img src="logo evo.png" alt="Evo Softwares Logo" class="logo">
+            <h1>Portfolio</h1>
+            <p class="subtitle">Explorando o futuro através de experiências digitais inovadoras</p>
+        </header>
+        
+        <section class="portfolio-section">
+            
+            <div class="sites-grid">
+            <div class="site-card">
+
+                <h3>BizLand</h3>
+                <p>Arquitetura corporativa que transforma presença digital em autoridade. Design que comunica expertise antes mesmo das palavras.</p>
+                <a href="sites/BizLand/index.html" class="btn">Visualizar Site</a>
+                
+                <div class="card-app-stores">
+                    <a href="#" class="card-store-btn playstore" onclick="alert('BizLand em breve na Play Store!')">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                            <path d="M3 20.5v-17c0-.5.4-.9.9-.9L12 11.1l8.1-8.5c.5 0 .9.4.9.9v17c0 .5-.4.9-.9.9L12 12.9l-8.1 8.5c-.5 0-.9-.4-.9-.9z" fill="currentColor"/>
+                        </svg>
+                        <span>Play Store</span>
+                    </a>
+                    <a href="#" class="card-store-btn appstore" onclick="alert('BizLand em breve na App Store!')">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                            <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z" fill="currentColor"/>
+                        </svg>
+                        <span>App Store</span>
+                    </a>
+                </div>
+            </div>
+
+            <div class="site-card">
+
+                <h3>HomeSpace</h3>
+                <p>Onde sonhos habitam pixels. Interface intuitiva que conecta pessoas aos seus lares ideais através de uma jornada visual envolvente.</p>
+                <a href="sites/HomeSpace/index.html" class="btn">Visualizar Site</a>
+                
+                <div class="card-app-stores">
+                    <a href="#" class="card-store-btn playstore" onclick="alert('HomeSpace em breve na Play Store!')">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                            <path d="M3 20.5v-17c0-.5.4-.9.9-.9L12 11.1l8.1-8.5c.5 0 .9.4.9.9v17c0 .5-.4.9-.9.9L12 12.9l-8.1 8.5c-.5 0-.9-.4-.9-.9z" fill="currentColor"/>
+                        </svg>
+                        <span>Play Store</span>
+                    </a>
+                    <a href="#" class="card-store-btn appstore" onclick="alert('HomeSpace em breve na App Store!')">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                            <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z" fill="currentColor"/>
+                        </svg>
+                        <span>App Store</span>
+                    </a>
+                </div>
+            </div>
+
+            <div class="site-card">
+
+                <h3>Instant</h3>
+                <p>Velocidade na forma mais pura. Minimalismo estratégico que elimina fricções entre intenção e ação, convertendo visitantes em clientes.</p>
+                <a href="sites/Instant/index.html" class="btn">Visualizar Site</a>
+                
+                <div class="card-app-stores">
+                    <a href="#" class="card-store-btn playstore" onclick="alert('Instant em breve na Play Store!')">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                            <path d="M3 20.5v-17c0-.5.4-.9.9-.9L12 11.1l8.1-8.5c.5 0 .9.4.9.9v17c0 .5-.4.9-.9.9L12 12.9l-8.1 8.5c-.5 0-.9-.4-.9-.9z" fill="currentColor"/>
+                        </svg>
+                        <span>Play Store</span>
+                    </a>
+                    <a href="#" class="card-store-btn appstore" onclick="alert('Instant em breve na App Store!')">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                            <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z" fill="currentColor"/>
+                        </svg>
+                        <span>App Store</span>
+                    </a>
+                </div>
+            </div>
+
+            <div class="site-card">
+
+                <h3>Learner</h3>
+                <p>Ecossistema de conhecimento que transforma curiosidade em competência. Experiência de aprendizado que inspira e engaja simultaneamente.</p>
+                <a href="sites/Learner/index.html" class="btn">Visualizar Site</a>
+                
+                <div class="card-app-stores">
+                    <a href="#" class="card-store-btn playstore" onclick="alert('Learner em breve na Play Store!')">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                            <path d="M3 20.5v-17c0-.5.4-.9.9-.9L12 11.1l8.1-8.5c.5 0 .9.4.9.9v17c0 .5-.4.9-.9.9L12 12.9l-8.1 8.5c-.5 0-.9-.4-.9-.9z" fill="currentColor"/>
+                        </svg>
+                        <span>Play Store</span>
+                    </a>
+                    <a href="#" class="card-store-btn appstore" onclick="alert('Learner em breve na App Store!')">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                            <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z" fill="currentColor"/>
+                        </svg>
+                        <span>App Store</span>
+                    </a>
+                </div>
+            </div>
+
+            <div class="site-card">
+
+                <h3>Logis</h3>
+                <p>Conectando mundos através de rotas inteligentes. Logística reimaginada com transparência total e eficiência que surpreende.</p>
+                <a href="sites/Logis/index.html" class="btn">Visualizar Site</a>
+                
+                <div class="card-app-stores">
+                    <a href="#" class="card-store-btn playstore" onclick="alert('Logis em breve na Play Store!')">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                            <path d="M3 20.5v-17c0-.5.4-.9.9-.9L12 11.1l8.1-8.5c.5 0 .9.4.9.9v17c0 .5-.4.9-.9.9L12 12.9l-8.1 8.5c-.5 0-.9-.4-.9-.9z" fill="currentColor"/>
+                        </svg>
+                        <span>Play Store</span>
+                    </a>
+                    <a href="#" class="card-store-btn appstore" onclick="alert('Logis em breve na App Store!')">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                            <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z" fill="currentColor"/>
+                        </svg>
+                        <span>App Store</span>
+                    </a>
+                </div>
+            </div>
+
+            <div class="site-card">
+
+                <h3>Luxury Hotel</h3>
+                <p>Hospitalidade digital que antecipa desejos. Cada pixel reflete o luxo que aguarda, criando expectativas que superam realidades.</p>
+                <a href="sites/LuxuryHotel/index.html" class="btn">Visualizar Site</a>
+                
+                <div class="card-app-stores">
+                    <a href="#" class="card-store-btn playstore" onclick="alert('LuxuryHotel em breve na Play Store!')">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                            <path d="M3 20.5v-17c0-.5.4-.9.9-.9L12 11.1l8.1-8.5c.5 0 .9.4.9.9v17c0 .5-.4.9-.9.9L12 12.9l-8.1 8.5c-.5 0-.9-.4-.9-.9z" fill="currentColor"/>
+                        </svg>
+                        <span>Play Store</span>
+                    </a>
+                    <a href="#" class="card-store-btn appstore" onclick="alert('LuxuryHotel em breve na App Store!')">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                            <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z" fill="currentColor"/>
+                        </svg>
+                        <span>App Store</span>
+                    </a>
+                </div>
+            </div>
+
+            <div class="site-card">
+
+                <h3>Medilab</h3>
+                <p>Cuidado humanizado em forma digital. Interface que transmite confiança e competência, facilitando o acesso à saúde de qualidade.</p>
+                <a href="sites/Medilab/index.html" class="btn">Visualizar Site</a>
+                
+                <div class="card-app-stores">
+                    <a href="#" class="card-store-btn playstore" onclick="alert('Medilab em breve na Play Store!')">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                            <path d="M3 20.5v-17c0-.5.4-.9.9-.9L12 11.1l8.1-8.5c.5 0 .9.4.9.9v17c0 .5-.4.9-.9.9L12 12.9l-8.1 8.5c-.5 0-.9-.4-.9-.9z" fill="currentColor"/>
+                        </svg>
+                        <span>Play Store</span>
+                    </a>
+                    <a href="#" class="card-store-btn appstore" onclick="alert('Medilab em breve na App Store!')">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                            <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z" fill="currentColor"/>
+                        </svg>
+                        <span>App Store</span>
+                    </a>
+                </div>
+            </div>
+
+            <div class="site-card">
+
+                <h3>Visible</h3>
+                <p>Criatividade em estado puro. Portfolio que não apenas mostra trabalhos, mas conta histórias de transformação através do design.</p>
+                <a href="sites/Visible/index.html" class="btn">Visualizar Site</a>
+                
+                <div class="card-app-stores">
+                    <a href="#" class="card-store-btn playstore" onclick="alert('Visible em breve na Play Store!')">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                            <path d="M3 20.5v-17c0-.5.4-.9.9-.9L12 11.1l8.1-8.5c.5 0 .9.4.9.9v17c0 .5-.4.9-.9.9L12 12.9l-8.1 8.5c-.5 0-.9-.4-.9-.9z" fill="currentColor"/>
+                        </svg>
+                        <span>Play Store</span>
+                    </a>
+                    <a href="#" class="card-store-btn appstore" onclick="alert('Visible em breve na App Store!')">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                            <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z" fill="currentColor"/>
+                        </svg>
+                        <span>App Store</span>
+                    </a>
+                </div>
+            </div>
+
+            <div class="site-card">
+
+                <h3>eBusiness</h3>
+                <p>Negócios digitais que escalam possibilidades. Estratégia e tecnologia convergindo para criar vantagens competitivas sustentáveis.</p>
+                <a href="sites/eBusiness/index.html" class="btn">Visualizar Site</a>
+                
+                <div class="card-app-stores">
+                    <a href="#" class="card-store-btn playstore" onclick="alert('eBusiness em breve na Play Store!')">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                            <path d="M3 20.5v-17c0-.5.4-.9.9-.9L12 11.1l8.1-8.5c.5 0 .9.4.9.9v17c0 .5-.4.9-.9.9L12 12.9l-8.1 8.5c-.5 0-.9-.4-.9-.9z" fill="currentColor"/>
+                        </svg>
+                        <span>Play Store</span>
+                    </a>
+                    <a href="#" class="card-store-btn appstore" onclick="alert('eBusiness em breve na App Store!')">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                            <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z" fill="currentColor"/>
+                        </svg>
+                        <span>App Store</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+        </section>
+    </div>
+
+    <script>
+        // Criação do efeito Matrix atrás do logo
+        function createCodeMatrix() {
+            const matrix = document.getElementById('codeMatrix');
+            const chars = ['0', '1', '{', '}', '(', ')', '[', ']', '<', '>', '/', '*', '+', '-', '=', ';', ':', '.', ',', '|', '&', '%', '$', '#', '@'];
+            
+            function createMatrixChar() {
+                const char = document.createElement('div');
+                char.className = 'matrix-char';
+                char.textContent = chars[Math.floor(Math.random() * chars.length)];
+                char.style.left = Math.random() * 100 + '%';
+                char.style.animationDelay = Math.random() * 2 + 's';
+                char.style.animationDuration = (Math.random() * 3 + 2) + 's';
+                matrix.appendChild(char);
+                
+                setTimeout(() => {
+                    if (char.parentNode) {
+                        char.parentNode.removeChild(char);
+                    }
+                }, 5000);
+            }
+            
+            // Criar caracteres Matrix continuamente
+            setInterval(createMatrixChar, 200);
+            
+            // Criar alguns iniciais
+            for(let i = 0; i < 20; i++) {
+                setTimeout(createMatrixChar, i * 100);
+            }
+        }
+
+        // Criação da animação de background tecnológica
+        function createTechBackground() {
+            const background = document.getElementById('techBackground');
+            
+
+
+            // Criar código flutuante mais visível
+            function createFloatingCode() {
+                const codes = [
+                    'function innovation() { return future; }',
+                    'const portfolio = new Excellence();',
+                    '{ tech: "advanced", ui: "beautiful" }',
+                    'while(coding) { createMagic(); }',
+                    'if(dream) { buildIt(); }',
+                    'class Developer extends Creative',
+                    'npm run build-future',
+                    'git push origin master',
+                    '<Portfolio />',
+                    'SELECT creativity FROM developers;',
+                    '// Building the future...',
+                    'import { Innovation } from "future";',
+                    'const magic = await createArt();',
+                    'export default Excellence;',
+                    'useState(() => amazing)',
+                    'useEffect(() => inspire(), [])',
+                    'const [vision, setVision] = useState(true);',
+                    'async function buildDreams() {}',
+                    'interface Creativity extends Art {}',
+                    'type Innovation = "unlimited";',
+                    'const promise = new Promise(resolve);',
+                    'Object.keys(possibilities)',
+                    'Array.from(new Set(ideas))',
+                    'Math.random() > 0.5 ? "genius" : "epic"',
+                    'setTimeout(createWonder, 1000)',
+                    'fetch("/api/inspiration")',
+                    'response.json().then(transform)',
+                    'localStorage.setItem("dream", true)',
+                    'document.querySelector(".future")',
+                    'window.addEventListener("load", magic)',
+                    'console.log("Creating magic...");',
+                    'throw new Error("Too awesome!");',
+                    'try { innovate(); } catch(e) {}',
+                    'for(let idea of infiniteLoop) {}',
+                    'map(concept => reality)',
+                    'filter(project => isEpic)',
+                    'reduce((acc, curr) => masterpiece)',
+                    'find(solution => perfect)',
+                    'some(code => beautiful)',
+                    'every(pixel => precise)',
+                    'forEach(element => animate)',
+                    'splice(bugs, deleteCount)',
+                    'push(newFeature)',
+                    'pop() // remove limitations',
+                    'shift() // paradigm shift',
+                    'unshift(innovation)',
+                    'concat(brilliant, ideas)',
+                    'slice(0, perfection)',
+                    'join("", creativity)',
+                    'split("ordinary").join("extraordinary")',
+                    'includes("passion") && includes("code")',
+                    'startsWith("Once upon a code...")',
+                    'endsWith("...and they coded happily ever after.")',
+                    'match(/beautiful.*code/g)',
+                    'replace(/bugs/g, "features")',
+                    'search("inspiration")',
+                    'charAt(0) === "A" // Amazing',
+                    'charCodeAt(0) // Unicode magic',
+                    'substring(0, awesome.length)',
+                    'toLowerCase() // humble code',
+                    'toUpperCase() // EPIC CODE',
+                    'trim() // clean code',
+                    'padStart(10, "0") // perfection',
+                    'repeat(Infinity) // endless creativity',
+                    'valueOf() // true value',
+                    'toString() // story of code',
+                    'JSON.stringify(dreams)',
+                    'JSON.parse(possibilities)',
+                    'parseInt("infinite", 36)',
+                    'parseFloat("unlimited.potential")',
+                    'isNaN(creativity) // false',
+                    'isFinite(imagination) // false',
+                    'Number.MAX_SAFE_INTEGER < vision',
+                    'Math.PI * creativity',
+                    'Math.sqrt(excellence)',
+                    'Math.pow(code, art)',
+                    'Math.abs(perfection)',
+                    'Math.ceil(expectations)',
+                    'Math.floor(competition)',
+                    'Math.round(brilliance)',
+                    'Math.min(...limits) // none',
+                    'Math.max(...possibilities) // infinite',
+                    'Date.now() // time to create',
+                    'new Date("Future")',
+                    'performance.now() // measuring magic',
+                    'requestAnimationFrame(animate)',
+                    'cancelAnimationFrame(limitations)',
+                    'setInterval(inspire, 1000)',
+                    'clearInterval(doubt)',
+                    'Promise.resolve(success)',
+                    'Promise.reject(mediocrity)',
+                    'Promise.all([dreams, code, art])',
+                    'Promise.race([fast, beautiful])',
+                    'await excellence();',
+                    'yield* infiniteCreativity();',
+                    'function* generateIdeas() {}',
+                    'class Masterpiece extends Art {}',
+                    'super(expectations);',
+                    'this.create = () => magic;',
+                    'static genius = true;',
+                    'get inspiration() { return unlimited; }',
+                    'set vision(value) { this.future = value; }',
+                    'constructor(dreams) { super(dreams); }',
+                    'extends Infinity',
+                    'implements Excellence',
+                    'public readonly perfection = true;',
+                    'private _secret = "passion";',
+                    'protected legacy = "code";',
+                    'abstract art(): Beauty;',
+                    'override reality(): Magic;',
+                    'final masterpiece = true;'
+                ];
+                
+                const code = document.createElement('div');
+                code.className = 'floating-code';
+                code.textContent = codes[Math.floor(Math.random() * codes.length)];
+                code.style.top = Math.random() * 100 + '%';
+                code.style.animationDuration = (Math.random() * 4 + 8) + 's';
+                background.appendChild(code);
+                
+                setTimeout(() => {
+                    if (code.parentNode) {
+                        code.parentNode.removeChild(code);
+                    }
+                }, 12000);
+            }
+
+            // Efeito de snippets de código no mouse
+            function createCodeSnippet(x, y) {
+                const snippets = [
+                    'const magic = true;',
+                    'if(creative) {}',
+                    'function() {}',
+                    '=> innovation',
+                    '.map(idea)',
+                    '{code: "art"}',
+                    'npm run dev',
+                    'git commit',
+                    '<div />',
+                    'async/await',
+                    '() => {}',
+                    'useState()',
+                    'let dreams;',
+                    'return ✨;'
+                ];
+                
+                const snippet = document.createElement('div');
+                snippet.className = 'code-snippet';
+                snippet.textContent = snippets[Math.floor(Math.random() * snippets.length)];
+                snippet.style.left = x + 'px';
+                snippet.style.top = y + 'px';
+                background.appendChild(snippet);
+                
+                setTimeout(() => {
+                    if (snippet.parentNode) {
+                        snippet.parentNode.removeChild(snippet);
+                    }
+                }, 2000);
+            }
+
+            // Event listener para snippets de código no mouse
+            document.addEventListener('mousemove', (e) => {
+                if (Math.random() < 0.08) { // Apenas 8% das vezes para não sobrecarregar
+                    createCodeSnippet(e.clientX, e.clientY);
+                }
+            });
+
+            // Iniciar animações com maior frequência
+            setInterval(createFloatingCode, 800);
+            
+            // Criar elementos iniciais
+            for(let i = 0; i < 10; i++) {
+                setTimeout(createFloatingCode, i * 200);
+            }
+        }
+
+
+        // Inicializar quando a página carregar
+        document.addEventListener('DOMContentLoaded', () => {
+            createTechBackground();
+            createCodeMatrix();
+        });
+    </script>
+</body>
+</html>

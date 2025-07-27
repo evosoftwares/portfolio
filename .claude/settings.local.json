@@ -39,7 +39,12 @@
       "Bash(elif [[ \"$file\" == \"rooms.html\" ]])",
       "Bash(cp:*)",
       "Bash(npm install:*)",
-      "Bash(git add:*)"
+      "Bash(git add:*)",
+      "Bash(git commit:*)",
+      "Bash(git push:*)",
+      "WebFetch(domain:unpkg.com)",
+      "WebFetch(domain:github.com)",
+      "WebFetch(domain:developer.apple.com)"
     ],
     "deny": []
   }

@@ -10,13 +10,40 @@
   "use strict";
 
   /**
-   * Apply .scrolled class to the body as the page is scrolled down
+   * Sticky Header on Scroll
    */
+  let originalHeaderHeight = null;
+  
   function toggleScrolled() {
     const selectBody = document.querySelector('body');
     const selectHeader = document.querySelector('#header');
-    if (!selectHeader.classList.contains('scroll-up-sticky') && !selectHeader.classList.contains('sticky-top') && !selectHeader.classList.contains('fixed-top')) return;
-    window.scrollY > 100 ? selectBody.classList.add('scrolled') : selectBody.classList.remove('scrolled');
+    if (!selectHeader.classList.contains('sticky-top')) return;
+    
+    // Store original height on first call (before topbar disappears)
+    if (originalHeaderHeight === null) {
+      originalHeaderHeight = selectHeader.offsetHeight;
+    }
+    
+    // Add/remove scrolled class for visual effects
+    if (window.scrollY > 40) {
+      selectBody.classList.add('scrolled');
+      selectHeader.style.position = 'fixed';
+      selectHeader.style.top = '0';
+      selectHeader.style.left = '0';
+      selectHeader.style.right = '0';
+      selectHeader.style.zIndex = '1020';
+      // Use original header height (including topbar) for compensation
+      selectBody.style.paddingTop = originalHeaderHeight + 'px';
+    } else {
+      selectBody.classList.remove('scrolled');
+      selectHeader.style.position = '';
+      selectHeader.style.top = '';
+      selectHeader.style.left = '';
+      selectHeader.style.right = '';
+      selectHeader.style.zIndex = '';
+      // Remove padding compensation
+      selectBody.style.paddingTop = '';
+    }
   }
 
   document.addEventListener('scroll', toggleScrolled);

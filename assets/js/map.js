@@ -1,6 +1,17 @@
 /**
  * Interactive Map Implementation
  */
+
+// Translation function for map content
+function getTranslation(key) {
+  const currentLang = window.currentLanguage || 'pt';
+  const translations = window.translations || {};
+  if (translations[currentLang] && translations[currentLang][key]) {
+    return translations[currentLang][key];
+  }
+  return key; // fallback to original key
+}
+
 function initializeMap() {
   const mapElement = document.getElementById('map');
   if (!mapElement) return;
@@ -28,13 +39,13 @@ function initializeMap() {
       coordinates: [-23.687800, -46.564800],
       address: 'Rua Jose Versolato, 111, sala 121, São Bernardo do Campo - SP',
       title: '🇧🇷 Vale do Silício Brasileiro',
-      description: 'Centro de excelência em desenvolvimento de software corporativo.',
+      description: 'Centro global de excelência em aplicações empresariais premium.',
       interests: ['Indústria 4.0', 'FinTech', 'Inteligência Artificial']
     }
   ];
 
   // Initialize map
-  const map = L.map('map', {
+  globalMap = L.map('map', {
     center: [15, -50],
     zoom: 3,
     zoomControl: true,
@@ -48,7 +59,7 @@ function initializeMap() {
     attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
     subdomains: 'abcd',
     maxZoom: 20
-  }).addTo(map);
+  }).addTo(globalMap);
 
   // Add markers
   const markers = [];
@@ -70,13 +81,10 @@ function initializeMap() {
             cursor: pointer;
             position: relative;
           ">
-            <img src="assets/img/logo-evo.png" alt="Evo Logo" style="
+            <img src="assets/img/mapicon.png" alt="Map Icon" style="
               width: 22px; 
               height: 22px; 
               object-fit: contain;
-              background: white;
-              border-radius: 2px;
-              padding: 1px;
             " />
           </div>
         `,
@@ -84,9 +92,9 @@ function initializeMap() {
         iconSize: [40, 40],
         iconAnchor: [20, 20]
       })
-    }).addTo(map);
+    }).addTo(globalMap);
 
-    // Create popup
+    // Create popup with translation support
     const interestsBadges = location.interests.map(interest => 
       `<span style="
         background: rgba(16, 110, 234, 0.1);
@@ -98,7 +106,7 @@ function initializeMap() {
         margin: 2px;
         display: inline-block;
         border: 1px solid rgba(16, 110, 234, 0.2);
-      ">${interest}</span>`
+      ">${getTranslation(interest)}</span>`
     ).join('');
 
     marker.bindPopup(`
@@ -110,19 +118,19 @@ function initializeMap() {
           border-radius: 8px 8px 0 0;
         ">
           <h5 style="margin: 0 0 8px 0; color: #106eea; font-weight: bold; font-size: 16px;">
-            ${location.title}
+            ${location.title.substring(0, 4)} ${getTranslation(location.title.substring(5))}
           </h5>
-          <p style="margin: 0 0 5px 0; font-size: 11px; color: #666;">${location.name}</p>
+          <p style="margin: 0 0 5px 0; font-size: 11px; color: #666;">${getTranslation(location.name)}</p>
           <p style="margin: 0; font-size: 10px; color: #888;">📍 ${location.address}</p>
         </div>
         
         <p style="margin: 0 0 12px 0; font-size: 13px; color: #444; line-height: 1.4;">
-          ${location.description}
+          ${getTranslation(location.description)}
         </p>
         
         <div style="margin-top: 10px;">
           <div style="font-size: 11px; color: #888; margin-bottom: 6px; font-weight: 500;">
-            ÁREAS DE INTERESSE:
+            ${getTranslation('ÁREAS DE INTERESSE')}:
           </div>
           <div>${interestsBadges}</div>
         </div>
@@ -135,8 +143,20 @@ function initializeMap() {
   // Fit bounds to show all markers
   setTimeout(() => {
     const group = new L.featureGroup(markers);
-    map.fitBounds(group.getBounds().pad(0.2));
+    globalMap.fitBounds(group.getBounds().pad(0.2));
   }, 500);
+}
+
+// Global map variable
+let globalMap = null;
+
+// Function to refresh map content when language changes
+function refreshMapContent() {
+  if (globalMap) {
+    globalMap.remove(); // Remove existing map
+    globalMap = null;
+  }
+  initializeMap(); // Re-initialize with new language
 }
 
 // Initialize when DOM is loaded

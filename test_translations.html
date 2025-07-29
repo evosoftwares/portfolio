@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Translation Test</title>
+</head>
+<body>
+    <h1>Teste do Sistema de Traduções</h1>
+    
+    <button onclick="testTranslations()">Testar Traduções</button>
+    <button onclick="switchLanguage('pt')">Português</button>
+    <button onclick="switchLanguage('en')">English</button>
+    
+    <div id="results"></div>
+    
+    <h2>FAQ Test:</h2>
+    <p data-translate="faq.q1.question">Placeholder FAQ Question</p>
+    
+    <h2>Testimonial Test:</h2>
+    <p data-translate="testimonials.member1.name">Placeholder Name</p>
+    
+    <h2>Footer Test:</h2>
+    <p data-translate="footer.newsletter.title">Placeholder Newsletter</p>
+    
+    <script>
+        // Copy translations from main file (simplified version)
+        const translations = {
+            pt: {
+                "faq.q1.question": "Quanto tempo leva para desenvolver um sistema corporativo?",
+                "testimonials.member1.name": "Carlos Mendes",
+                "footer.newsletter.title": "Assine Nossa Newsletter"
+            },
+            en: {
+                "faq.q1.question": "How long does it take to develop a corporate system?",
+                "testimonials.member1.name": "Carlos Mendes",
+                "footer.newsletter.title": "Subscribe to Our Newsletter"
+            }
+        };
+        
+        let currentLang = 'pt';
+        
+        function switchLanguage(lang) {
+            currentLang = lang;
+            
+            // Update all elements with data-translate
+            const elements = document.querySelectorAll('[data-translate]');
+            elements.forEach(element => {
+                const key = element.getAttribute('data-translate');
+                if (translations[lang] && translations[lang][key]) {
+                    element.textContent = translations[lang][key];
+                }
+            });
+            
+            document.getElementById('results').innerHTML = `<p>✅ Idioma alterado para: ${lang}</p>`;
+        }
+        
+        function testTranslations() {
+            const results = document.getElementById('results');
+            let html = '<h3>Resultados dos Testes:</h3>';
+            
+            // Test key consistency
+            const ptKeys = Object.keys(translations.pt);
+            const enKeys = Object.keys(translations.en);
+            
+            html += `<p>Chaves PT: ${ptKeys.length}</p>`;
+            html += `<p>Chaves EN: ${enKeys.length}</p>`;
+            
+            // Test specific keys
+            const testKeys = ['faq.q1.question', 'testimonials.member1.name', 'footer.newsletter.title'];
+            testKeys.forEach(key => {
+                const ptExists = translations.pt[key] ? '✅' : '❌';
+                const enExists = translations.en[key] ? '✅' : '❌';
+                html += `<p>${key}: PT ${ptExists} EN ${enExists}</p>`;
+            });
+            
+            results.innerHTML = html;
+        }
+        
+        // Initialize
+        switchLanguage('pt');
+    </script>
+</body>
+</html>

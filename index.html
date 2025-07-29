@@ -57,7 +57,7 @@
       position: absolute;
       font-family: 'Courier New', monospace;
       font-size: 16px;
-      color: rgba(66, 165, 245, 0.8);
+      color: rgba(66, 165, 245, 0.5);
       animation: codeFloat 6s infinite linear;
       pointer-events: none;
       white-space: nowrap;
@@ -68,7 +68,7 @@
       position: absolute;
       font-family: 'Courier New', monospace;
       font-size: 14px;
-      color: rgba(76, 175, 80, 0.8);
+      color: rgba(76, 175, 80, 0.5);
       animation: codeSnippetFade 2s ease-out forwards;
       pointer-events: none;
       white-space: nowrap;
@@ -96,6 +96,321 @@
       100% { 
         opacity: 0; 
         transform: translateY(-30px) scale(0.8); 
+      }
+    }
+
+    /* Startup 360 Section Styles */
+    .startup360 {
+      background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .startup360::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="rgba(255,255,255,0.05)" stroke-width="0.5"/></pattern></defs><rect width="100%" height="100%" fill="url(%23grid)"/></svg>');
+      opacity: 0.3;
+    }
+
+    .startup360 .container {
+      position: relative;
+      z-index: 2;
+    }
+
+    .startup360 .section-title h2 {
+      color: #fff;
+      font-size: 3rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+    }
+
+    .startup360 .section-title p {
+      color: rgba(255, 255, 255, 0.8);
+      font-size: 1.2rem;
+    }
+
+    .startup-content h3 {
+      color: #fff;
+      font-size: 2rem;
+      font-weight: 600;
+      line-height: 1.3;
+    }
+
+    .startup-content > p {
+      color: rgba(255, 255, 255, 0.85);
+      font-size: 1.1rem;
+      line-height: 1.6;
+    }
+
+    .services-grid {
+      display: grid;
+      gap: 1.5rem;
+    }
+
+    .service-card {
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 15px;
+      padding: 1.5rem;
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      transition: all 0.3s ease;
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+    }
+
+    .service-card:hover {
+      transform: translateY(-5px);
+      background: rgba(255, 255, 255, 0.15);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    }
+
+    .service-icon {
+      flex-shrink: 0;
+      width: 50px;
+      height: 50px;
+      background: linear-gradient(135deg, #47b2e4 0%, #36a3dc 100%);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      font-size: 1.5rem;
+    }
+
+    .service-info h4 {
+      color: #fff;
+      font-size: 1.2rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
+
+    .service-info p {
+      color: rgba(255, 255, 255, 0.8);
+      font-size: 0.95rem;
+      line-height: 1.5;
+      margin: 0;
+    }
+
+    /* Startup Visual Animation */
+    .startup-visual {
+      position: relative;
+      height: 500px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .central-circle {
+      width: 180px;
+      height: 180px;
+      background: linear-gradient(135deg, #47b2e4 0%, #36a3dc 100%);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      z-index: 10;
+      box-shadow: 0 0 40px rgba(71, 178, 228, 0.4);
+      animation: pulse 3s ease-in-out infinite;
+    }
+
+    .circle-content {
+      text-align: center;
+      color: #fff;
+    }
+
+    .circle-content i {
+      font-size: 3rem;
+      display: block;
+      margin-bottom: 0.5rem;
+    }
+
+    .circle-content h4 {
+      font-size: 1.2rem;
+      font-weight: 600;
+      margin: 0;
+    }
+
+    .circle-content p {
+      font-size: 1rem;
+      margin: 0;
+      opacity: 0.9;
+    }
+
+    .orbit-item {
+      position: absolute;
+      width: 80px;
+      height: 80px;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 50%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      backdrop-filter: blur(10px);
+      border: 2px solid rgba(255, 255, 255, 0.2);
+      transition: all 0.3s ease;
+      cursor: pointer;
+      animation: float 4s ease-in-out infinite;
+    }
+
+    .orbit-item:hover {
+      background: rgba(71, 178, 228, 0.3);
+      border-color: #47b2e4;
+      transform: scale(1.1);
+    }
+
+    .orbit-item i {
+      font-size: 1.5rem;
+      margin-bottom: 0.25rem;
+    }
+
+    .orbit-item span {
+      font-size: 0.7rem;
+      font-weight: 600;
+      text-align: center;
+      line-height: 1.1;
+    }
+
+    /* Orbit Positions */
+    .orbit-1 { top: 50px; left: 50%; transform: translateX(-50%); animation-delay: 0s; }
+    .orbit-2 { top: 150px; right: 50px; animation-delay: 0.8s; }
+    .orbit-3 { bottom: 150px; right: 50px; animation-delay: 1.6s; }
+    .orbit-4 { bottom: 50px; left: 50%; transform: translateX(-50%); animation-delay: 2.4s; }
+    .orbit-5 { top: 150px; left: 50px; animation-delay: 3.2s; }
+
+    /* CTA Box */
+    .cta-box {
+      background: linear-gradient(135deg, rgba(71, 178, 228, 0.2) 0%, rgba(54, 163, 220, 0.2) 100%);
+      border-radius: 20px;
+      padding: 3rem 2rem;
+      text-align: center;
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .cta-box h3 {
+      color: #fff;
+      font-size: 2rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+    }
+
+    .cta-box p {
+      color: rgba(255, 255, 255, 0.85);
+      font-size: 1.1rem;
+      margin-bottom: 2rem;
+    }
+
+    .cta-box .btn-get-started {
+      background: linear-gradient(135deg, #47b2e4 0%, #36a3dc 100%);
+      color: #fff;
+      padding: 15px 40px;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1.1rem;
+      transition: all 0.3s ease;
+      display: inline-block;
+      box-shadow: 0 5px 20px rgba(71, 178, 228, 0.3);
+    }
+
+    .cta-box .btn-get-started:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 30px rgba(71, 178, 228, 0.4);
+      color: #fff;
+    }
+
+    /* Animations */
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-10px); }
+    }
+
+    /* Responsive Design */
+    @media (max-width: 991px) {
+      .startup360 .section-title h2 {
+        font-size: 2.5rem;
+      }
+      
+      .startup-content h3 {
+        font-size: 1.8rem;
+      }
+      
+      .startup-visual {
+        height: 400px;
+        margin-top: 3rem;
+      }
+      
+      .central-circle {
+        width: 150px;
+        height: 150px;
+      }
+      
+      .orbit-item {
+        width: 70px;
+        height: 70px;
+      }
+      
+      .orbit-item span {
+        font-size: 0.6rem;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .startup360 .section-title h2 {
+        font-size: 2rem;
+      }
+      
+      .service-card {
+        flex-direction: column;
+        text-align: center;
+      }
+      
+      .startup-visual {
+        height: 350px;
+      }
+      
+      .central-circle {
+        width: 120px;
+        height: 120px;
+      }
+      
+      .circle-content i {
+        font-size: 2rem;
+      }
+      
+      .orbit-item {
+        width: 60px;
+        height: 60px;
+      }
+      
+      .orbit-item i {
+        font-size: 1.2rem;
+      }
+      
+      .orbit-item span {
+        font-size: 0.55rem;
+      }
+      
+      .cta-box {
+        padding: 2rem 1.5rem;
+      }
+      
+      .cta-box h3 {
+        font-size: 1.6rem;
       }
     }
   </style>
@@ -136,6 +451,7 @@
               <li><a href="#hero" class="active" data-translate="nav.home"></a></li>
               <li><a href="#about" data-translate="nav.about"></a></li>
               <li><a href="#services" data-translate="nav.services"></a></li>
+              <li><a href="#startup360" data-translate="startup360.nav">Startup 360°</a></li>
               <li><a href="#videos" data-translate="nav.videos"></a></li>
               <li><a href="#portfolio" data-translate="nav.portfolio"></a></li>
               <li><a href="#team" data-translate="nav.team"></a></li>
@@ -186,207 +502,21 @@
 
       <div class="container" style="position: relative; z-index: 2;">
         <div class="row gy-4">
-          <div class="col-lg-6 order-2 order-lg-1 d-flex flex-column justify-content-center" data-aos="fade-up" data-aos-delay="50">
-            <h1 data-aos="fade-up" data-aos-delay="100" data-translate="hero.title"></h1>
-            <p data-aos="fade-up" data-aos-delay="150" data-translate="hero.subtitle"></p>
-          </div>
-          <div class="col-lg-6 order-1 order-lg-2 d-flex align-items-center justify-content-center" data-aos="fade-up" data-aos-delay="100">
-            <img src="assets/img/image14.jpg" alt="Imagem principal mostrando excelência em desenvolvimento" class="img-fluid rounded" style="max-width: 100%; height: auto;">
+          <div class="col-12 d-flex flex-column justify-content-center text-center" data-aos="fade-up" data-aos-delay="50">
+            <div class="hero-content">
+              <h1 class="hero-title-animated" data-aos="fade-up" data-aos-delay="100" data-translate="hero.title"></h1>
+              <p class="hero-subtitle-animated" data-aos="fade-up" data-aos-delay="150" data-translate="hero.subtitle"></p>
+            </div>
+            
+            <!-- Hero Image -->
+            <div class="hero-image-container" data-aos="fade-up" data-aos-delay="200">
+              <img src="assets/img/hero.png" alt="Evo Softwares - Excelência em Desenvolvimento" class="hero-image img-fluid">
+            </div>
           </div>
         </div>
       </div>
 
     </section><!-- /Hero Section -->
-
-    <!-- Featured Services Section -->
-    <section id="featured-services" class="featured-services section">
-
-      <div class="container">
-
-        <div class="row gy-4">
-
-          <div class="col-xl-3 col-md-6 d-flex" data-aos="fade-up" data-aos-delay="50">
-            <div class="service-item position-relative">
-              <div class="icon"><i class="bi bi-laptop icon"></i></div>
-              <h4><a href="" class="stretched-link" data-translate="services.web_systems"></a></h4>
-              <p data-translate="services.web_systems_desc"></p>
-            </div>
-          </div><!-- End Service Item -->
-
-          <div class="col-xl-3 col-md-6 d-flex" data-aos="fade-up" data-aos-delay="100">
-            <div class="service-item position-relative">
-              <div class="icon"><i class="bi bi-phone icon"></i></div>
-              <h4><a href="" class="stretched-link" data-translate="services.mobile_apps"></a></h4>
-              <p data-translate="services.mobile_apps_desc"></p>
-            </div>
-          </div><!-- End Service Item -->
-
-          <div class="col-xl-3 col-md-6 d-flex" data-aos="fade-up" data-aos-delay="150">
-            <div class="service-item position-relative">
-              <div class="icon"><i class="bi bi-gear icon"></i></div>
-              <h4><a href="" class="stretched-link" data-translate="services.corporate_systems"></a></h4>
-              <p data-translate="services.corporate_systems_desc"></p>
-            </div>
-          </div><!-- End Service Item -->
-
-          <div class="col-xl-3 col-md-6 d-flex" data-aos="fade-up" data-aos-delay="200">
-            <div class="service-item position-relative">
-              <div class="icon"><i class="bi bi-cloud icon"></i></div>
-              <h4><a href="" class="stretched-link" data-translate="services.apis_integrations"></a></h4>
-              <p data-translate="services.apis_integrations_desc"></p>
-            </div>
-          </div><!-- End Service Item -->
-
-        </div>
-
-      </div>
-
-    </section><!-- /Featured Services Section -->
-
-    <!-- About Section -->
-    <section id="about" class="about section light-background">
-
-      <!-- Section Title -->
-      <div class="container section-title" data-aos="fade-up">
-        <h2 data-translate="nav.about"></h2>
-        <p><span data-translate="about.learn_more"></span> <span class="description-title" data-translate="about.about_us"></span></p>
-      </div><!-- End Section Title -->
-
-      <div class="container">
-
-        <div class="row gy-3">
-
-          <div class="col-lg-6" data-aos="fade-up" data-aos-delay="50">
-            <img src="assets/img/about.jpg" alt="Equipe da Evo Softwares trabalhando em desenvolvimento de aplicativos" class="img-fluid">
-          </div>
-
-          <div class="col-lg-6 d-flex flex-column justify-content-center" data-aos="fade-up" data-aos-delay="100">
-            <div class="about-content ps-0 ps-lg-3">
-              <h3 data-translate="about.main_title"></h3>
-              <p class="fst-italic" data-translate="Somos uma empresa multinacional de tecnologia líder com presença global, especializada em desenvolvimento premium de apps, design de ponta e excelência digital para empresas mundiais.">
-                Somos uma empresa multinacional de tecnologia líder com presença global, especializada em desenvolvimento premium de apps, 
-                design de ponta e excelência digital para empresas mundiais.
-              </p>
-              <ul>
-                <li>
-                  <i class="bi bi-diagram-3"></i>
-                  <div>
-                    <h4 data-translate="Liderança no Mercado Global">Liderança no Mercado Global</h4>
-                    <p data-translate="Mais de 15 anos entregando aplicações premium para empresas Fortune 500 em mais de 40 países mundialmente">Mais de 15 anos entregando aplicações premium para empresas Fortune 500 em mais de 40 países mundialmente</p>
-                  </div>
-                </li>
-                <li>
-                  <i class="bi bi-fullscreen-exit"></i>
-                  <div>
-                    <h4 data-translate="Tecnologias modernas e atualizadas">Tecnologias modernas e atualizadas</h4>
-                    <p data-translate="Utilizamos as melhores práticas e tecnologias mais recentes do mercado para garantir qualidade">Utilizamos as melhores práticas e tecnologias mais recentes do mercado para garantir qualidade</p>
-                  </div>
-                </li>
-              </ul>
-              <p data-translate="Nossa missão é transformar ideias em realidade digital, criando experiências únicas para usuários e resultados excepcionais para nossos clientes. Trabalhamos com metodologias ágeis e mantemos comunicação transparente em todas as etapas do projeto.">
-                Nossa missão é transformar ideias em realidade digital, criando experiências únicas para usuários e 
-                resultados excepcionais para nossos clientes. Trabalhamos com metodologias ágeis e mantemos 
-                comunicação transparente em todas as etapas do projeto.
-              </p>
-            </div>
-
-          </div>
-        </div>
-
-        <!-- Map Section -->
-        <div class="row mt-5" data-aos="fade-up" data-aos-delay="200">
-          <div class="col-12">
-            <h4 class="mb-3" data-translate="Nossas Localizações">Nossas Localizações</h4>
-            <p class="text-muted small mb-3" data-translate="Descubra onde estamos desenvolvendo soluções tecnológicas inovadoras pelo mundo">
-              Descubra onde estamos desenvolvendo soluções tecnológicas inovadoras pelo mundo
-            </p>
-            <div id="map" style="height: 400px; width: 100%;"></div>
-            <div class="mt-2 d-flex justify-content-between align-items-center">
-              <small class="text-muted">
-                <i class="bi bi-info-circle me-1"></i>
-                <span data-translate="Clique nos marcadores para mais informações">Clique nos marcadores para mais informações</span>
-              </small>
-              <small class="text-muted">
-                <span data-translate="Atualizado em tempo real">Atualizado em tempo real</span>
-                <i class="bi bi-broadcast ms-1"></i>
-              </small>
-            </div>
-
-            <!-- Location Cards -->
-            <div class="row g-3" style="margin-top: -10px;">
-              <!-- Charlottetown Card -->
-              <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
-                <div class="location-card">
-                  <div class="location-header">
-                    <div class="location-flag">🇨🇦</div>
-                    <div class="location-info">
-                      <h5 data-translate="Hub Tecnológico do Atlântico">Hub Tecnológico do Atlântico</h5>
-                      <p data-translate="Charlottetown, Prince Edward Island, Canadá">Charlottetown, Prince Edward Island, Canadá</p>
-                    </div>
-                  </div>
-                  <div class="location-address">
-                    <i class="bi bi-geo-alt-fill"></i>
-                    <span>176 Great George Street, Charlottetown, PE C1A 4K7</span>
-                  </div>
-                  <div class="location-interests">
-                    <span class="interest-tag" data-translate="Tecnologia Marinha">Tecnologia Marinha</span>
-                    <span class="interest-tag" data-translate="IoT Sustentável">IoT Sustentável</span>
-                    <span class="interest-tag" data-translate="Agricultura 4.0">Agricultura 4.0</span>
-                  </div>
-                </div>
-              </div>
-
-              <!-- Cuiabá Card -->
-              <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
-                <div class="location-card">
-                  <div class="location-header">
-                    <div class="location-flag">🇧🇷</div>
-                    <div class="location-info">
-                      <h5 data-translate="Portal do Agronegócio Digital">Portal do Agronegócio Digital</h5>
-                      <p data-translate="Cuiabá, Mato Grosso, Brasil">Cuiabá, Mato Grosso, Brasil</p>
-                    </div>
-                  </div>
-                  <div class="location-address">
-                    <i class="bi bi-geo-alt-fill"></i>
-                    <span>R. Tiradentes, 220, Bairro - Pico do Amor, Cuiabá - MT, 78065-075</span>
-                  </div>
-                  <div class="location-interests">
-                    <span class="interest-tag" data-translate="AgTech">AgTech</span>
-                    <span class="interest-tag" data-translate="Blockchain Rural">Blockchain Rural</span>
-                    <span class="interest-tag" data-translate="Drones Agrícolas">Drones Agrícolas</span>
-                  </div>
-                </div>
-              </div>
-
-              <!-- São Bernardo Card -->
-              <div class="col-md-4" data-aos="fade-up" data-aos-delay="300">
-                <div class="location-card">
-                  <div class="location-header">
-                    <div class="location-flag">🇧🇷</div>
-                    <div class="location-info">
-                      <h5 data-translate="Vale do Silício Brasileiro">Vale do Silício Brasileiro</h5>
-                      <p data-translate="São Bernardo do Campo, São Paulo, Brasil">São Bernardo do Campo, São Paulo, Brasil</p>
-                    </div>
-                  </div>
-                  <div class="location-address">
-                    <i class="bi bi-geo-alt-fill"></i>
-                    <span>Rua Jose Versolato, 111, sala 121, São Bernardo do Campo - SP</span>
-                  </div>
-                  <div class="location-interests">
-                    <span class="interest-tag" data-translate="Indústria 4.0">Indústria 4.0</span>
-                    <span class="interest-tag" data-translate="FinTech">FinTech</span>
-                    <span class="interest-tag" data-translate="Inteligência Artificial">Inteligência Artificial</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-      </div>
-
-    </section><!-- /About Section -->
-
 
     <!-- Stats Section -->
     <section id="stats" class="stats section">
@@ -398,32 +528,32 @@
           <div class="col-lg-3 col-md-6 d-flex flex-column align-items-center">
             <i class="bi bi-emoji-smile"></i>
             <div class="stats-item">
-              <span data-purecounter-start="0" data-purecounter-end="232" data-purecounter-duration="1" class="purecounter"></span>
-              <p data-translate="Clientes Satisfeitos">Clientes Satisfeitos</p>
+              <span data-purecounter-start="0" data-purecounter-end="50" data-purecounter-duration="1" class="purecounter"></span>
+              <p data-translate="stats.million_apps">Apps Milionários</p>
             </div>
           </div><!-- End Stats Item -->
 
           <div class="col-lg-3 col-md-6 d-flex flex-column align-items-center">
             <i class="bi bi-journal-richtext"></i>
             <div class="stats-item">
-              <span data-purecounter-start="0" data-purecounter-end="521" data-purecounter-duration="1" class="purecounter"></span>
-              <p data-translate="Projetos">Projetos</p>
+              <span data-purecounter-start="0" data-purecounter-end="127" data-purecounter-duration="1" class="purecounter"></span>
+              <p data-translate="stats.successful_entrepreneurs">Empreendedores de Sucesso</p>
             </div>
           </div><!-- End Stats Item -->
 
           <div class="col-lg-3 col-md-6 d-flex flex-column align-items-center">
             <i class="bi bi-headset"></i>
             <div class="stats-item">
-              <span data-purecounter-start="0" data-purecounter-end="1463" data-purecounter-duration="1" class="purecounter"></span>
-              <p data-translate="Horas de Suporte">Horas de Suporte</p>
+              <span data-purecounter-start="0" data-purecounter-end="500" data-purecounter-duration="1" class="purecounter"></span>
+              <p data-translate="stats.millions_revenue">Milhões Faturados</p>
             </div>
           </div><!-- End Stats Item -->
 
           <div class="col-lg-3 col-md-6 d-flex flex-column align-items-center">
             <i class="bi bi-people"></i>
             <div class="stats-item">
-              <span data-purecounter-start="0" data-purecounter-end="15" data-purecounter-duration="1" class="purecounter"></span>
-              <p data-translate="Profissionais">Profissionais</p>
+              <span data-purecounter-start="0" data-purecounter-end="3" data-purecounter-duration="1" class="purecounter"></span>
+              <p data-translate="stats.years_millionaire">Anos para Milionário</p>
             </div>
           </div><!-- End Stats Item -->
 
@@ -488,6 +618,285 @@
 
     </section><!-- /Clients Section -->
 
+    <!-- Featured Services Section -->
+    <section id="featured-services" class="featured-services section">
+
+      <div class="container">
+
+        <div class="row gy-4">
+
+          <div class="col-xl-3 col-md-6 d-flex" data-aos="fade-up" data-aos-delay="50">
+            <div class="service-item position-relative">
+              <div class="icon"><i class="bi bi-laptop icon"></i></div>
+              <h4><a href="" class="stretched-link" data-translate="services.web_systems"></a></h4>
+              <p data-translate="services.web_systems_desc"></p>
+            </div>
+          </div><!-- End Service Item -->
+
+          <div class="col-xl-3 col-md-6 d-flex" data-aos="fade-up" data-aos-delay="100">
+            <div class="service-item position-relative">
+              <div class="icon"><i class="bi bi-phone icon"></i></div>
+              <h4><a href="" class="stretched-link" data-translate="services.mobile_apps"></a></h4>
+              <p data-translate="services.mobile_apps_desc"></p>
+            </div>
+          </div><!-- End Service Item -->
+
+          <div class="col-xl-3 col-md-6 d-flex" data-aos="fade-up" data-aos-delay="150">
+            <div class="service-item position-relative">
+              <div class="icon"><i class="bi bi-gear icon"></i></div>
+              <h4><a href="" class="stretched-link" data-translate="services.corporate_systems"></a></h4>
+              <p data-translate="services.corporate_systems_desc"></p>
+            </div>
+          </div><!-- End Service Item -->
+
+          <div class="col-xl-3 col-md-6 d-flex" data-aos="fade-up" data-aos-delay="200">
+            <div class="service-item position-relative">
+              <div class="icon"><i class="bi bi-cloud icon"></i></div>
+              <h4><a href="" class="stretched-link" data-translate="services.apis_integrations"></a></h4>
+              <p data-translate="services.apis_integrations_desc"></p>
+            </div>
+          </div><!-- End Service Item -->
+
+        </div>
+
+      </div>
+
+    </section><!-- /Featured Services Section -->
+
+    <!-- About Section -->
+    <section id="about" class="about section light-background">
+      <div class="about-background-overlay"></div>
+      <div class="floating-particles"></div>
+      <canvas id="aboutCanvas" class="about-canvas"></canvas>
+      
+      <!-- Section Title -->
+      <div class="container section-title" data-aos="fade-up">
+        <h2 data-translate="nav.about"></h2>
+        <p><span data-translate="about.learn_more"></span> <span class="description-title" data-translate="about.about_us"></span></p>
+      </div><!-- End Section Title -->
+
+      <div class="container">
+        
+        <!-- Hero Content -->
+        <div class="about-hero" data-aos="fade-up" data-aos-delay="100">
+          <div class="row align-items-center gy-4">
+            <div class="col-lg-6">
+              <div class="about-content">
+                <div class="about-badge">
+                  <span class="badge-icon"><i class="bi bi-globe" style="color: white; font-size: 24px;"></i></span>
+                  <span class="badge-text" data-translate="Excelência Global">Excelência Global</span>
+                </div>
+                <h3 class="about-title" data-translate="about.main_title">Desenvolvimento de Aplicativos Empresariais</h3>
+                <p class="about-description" data-translate="about.description">
+                  Desenvolvemos soluções digitais robustas que impulsionam o crescimento dos seus negócios.
+                </p>
+                
+                <!-- Business Achievement Badges -->
+                <div class="achievement-badges" data-aos="fade-up" data-aos-delay="300">
+                  <div class="badge-item">
+                    <div class="badge-icon">
+                      <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M11.8 10.9c-2.27-.59-3-1.2-3-2.15 0-1.09 1.01-1.85 2.7-1.85 1.78 0 2.44.85 2.5 2.1h2.21c-.07-1.72-1.12-3.3-3.21-3.81V3h-3v2.16c-1.94.42-3.5 1.68-3.5 3.61 0 2.31 1.91 3.46 4.7 4.13 2.5.6 3 1.48 3 2.41 0 .69-.49 1.79-2.7 1.79-2.06 0-2.87-.92-2.98-2.1h-2.2c.12 2.19 1.76 3.42 3.68 3.83V21h3v-2.15c1.95-.37 3.5-1.5 3.5-3.55 0-2.84-2.43-3.81-4.7-4.4z"/>
+                      </svg>
+                    </div>
+                    <div class="badge-content">
+                      <div class="badge-number" data-translate="about.projects">200+</div>
+                      <div class="badge-label" data-translate="about.projects_label">projetos entregues</div>
+                    </div>
+                  </div>
+                  <div class="badge-item">
+                    <div class="badge-icon">
+                      <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zm3.3 14.71L11 12.41V7h2v4.59l3.71 3.71-1.42 1.41z"/>
+                      </svg>
+                    </div>
+                    <div class="badge-content">
+                      <div class="badge-number" data-translate="about.experience">15 anos</div>
+                      <div class="badge-label" data-translate="about.experience_label">de experiência no mercado</div>
+                    </div>
+                  </div>
+                  <div class="badge-item">
+                    <div class="badge-icon">
+                      <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M16.5 3c-1.74 0-3.41.81-4.5 2.09C10.91 3.81 9.24 3 7.5 3 4.42 3 2 5.42 2 8.5c0 3.78 3.4 6.86 8.55 11.54L12 21.35l1.45-1.32C18.6 15.36 22 12.28 22 8.5 22 5.42 19.58 3 16.5 3zm-4.4 15.55l-.1.1-.1-.1C7.14 14.24 4 11.39 4 8.5 4 6.5 5.5 5 7.5 5c1.54 0 3.04.99 3.57 2.36h1.87C13.46 5.99 14.96 5 16.5 5c2 0 3.5 1.5 3.5 3.5 0 2.89-3.14 5.74-7.9 10.05z"/>
+                      </svg>
+                    </div>
+                    <div class="badge-content">
+                      <div class="badge-number" data-translate="about.clients">150+</div>
+                      <div class="badge-label" data-translate="about.clients_label">clientes atendidos</div>
+                    </div>
+                  </div>
+                </div>
+                
+              </div>
+            </div>
+            
+            <div class="col-lg-6">
+              <div class="about-visual" data-aos="fade-left" data-aos-delay="200">
+                <div class="visual-container">
+                  <img src="assets/img/about.jpg" alt="Equipe da Evo Softwares trabalhando em desenvolvimento de aplicativos" class="about-image">
+                  <div class="floating-elements">
+                    <div class="floating-card card-1" data-tilt>
+                      <div class="card-glow"></div>
+                      <i class="bi bi-code-slash"></i>
+                      <span>Desenvolvimento</span>
+                      <div class="card-particles"></div>
+                    </div>
+                    <div class="floating-card card-2" data-tilt>
+                      <div class="card-glow"></div>
+                      <i class="bi bi-palette"></i>
+                      <span>Design</span>
+                      <div class="card-particles"></div>
+                    </div>
+                    <div class="floating-card card-3" data-tilt>
+                      <div class="card-glow"></div>
+                      <i class="bi bi-rocket"></i>
+                      <span>Inovação</span>
+                      <div class="card-particles"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Features Grid -->
+        <div class="about-features" data-aos="fade-up" data-aos-delay="300">
+          <div class="row g-4">
+            <div class="col-lg-6">
+              <div class="feature-card" data-reveal>
+                <div class="feature-icon">
+                  <i class="bi bi-globe"></i>
+                  <div class="icon-ripple"></div>
+                </div>
+                <div class="feature-content">
+                  <h4 data-translate="Liderança no Mercado Global">Liderança no Mercado Global</h4>
+                  <p data-translate="Mais de 15 anos entregando aplicações premium para empresas Fortune 500 em mais de 40 países mundialmente">
+                    Mais de 15 anos entregando aplicações premium para empresas Fortune 500 em mais de 40 países mundialmente
+                  </p>
+                  <div class="feature-overlay">
+                    <div class="overlay-content">
+                      <div class="achievement-badges">
+                        <span class="badge">Fortune 500</span>
+                        <span class="badge">40+ Países</span>
+                        <span class="badge">15+ Anos</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <div class="col-lg-6">
+              <div class="feature-card" data-reveal>
+                <div class="feature-icon">
+                  <i class="bi bi-cpu"></i>
+                  <div class="icon-ripple"></div>
+                </div>
+                <div class="feature-content">
+                  <h4 data-translate="Tecnologias modernas e atualizadas">Tecnologias Modernas e Atualizadas</h4>
+                  <p data-translate="Utilizamos as melhores práticas e tecnologias mais recentes do mercado para garantir qualidade">
+                    Utilizamos as melhores práticas e tecnologias mais recentes do mercado para garantir qualidade
+                  </p>
+                  <div class="feature-overlay">
+                    <div class="overlay-content">
+                      <div class="tech-stack">
+                        <span class="tech">React</span>
+                        <span class="tech">Node.js</span>
+                        <span class="tech">AI/ML</span>
+                        <span class="tech">Cloud</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <div class="col-lg-6">
+              <div class="feature-card" data-reveal>
+                <div class="feature-icon">
+                  <i class="bi bi-shield-check"></i>
+                  <div class="icon-ripple"></div>
+                </div>
+                <div class="feature-content">
+                  <h4>Segurança e Confiabilidade</h4>
+                  <p>Implementamos os mais altos padrões de segurança e qualidade em todos os nossos projetos</p>
+                  <div class="feature-overlay">
+                    <div class="overlay-content">
+                      <div class="security-metrics">
+                        <div class="metric">99.9% Uptime</div>
+                        <div class="metric">ISO 27001</div>
+                        <div class="metric">LGPD Compliant</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <div class="col-lg-6">
+              <div class="feature-card" data-reveal>
+                <div class="feature-icon">
+                  <i class="bi bi-people"></i>
+                  <div class="icon-ripple"></div>
+                </div>
+                <div class="feature-content">
+                  <h4>Suporte Especializado</h4>
+                  <p>Equipe dedicada para garantir o sucesso do seu projeto em todas as etapas</p>
+                  <div class="feature-overlay">
+                    <div class="overlay-content">
+                      <div class="team-stats">
+                        <div class="stat">50+ Especialistas</div>
+                        <div class="stat">24/7 Suporte</div>
+                        <div class="stat">98% Satisfação</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Mission Statement -->
+        <div class="about-mission" data-aos="fade-up" data-aos-delay="400">
+          <div class="mission-content">
+            <h3>Nossa Missão</h3>
+            <p data-translate="Nossa missão é transformar ideias em realidade digital, criando experiências únicas para usuários e resultados excepcionais para nossos clientes. Trabalhamos com metodologias ágeis e mantemos comunicação transparente em todas as etapas do projeto.">
+              Nossa missão é transformar ideias em realidade digital, criando experiências únicas para usuários e 
+              resultados excepcionais para nossos clientes. Trabalhamos com metodologias ágeis e mantemos 
+              comunicação transparente em todas as etapas do projeto.
+            </p>
+          </div>
+        </div>
+
+        <!-- Map Section -->
+        <div class="row" data-aos="fade-up" data-aos-delay="200">
+          <div class="col-12">
+            <h4 class="mb-1" data-translate="Nossas Localizações">Nossas Localizações</h4>
+            <p class="text-muted small mb-1" data-translate="Descubra onde estamos desenvolvendo soluções tecnológicas inovadoras pelo mundo">
+              Descubra onde estamos desenvolvendo soluções tecnológicas inovadoras pelo mundo
+            </p>
+            <div id="map" style="height: 400px; width: 100%;"></div>
+            <div class="mt-1 d-flex justify-content-between align-items-center">
+              <small class="text-muted">
+                <i class="bi bi-info-circle me-1"></i>
+                <span data-translate="Clique nos marcadores para mais informações">Clique nos marcadores para mais informações</span>
+              </small>
+              <small class="text-muted">
+                <span data-translate="Atualizado em tempo real">Atualizado em tempo real</span>
+                <i class="bi bi-broadcast ms-1"></i>
+              </small>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+
+    </section><!-- /About Section -->
+
     <!-- Services Section -->
     <section id="services" class="services section">
 
@@ -507,9 +916,9 @@
                 <i class="bi bi-code-slash"></i>
               </div>
               <a href="#" class="stretched-link">
-                <h3 data-translate="Desenvolvimento Web">Desenvolvimento Web</h3>
+                <h3 data-translate="services.web.title">Desenvolvimento Web</h3>
               </a>
-              <p data-translate="Criamos aplicações web modernas, responsivas e otimizadas usando React, Vue.js, Node.js e outras tecnologias avançadas.">Criamos aplicações web modernas, responsivas e otimizadas usando React, Vue.js, Node.js e outras tecnologias avançadas.</p>
+              <p data-translate="services.web.description">Criamos aplicações web modernas, responsivas e otimizadas usando React, Vue.js, Node.js e outras tecnologias avançadas.</p>
             </div>
           </div><!-- End Service Item -->
 
@@ -519,9 +928,9 @@
                 <i class="bi bi-phone"></i>
               </div>
               <a href="#" class="stretched-link">
-                <h3 data-translate="Apps Mobile">Apps Mobile</h3>
+                <h3 data-translate="services.mobile.title">Apps Mobile</h3>
               </a>
-              <p data-translate="Desenvolvemos aplicativos móveis nativos e híbridos para iOS e Android com React Native, Flutter e Swift.">Desenvolvemos aplicativos móveis nativos e híbridos para iOS e Android com React Native, Flutter e Swift.</p>
+              <p data-translate="services.mobile.description">Desenvolvemos aplicativos móveis nativos e híbridos para iOS e Android com React Native, Flutter e Swift.</p>
             </div>
           </div><!-- End Service Item -->
 
@@ -582,6 +991,133 @@
 
     </section><!-- /Services Section -->
 
+    <!-- Startup 360 Section -->
+    <section id="startup360" class="startup360 section dark-background">
+      
+      <!-- Section Title -->
+      <div class="container section-title" data-aos="fade-up">
+        <h2 data-translate="startup360.title">Solução Empresarial Completa</h2>
+        <p><span data-translate="startup360.subtitle1">Ecossistema</span> <span class="description-title" data-translate="startup360.subtitle2">Integrado para Sua Empresa</span></p>
+      </div><!-- End Section Title -->
+
+      <div class="container">
+        
+        <div class="row gy-4">
+          
+          <div class="col-lg-8" data-aos="fade-up" data-aos-delay="100">
+            <div class="startup-content">
+              <h3 class="mb-4" data-translate="startup360.main_title">Solução completa para acelerar o crescimento do seu negócio</h3>
+              <p class="mb-4">
+                <span data-translate="startup360.description">Oferecemos um conjunto completo de serviços profissionais para empresas que desejam desenvolver soluções digitais robustas. Nossa abordagem integrada cobre todos os aspectos técnicos e operacionais, permitindo que você se concentre na estratégia do seu negócio.</span>
+              </p>
+              
+              <div class="services-grid">
+                <div class="service-card" data-aos="fade-up" data-aos-delay="150">
+                  <div class="service-icon">
+                    <i class="bi bi-shield-check"></i>
+                  </div>
+                  <div class="service-info">
+                    <h4 data-translate="Serviço Jurídico">Serviço Jurídico</h4>
+                    <p data-translate="Constituição da empresa, contratos, compliance e assessoria jurídica especializada em startups e tecnologia.">Constituição da empresa, contratos, compliance e assessoria jurídica especializada em startups e tecnologia.</p>
+                  </div>
+                </div>
+
+                <div class="service-card" data-aos="fade-up" data-aos-delay="200">
+                  <div class="service-icon">
+                    <i class="bi bi-calculator"></i>
+                  </div>
+                  <div class="service-info">
+                    <h4 data-translate="Serviço Contábil">Serviço Contábil</h4>
+                    <p data-translate="Contabilidade completa, planejamento tributário, gestão fiscal e relatórios financeiros personalizados.">Contabilidade completa, planejamento tributário, gestão fiscal e relatórios financeiros personalizados.</p>
+                  </div>
+                </div>
+
+                <div class="service-card" data-aos="fade-up" data-aos-delay="250">
+                  <div class="service-icon">
+                    <i class="bi bi-code-square"></i>
+                  </div>
+                  <div class="service-info">
+                    <h4 data-translate="Programação Completa">Programação Completa</h4>
+                    <p data-translate="Desenvolvimento full-stack, arquitetura de software, aplicações web e mobile com as melhores tecnologias.">Desenvolvimento full-stack, arquitetura de software, aplicações web e mobile com as melhores tecnologias.</p>
+                  </div>
+                </div>
+
+                <div class="service-card" data-aos="fade-up" data-aos-delay="300">
+                  <div class="service-icon">
+                    <i class="bi bi-cloud-upload"></i>
+                  </div>
+                  <div class="service-info">
+                    <h4 data-translate="Hosting & Infraestrutura">Hosting & Infraestrutura</h4>
+                    <p data-translate="Servidores dedicados, cloud computing, CDN global, backup automático e monitoramento 24/7.">Servidores dedicados, cloud computing, CDN global, backup automático e monitoramento 24/7.</p>
+                  </div>
+                </div>
+
+                <div class="service-card" data-aos="fade-up" data-aos-delay="350">
+                  <div class="service-icon">
+                    <i class="bi bi-people"></i>
+                  </div>
+                  <div class="service-info">
+                    <h4 data-translate="Time de TI Terceirizado">Time de TI Terceirizado</h4>
+                    <p data-translate="Equipe especializada de desenvolvedores, designers e analistas para acelerar seu crescimento.">Equipe especializada de desenvolvedores, designers e analistas para acelerar seu crescimento.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4" data-aos="fade-up" data-aos-delay="200">
+            <div class="startup-visual">
+              <div class="central-circle">
+                <div class="circle-content">
+                  <i class="bi bi-rocket-takeoff"></i>
+                  <h4 data-translate="Sua Startup">Sua Startup</h4>
+                  <p data-translate="360°">360°</p>
+                </div>
+              </div>
+              
+              <div class="orbit-item orbit-1" data-service="juridico">
+                <i class="bi bi-shield-check"></i>
+                <span data-translate="Jurídico">Jurídico</span>
+              </div>
+              
+              <div class="orbit-item orbit-2" data-service="contabil">
+                <i class="bi bi-calculator"></i>
+                <span data-translate="Contábil">Contábil</span>
+              </div>
+              
+              <div class="orbit-item orbit-3" data-service="programacao">
+                <i class="bi bi-code-square"></i>
+                <span data-translate="Programação">Programação</span>
+              </div>
+              
+              <div class="orbit-item orbit-4" data-service="hosting">
+                <i class="bi bi-cloud-upload"></i>
+                <span data-translate="Hosting">Hosting</span>
+              </div>
+              
+              <div class="orbit-item orbit-5" data-service="ti">
+                <i class="bi bi-people"></i>
+                <span data-translate="Time TI">Time TI</span>
+              </div>
+            </div>
+          </div>
+          
+        </div>
+
+        <div class="row mt-5">
+          <div class="col-12 text-center" data-aos="fade-up" data-aos-delay="400">
+            <div class="cta-box">
+              <h3 data-translate="Pronto para transformar sua ideia em realidade?">Pronto para transformar sua ideia em realidade?</h3>
+              <p data-translate="Agende uma consultoria gratuita e descubra como podemos acelerar o crescimento da sua startup">Agende uma consultoria gratuita e descubra como podemos acelerar o crescimento da sua startup</p>
+              <a href="#contact" class="btn-get-started" data-translate="Agendar Consultoria Gratuita">Agendar Consultoria Gratuita</a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      
+    </section><!-- /Startup 360 Section -->
+
     <!-- Videos Section -->
     <section id="videos" class="videos section light-background">
 
@@ -638,11 +1174,11 @@
                   </iframe>
                 </div>
                 <div class="video-content">
-                  <h3 data-translate="Como Desenvolver um Sistema Web Completo">Como Desenvolver um Sistema Web Completo</h3>
-                  <p data-translate="Aprenda os conceitos fundamentais para criar sistemas web robustos e escaláveis do zero.">Aprenda os conceitos fundamentais para criar sistemas web robustos e escaláveis do zero.</p>
+                  <h3 data-translate="videos.web_systems.title">Como Desenvolver um Sistema Web Completo</h3>
+                  <p data-translate="videos.web_systems.description">Aprenda os conceitos fundamentais para criar sistemas web robustos e escaláveis do zero.</p>
                   <div class="video-meta">
                     <span class="duration">15:30</span>
-                    <span class="views" data-translate="12.5k visualizações">12.5k visualizações</span>
+                    <span class="views" data-translate="videos.web_systems.views">12.5k visualizações</span>
                   </div>
                 </div>
               </div>
@@ -660,11 +1196,11 @@
                   </iframe>
                 </div>
                 <div class="video-content">
-                  <h3 data-translate="React vs Vue.js: Qual Escolher?">React vs Vue.js: Qual Escolher?</h3>
-                  <p data-translate="Comparação completa entre as principais tecnologias front-end do mercado.">Comparação completa entre as principais tecnologias front-end do mercado.</p>
+                  <h3 data-translate="videos.react_vue.title">React vs Vue.js: Qual Escolher?</h3>
+                  <p data-translate="videos.react_vue.description">Comparação completa entre as principais tecnologias front-end do mercado.</p>
                   <div class="video-meta">
                     <span class="duration">22:15</span>
-                    <span class="views" data-translate="8.9k visualizações">8.9k visualizações</span>
+                    <span class="views" data-translate="videos.react_vue.views">8.9k visualizações</span>
                   </div>
                 </div>
               </div>
@@ -682,11 +1218,11 @@
                   </iframe>
                 </div>
                 <div class="video-content">
-                  <h3 data-translate="APIs RESTful: Melhores Práticas">APIs RESTful: Melhores Práticas</h3>
-                  <p data-translate="Como criar APIs robustas, seguras e bem documentadas seguindo os padrões REST.">Como criar APIs robustas, seguras e bem documentadas seguindo os padrões REST.</p>
+                  <h3 data-translate="videos.apis_rest.title">APIs RESTful: Melhores Práticas</h3>
+                  <p data-translate="videos.apis_rest.description">Como criar APIs robustas, seguras e bem documentadas seguindo os padrões REST.</p>
                   <div class="video-meta">
                     <span class="duration">18:45</span>
-                    <span class="views" data-translate="15.2k visualizações">15.2k visualizações</span>
+                    <span class="views" data-translate="videos.apis_rest.views">15.2k visualizações</span>
                   </div>
                 </div>
               </div>
@@ -704,11 +1240,11 @@
                   </iframe>
                 </div>
                 <div class="video-content">
-                  <h3 data-translate="Deploy e DevOps para Iniciantes">Deploy e DevOps para Iniciantes</h3>
-                  <p data-translate="Aprenda a fazer deploy de aplicações e implementar CI/CD de forma simples e eficiente.">Aprenda a fazer deploy de aplicações e implementar CI/CD de forma simples e eficiente.</p>
+                  <h3 data-translate="videos.deploy_devops.title">Deploy e DevOps para Iniciantes</h3>
+                  <p data-translate="videos.deploy_devops.description">Aprenda a fazer deploy de aplicações e implementar CI/CD de forma simples e eficiente.</p>
                   <div class="video-meta">
                     <span class="duration">25:30</span>
-                    <span class="views" data-translate="9.7k visualizações">9.7k visualizações</span>
+                    <span class="views" data-translate="videos.deploy_devops.views">9.7k visualizações</span>
                   </div>
                 </div>
               </div>
@@ -726,11 +1262,11 @@
                   </iframe>
                 </div>
                 <div class="video-content">
-                  <h3 data-translate="Banco de Dados: SQL vs NoSQL">Banco de Dados: SQL vs NoSQL</h3>
-                  <p data-translate="Entenda quando usar cada tipo de banco de dados em seus projetos.">Entenda quando usar cada tipo de banco de dados em seus projetos.</p>
+                  <h3 data-translate="videos.databases.title">Banco de Dados: SQL vs NoSQL</h3>
+                  <p data-translate="videos.databases.description">Entenda quando usar cada tipo de banco de dados em seus projetos.</p>
                   <div class="video-meta">
                     <span class="duration">20:10</span>
-                    <span class="views" data-translate="11.3k visualizações">11.3k visualizações</span>
+                    <span class="views" data-translate="videos.databases.views">11.3k visualizações</span>
                   </div>
                 </div>
               </div>
@@ -748,11 +1284,11 @@
                   </iframe>
                 </div>
                 <div class="video-content">
-                  <h3 data-translate="Segurança em Aplicações Web">Segurança em Aplicações Web</h3>
-                  <p data-translate="Principais vulnerabilidades e como proteger suas aplicações contra ataques.">Principais vulnerabilidades e como proteger suas aplicações contra ataques.</p>
+                  <h3 data-translate="videos.security.title">Segurança em Aplicações Web</h3>
+                  <p data-translate="videos.security.description">Principais vulnerabilidades e como proteger suas aplicações contra ataques.</p>
                   <div class="video-meta">
                     <span class="duration">28:20</span>
-                    <span class="views" data-translate="7.4k visualizações">7.4k visualizações</span>
+                    <span class="views" data-translate="videos.security.views">7.4k visualizações</span>
                   </div>
                 </div>
               </div>
@@ -766,7 +1302,7 @@
 
         <div class="text-center mt-4">
           <a href="https://youtube.com/@evosoftwarehouse" class="btn btn-primary" target="_blank">
-            <i class="bi bi-youtube"></i> <span data-translate="Ver Todos os Vídeos no YouTube">Ver Todos os Vídeos no YouTube</span>
+            <i class="bi bi-youtube"></i> <span data-translate="videos.cta_button">Ver Todos os Vídeos no YouTube</span>
           </a>
         </div>
 
@@ -816,15 +1352,15 @@
                 <div class="testimonial-info">
                   <img src="assets/img/testimonials/testimonials-1.jpg" class="testimonial-img" alt="">
                   <div class="client-details">
-                    <h3 data-translate="Carlos Mendes">Carlos Mendes</h3>
-                    <h4 data-translate="CEO & Fundador - TechCorp">CEO & Fundador - TechCorp</h4>
+                    <h3 data-translate="testimonials.member1.name">Carlos Mendes</h3>
+                    <h4 data-translate="testimonials.member1.position">CEO & Fundador - TechCorp</h4>
                     <div class="stars">
                       <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
                     </div>
                   </div>
                 </div>
-                <p class="video-description" data-translate="A Evo entregou nossa plataforma empresarial global com padrões de qualidade excepcionais. Sua solução premium aumentou nossa eficiência operacional em 65% em todos os mercados internacionais.">
-                  "A Evo entregou nossa plataforma empresarial global com padrões de qualidade excepcionais. Sua solução premium aumentou nossa eficiência operacional em 65% em todos os mercados internacionais."
+                <p class="video-description" data-translate="testimonials.member1.testimonial">
+                  <span data-translate="testimonials.member1.testimonial">"Trabalhamos com a Evo há 2 anos no desenvolvimento do nosso sistema corporativo. Entregaram uma solução robusta que aumentou nossa produtividade em 40% e melhorou significativamente nossa gestão interna."</span>
                 </p>
               </div>
             </div><!-- End testimonial item -->
@@ -846,15 +1382,15 @@
                 <div class="testimonial-info">
                   <img src="assets/img/testimonials/testimonials-2.jpg" class="testimonial-img" alt="">
                   <div class="client-details">
-                    <h3 data-translate="Ana Beatriz">Ana Beatriz</h3>
-                    <h4 data-translate="Diretora - Creative Studio">Diretora - Creative Studio</h4>
+                    <h3 data-translate="testimonials.member2.name">Ana Beatriz</h3>
+                    <h4 data-translate="testimonials.member2.position">Diretora - Creative Studio</h4>
                     <div class="stars">
                       <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
                     </div>
                   </div>
                 </div>
-                <p class="video-description" data-translate="O app mobile que a Evo criou para nosso estúdio revolucionou nosso atendimento. Interface linda e funcionalidade perfeita!">
-                  "O app mobile que a Evo criou para nosso estúdio revolucionou nosso atendimento. Interface linda e funcionalidade perfeita!"
+                <p class="video-description" data-translate="testimonials.member2.testimonial">
+                  "A Evo desenvolveu nossa plataforma de vendas online. O resultado foi excelente: aumento de 60% nas conversões e uma interface muito mais intuitiva para nossos clientes. Profissionais competentes e prazo cumprido."
                 </p>
               </div>
             </div><!-- End testimonial item -->
@@ -876,15 +1412,15 @@
                 <div class="testimonial-info">
                   <img src="assets/img/testimonials/testimonials-3.jpg" class="testimonial-img" alt="">
                   <div class="client-details">
-                    <h3 data-translate="João Ricardo">João Ricardo</h3>
-                    <h4 data-translate="CEO - MegaStore E-commerce">CEO - MegaStore E-commerce</h4>
+                    <h3 data-translate="testimonials.member3.name">João Ricardo</h3>
+                    <h4 data-translate="testimonials.member3.position">CEO - MegaStore E-commerce</h4>
                     <div class="stars">
                       <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
                     </div>
                   </div>
                 </div>
-                <p class="video-description" data-translate="O marketplace que a Evo desenvolveu aumentou nossas vendas em 300%! Sistema robusto, seguro e com ótima UX.">
-                  "O marketplace que a Evo desenvolveu aumentou nossas vendas em 300%! Sistema robusto, seguro e com ótima UX."
+                <p class="video-description" data-translate="testimonials.member3.testimonial">
+                  "Contratamos a Evo para desenvolver nosso marketplace B2B. Ficamos impressionados com a qualidade técnica e a atenção aos detalhes. A plataforma tem funcionado perfeitamente e nossos usuários elogiam a experiência."
                 </p>
               </div>
             </div><!-- End testimonial item -->
@@ -906,15 +1442,15 @@
                 <div class="testimonial-info">
                   <img src="assets/img/testimonials/testimonials-4.jpg" class="testimonial-img" alt="">
                   <div class="client-details">
-                    <h3 data-translate="Marcos Silva">Marcos Silva</h3>
-                    <h4 data-translate="Consultor Digital">Consultor Digital</h4>
+                    <h3 data-translate="testimonials.member4.name">Marcos Silva</h3>
+                    <h4 data-translate="testimonials.member4.position">Consultor Digital</h4>
                     <div class="stars">
                       <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
                     </div>
                   </div>
                 </div>
-                <p class="video-description" data-translate="A API que a Evo desenvolveu integrou todos nossos sistemas. Agora temos dados centralizados e decisões mais rápidas.">
-                  "A API que a Evo desenvolveu integrou todos nossos sistemas. Agora temos dados centralizados e decisões mais rápidas."
+                <p class="video-description" data-translate="testimonials.member4.testimonial">
+                  "Precisávamos de um sistema de gestão financeira personalizado. A Evo entregou uma solução que atendeu 100% nossas necessidades específicas. Recomendo pela seriedade e conhecimento técnico da equipe."
                 </p>
               </div>
             </div><!-- End testimonial item -->
@@ -936,15 +1472,15 @@
                 <div class="testimonial-info">
                   <img src="assets/img/testimonials/testimonials-5.jpg" class="testimonial-img" alt="">
                   <div class="client-details">
-                    <h3 data-translate="Luciana Santos">Luciana Santos</h3>
-                    <h4 data-translate="Fundadora - StartupTech">Fundadora - StartupTech</h4>
+                    <h3 data-translate="testimonials.member5.name">Luciana Santos</h3>
+                    <h4 data-translate="testimonials.member5.position">Fundadora - StartupTech</h4>
                     <div class="stars">
                       <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
                     </div>
                   </div>
                 </div>
-                <p class="video-description" data-translate="O sistema corporativo da Evo automatizou nossos processos e triplicou nosso faturamento em 6 meses. Investimento que se pagou!">
-                  "O sistema corporativo da Evo automatizou nossos processos e triplicou nosso faturamento em 6 meses. Investimento que se pagou!"
+                <p class="video-description" data-translate="testimonials.member5.testimonial">
+                  "A Evo desenvolveu nosso aplicativo mobile do zero. Processo transparente, comunicação excelente e entrega no prazo. Nossos clientes adoraram a nova experiência e tivemos um crescimento consistente no engajamento."
                 </p>
               </div>
             </div><!-- End testimonial item -->
@@ -971,10 +1507,10 @@
         <div class="isotope-layout" data-default-filter="*" data-layout="masonry" data-sort="original-order">
 
           <ul class="portfolio-filters isotope-filters" data-aos="fade-up" data-aos-delay="50">
-            <li data-filter="*" class="filter-active" data-translate="Todos">Todos</li>
-            <li data-filter=".filter-app" data-translate="Apps">Apps</li>
-            <li data-filter=".filter-product" data-translate="Produtos">Produtos</li>
-            <li data-filter=".filter-branding" data-translate="Sites">Sites</li>
+            <li data-filter="*" class="filter-active" data-translate="portfolio.filter_all">Todos</li>
+            <li data-filter=".filter-app" data-translate="portfolio.filter_apps">Apps</li>
+            <li data-filter=".filter-product" data-translate="portfolio.filter_products">Produtos</li>
+            <li data-filter=".filter-branding" data-translate="portfolio.filter_sites">Sites</li>
           </ul><!-- End Portfolio Filters -->
 
           <div class="row gy-4 isotope-container" data-aos="fade-up" data-aos-delay="100">
@@ -1163,7 +1699,7 @@
             <div class="faq-container">
 
               <div class="faq-item faq-active">
-                <h3 data-translate="Quanto tempo leva para desenvolver um sistema corporativo?">Quanto tempo leva para desenvolver um sistema corporativo?</h3>
+                <h3 data-translate="faq.q1.question">Quanto tempo leva para desenvolver um sistema corporativo?</h3>
                 <div class="faq-content">
                   <p data-translate="Os prazos de desenvolvimento variam conforme a complexidade da aplicação e requisitos de qualidade premium. Apps empresariais padrão são entregues em 3-6 semanas, enquanto plataformas globais abrangentes podem requerer 3-8 meses. Mantemos rigorosos portões de qualidade e roadmaps detalhados durante todo o desenvolvimento.">Os prazos de desenvolvimento variam conforme a complexidade da aplicação e requisitos de qualidade premium. Apps empresariais padrão são entregues em 3-6 semanas, enquanto plataformas globais abrangentes podem requerer 3-8 meses. Mantemos rigorosos portões de qualidade e roadmaps detalhados durante todo o desenvolvimento.</p>
                 </div>
@@ -1171,7 +1707,7 @@
               </div><!-- End Faq item-->
 
               <div class="faq-item">
-                <h3 data-translate="Vocês oferecem suporte após a entrega do sistema?">Vocês oferecem suporte após a entrega do sistema?</h3>
+                <h3 data-translate="faq.q2.question">Vocês oferecem suporte após a entrega do sistema?</h3>
                 <div class="faq-content">
                   <p data-translate="Sim! Oferecemos suporte técnico completo com garantia de 6 meses para correções de bugs, além de planos de manutenção que incluem atualizações de segurança, backup automático, monitoramento de performance e suporte técnico 24/7.">Sim! Oferecemos suporte técnico completo com garantia de 6 meses para correções de bugs, além de planos de manutenção que incluem atualizações de segurança, backup automático, monitoramento de performance e suporte técnico 24/7.</p>
                 </div>
@@ -1179,7 +1715,7 @@
               </div><!-- End Faq item-->
 
               <div class="faq-item">
-                <h3 data-translate="Vocês desenvolvem aplicativos móveis nativos?">Vocês desenvolvem aplicativos móveis nativos?</h3>
+                <h3 data-translate="faq.q3.question">Vocês desenvolvem aplicativos móveis nativos?</h3>
                 <div class="faq-content">
                   <p data-translate="Sim! Desenvolvemos apps nativos para iOS e Android, além de aplicações híbridas usando React Native e Flutter. Todos os apps são otimizados para performance, incluem integração com APIs e são testados extensivamente em diferentes dispositivos.">Sim! Desenvolvemos apps nativos para iOS e Android, além de aplicações híbridas usando React Native e Flutter. Todos os apps são otimizados para performance, incluem integração com APIs e são testados extensivamente em diferentes dispositivos.</p>
                 </div>
@@ -1187,7 +1723,7 @@
               </div><!-- End Faq item-->
 
               <div class="faq-item">
-                <h3 data-translate="Posso solicitar novas funcionalidades após a entrega?">Posso solicitar novas funcionalidades após a entrega?</h3>
+                <h3 data-translate="faq.q4.question">Posso solicitar novas funcionalidades após a entrega?</h3>
                 <div class="faq-content">
                   <p data-translate="Claro! Desenvolvemos sistemas modulares que permitem expansão. Oferecemos painéis administrativos completos para gestão de dados e relatórios. Para novas funcionalidades, módulos e integrações, temos equipes dedicadas para evolução contínua do seu sistema.">Claro! Desenvolvemos sistemas modulares que permitem expansão. Oferecemos painéis administrativos completos para gestão de dados e relatórios. Para novas funcionalidades, módulos e integrações, temos equipes dedicadas para evolução contínua do seu sistema.</p>
                 </div>
@@ -1195,7 +1731,7 @@
               </div><!-- End Faq item-->
 
               <div class="faq-item">
-                <h3 data-translate="Vocês desenvolvem integrações com sistemas externos?">Vocês desenvolvem integrações com sistemas externos?</h3>
+                <h3 data-translate="faq.q5.question">Vocês desenvolvem integrações com sistemas externos?</h3>
                 <div class="faq-content">
                   <p data-translate="Sim! Especializamo-nos em integrações complexas: ERPs, CRMs, sistemas de pagamento, APIs de terceiros, bancos de dados legados e serviços na nuvem. Criamos APIs robustas e implementamos arquiteturas de microserviços para máxima escalabilidade.">Sim! Especializamo-nos em integrações complexas: ERPs, CRMs, sistemas de pagamento, APIs de terceiros, bancos de dados legados e serviços na nuvem. Criamos APIs robustas e implementamos arquiteturas de microserviços para máxima escalabilidade.</p>
                 </div>
@@ -1203,7 +1739,7 @@
               </div><!-- End Faq item-->
 
               <div class="faq-item">
-                <h3 data-translate="Qual é nossa metodologia premium de desenvolvimento de apps?">Qual é nossa metodologia premium de desenvolvimento de apps?</h3>
+                <h3 data-translate="faq.q6.question">Qual é nossa metodologia premium de desenvolvimento de apps?</h3>
                 <div class="faq-content">
                   <p data-translate="Seguimos nosso Framework Premium de Desenvolvimento proprietário: 1) Análise estratégica com planejamento de arquitetura empresarial, 2) Design UX/UI de classe mundial com padrões globais, 3) Desenvolvimento ágil com garantia de qualidade rigorosa, 4) Implantação global e certificação de conformidade, 5) Monitoramento 24/7 com otimização proativa. Mantemos comunicação em nível executivo durante todo o ciclo de vida.">Seguimos nosso Framework Premium de Desenvolvimento proprietário: 1) Análise estratégica com planejamento de arquitetura empresarial, 2) Design UX/UI de classe mundial com padrões globais, 3) Desenvolvimento ágil com garantia de qualidade rigorosa, 4) Implantação global e certificação de conformidade, 5) Monitoramento 24/7 com otimização proativa. Mantemos comunicação em nível executivo durante todo o ciclo de vida.</p>
                 </div>
@@ -1229,13 +1765,13 @@
       <div class="container">
         <div class="row justify-content-center text-center">
           <div class="col-lg-6">
-            <h4 data-translate="Assine Nossa Newsletter">Assine Nossa Newsletter</h4>
-            <p data-translate="Inscreva-se em nossa newsletter e receba as últimas novidades sobre nossos produtos e serviços!">Inscreva-se em nossa newsletter e receba as últimas novidades sobre nossos produtos e serviços!</p>
+            <h4 data-translate="footer.newsletter.title">Assine Nossa Newsletter</h4>
+            <p data-translate="footer.newsletter.description">Inscreva-se em nossa newsletter e receba as últimas novidades sobre nossos produtos e serviços!</p>
             <form action="forms/newsletter.php" method="post" class="php-email-form">
-              <div class="newsletter-form"><input type="email" name="email" placeholder="Seu e-mail" data-translate="common.email_placeholder" data-translate="Seu email"><input type="submit" value="Inscrever-se" data-translate="Inscrever-se"></div>
+              <div class="newsletter-form"><input type="email" name="email" placeholder="Seu e-mail" data-translate="common.email_placeholder"><input type="submit" value="Inscrever-se" data-translate="footer.newsletter.button"></div>
               <div class="loading" data-translate="common.loading"></div>
               <div class="error-message"></div>
-              <div class="sent-message" data-translate="Sua solicitação de inscrição foi enviada. Obrigado!">Sua solicitação de inscrição foi enviada. Obrigado!</div>
+              <div class="sent-message" data-translate="footer.newsletter.success">Sua solicitação de inscrição foi enviada. Obrigado!</div>
             </form>
           </div>
         </div>
@@ -1249,36 +1785,36 @@
             <span class="sitename" data-translate="Evo Softwares">Evo Softwares</span>
           </a>
           <div class="footer-contact pt-3">
-            <p data-translate="Rua das Flores, 123 - Centro">Rua das Flores, 123 - Centro</p>
-            <p data-translate="São Paulo, SP 01234-567">São Paulo, SP 01234-567</p>
+            <p data-translate="Rua josé versolato 111 - Centro">Rua josé versolato 111 - Centro</p>
+            <p data-translate="São Bernardo do Campo, SP">São Bernardo do Campo, SP</p>
             <p class="mt-3"><strong data-translate="Telefone:">Telefone:</strong> <span data-translate="+55 11 9 8765-4321">+55 11 9 8765-4321</span></p>
             <p><strong data-translate="Email:">Email:</strong> <span data-translate="negocios@evosoftwares.com">negocios@evosoftwares.com</span></p>
           </div>
         </div>
 
         <div class="col-lg-2 col-md-3 footer-links">
-          <h4 data-translate="Links Úteis">Links Úteis</h4>
+          <h4 data-translate="footer.links.title">Links Úteis</h4>
           <ul>
             <li><i class="bi bi-chevron-right"></i> <a href="#" data-translate="nav.home"></a></li>
-            <li><i class="bi bi-chevron-right"></i> <a href="#" data-translate="Sobre Nós">Sobre Nós</a></li>
+            <li><i class="bi bi-chevron-right"></i> <a href="#" data-translate="about.title">Sobre Nós</a></li>
             <li><i class="bi bi-chevron-right"></i> <a href="#" data-translate="nav.services"></a></li>
-            <li><i class="bi bi-chevron-right"></i> <a href="#" data-translate="Termos de Serviço">Termos de Serviço</a></li>
+            <li><i class="bi bi-chevron-right"></i> <a href="#" data-translate="footer.links.terms">Termos de Serviço</a></li>
           </ul>
         </div>
 
         <div class="col-lg-2 col-md-3 footer-links">
-          <h4 data-translate="Nossos Serviços">Nossos Serviços</h4>
+          <h4 data-translate="footer.services.title">Nossos Serviços</h4>
           <ul>
-            <li><i class="bi bi-chevron-right"></i> <a href="#" data-translate="Web Design">Web Design</a></li>
-            <li><i class="bi bi-chevron-right"></i> <a href="#" data-translate="Desenvolvimento Web">Desenvolvimento Web</a></li>
-            <li><i class="bi bi-chevron-right"></i> <a href="#" data-translate="Gestão de Produtos">Gestão de Produtos</a></li>
-            <li><i class="bi bi-chevron-right"></i> <a href="#" data-translate="Marketing Digital">Marketing Digital</a></li>
+            <li><i class="bi bi-chevron-right"></i> <a href="#" data-translate="footer.services.web_design">Web Design</a></li>
+            <li><i class="bi bi-chevron-right"></i> <a href="#" data-translate="footer.services.web_dev">Desenvolvimento Web</a></li>
+            <li><i class="bi bi-chevron-right"></i> <a href="#" data-translate="footer.services.product_management">Gestão de Produtos</a></li>
+            <li><i class="bi bi-chevron-right"></i> <a href="#" data-translate="footer.services.digital_marketing">Marketing Digital</a></li>
           </ul>
         </div>
 
         <div class="col-lg-4 col-md-12">
-          <h4 data-translate="Siga-nos">Siga-nos</h4>
-          <p data-translate="Acompanhe nossas redes sociais e fique por dentro das novidades, dicas e projetos da Evo Softwares">Acompanhe nossas redes sociais e fique por dentro das novidades, dicas e projetos da Evo Softwares</p>
+          <h4 data-translate="footer.social.title">Siga-nos</h4>
+          <p data-translate="footer.social.description">Acompanhe nossas redes sociais e fique por dentro das novidades, dicas e projetos da Evo Softwares</p>
         </div>
 
       </div>
@@ -1318,6 +1854,140 @@
   <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
   <script src="assets/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
   <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+  
+  <!-- About Section Enhanced Interactions -->
+  <script>
+    // Counter Animation
+    function animateCounters() {
+      const counters = document.querySelectorAll('[data-counter]');
+      counters.forEach(counter => {
+        const target = parseInt(counter.dataset.counter);
+        const numberElement = counter.querySelector('.stat-number');
+        let current = 0;
+        const increment = target / 50;
+        const timer = setInterval(() => {
+          current += increment;
+          if (current >= target) {
+            current = target;
+            clearInterval(timer);
+            counter.classList.add('animated');
+          }
+          numberElement.textContent = Math.floor(current) + '+';
+        }, 40);
+      });
+    }
+
+    // Floating Canvas Animation
+    function initAboutCanvas() {
+      const canvas = document.getElementById('aboutCanvas');
+      if (!canvas) return;
+      
+      const ctx = canvas.getContext('2d');
+      canvas.width = canvas.offsetWidth;
+      canvas.height = canvas.offsetHeight;
+      
+      const particles = [];
+      const particleCount = 50;
+      
+      for (let i = 0; i < particleCount; i++) {
+        particles.push({
+          x: Math.random() * canvas.width,
+          y: Math.random() * canvas.height,
+          vx: (Math.random() - 0.5) * 0.5,
+          vy: (Math.random() - 0.5) * 0.5,
+          size: Math.random() * 2 + 1,
+          opacity: Math.random() * 0.3 + 0.1
+        });
+      }
+      
+      function animate() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        
+        particles.forEach(particle => {
+          particle.x += particle.vx;
+          particle.y += particle.vy;
+          
+          if (particle.x < 0 || particle.x > canvas.width) particle.vx *= -1;
+          if (particle.y < 0 || particle.y > canvas.height) particle.vy *= -1;
+          
+          ctx.beginPath();
+          ctx.arc(particle.x, particle.y, particle.size, 0, Math.PI * 2);
+          ctx.fillStyle = `rgba(16, 110, 234, ${particle.opacity})`;
+          ctx.fill();
+        });
+        
+        requestAnimationFrame(animate);
+      }
+      
+      animate();
+    }
+
+    // Reveal Animation on Scroll
+    function initRevealAnimation() {
+      const revealElements = document.querySelectorAll('[data-reveal]');
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.style.animationDelay = `${Math.random() * 0.3}s`;
+            entry.target.classList.add('revealed');
+          }
+        });
+      }, { threshold: 0.1 });
+      
+      revealElements.forEach(el => observer.observe(el));
+    }
+
+    // Tilt Effect for Cards
+    function initTiltEffect() {
+      const tiltElements = document.querySelectorAll('[data-tilt]');
+      tiltElements.forEach(el => {
+        el.addEventListener('mousemove', (e) => {
+          const rect = el.getBoundingClientRect();
+          const x = e.clientX - rect.left;
+          const y = e.clientY - rect.top;
+          const centerX = rect.width / 2;
+          const centerY = rect.height / 2;
+          const rotateX = (y - centerY) / 10;
+          const rotateY = (centerX - x) / 10;
+          
+          el.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+        });
+        
+        el.addEventListener('mouseleave', () => {
+          el.style.transform = 'perspective(1000px) rotateX(0) rotateY(0)';
+        });
+      });
+    }
+
+    // Initialize all about section enhancements
+    document.addEventListener('DOMContentLoaded', () => {
+      // Delay counter animation until section is visible
+      const aboutSection = document.getElementById('about');
+      const aboutObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            setTimeout(animateCounters, 500);
+            aboutObserver.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.3 });
+      
+      if (aboutSection) aboutObserver.observe(aboutSection);
+      
+      initAboutCanvas();
+      initRevealAnimation();
+      initTiltEffect();
+    });
+
+    // Resize canvas on window resize
+    window.addEventListener('resize', () => {
+      const canvas = document.getElementById('aboutCanvas');
+      if (canvas) {
+        canvas.width = canvas.offsetWidth;
+        canvas.height = canvas.offsetHeight;
+      }
+    });
+  </script>
 
   <!-- Leaflet JS -->
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
@@ -1355,23 +2025,30 @@
         "nav.option4": "Opção 4",
         
         // Hero Section
-        "hero.title": "Excelência Global em <span>Apps Premium</span>",
-        "hero.subtitle": "Empresa multinacional líder em software, entregando aplicações de classe mundial com padrões de qualidade incomparáveis. Transformamos sua visão em soluções digitais premium que impulsionam o sucesso global.",
+        "hero.title": "Criamos Apps Mobile e Web para Empreendedores",
+        "hero.subtitle": "Desenvolvimento de aplicativos mobile, sites e sistemas corporativos com qualidade profissional.",
         
         // Featured Services
         "services.web_systems": "Sistemas Web",
-        "services.web_systems_desc": "Desenvolvemos aplicações web modernas e responsivas usando as melhores tecnologias do mercado",
+        "services.web_systems_desc": "Desenvolvemos plataformas web robustas e escaláveis com foco na experiência do usuário e performance otimizada",
         "services.mobile_apps": "Apps Mobile", 
-        "services.mobile_apps_desc": "Criamos aplicativos móveis nativos e híbridos para iOS e Android com excelente UX",
+        "services.mobile_apps_desc": "Criamos aplicativos mobile nativos e híbridos para iOS e Android com interfaces intuitivas e funcionalidades avançadas",
         "services.corporate_systems": "Sistemas Corporativos",
-        "services.corporate_systems_desc": "Desenvolvemos ERPs, CRMs e sistemas personalizados para otimizar seus processos",
+        "services.corporate_systems_desc": "Desenvolvemos soluções empresariais personalizadas que otimizam processos e aumentam a eficiência operacional",
         "services.apis_integrations": "APIs e Integrações",
-        "services.apis_integrations_desc": "Desenvolvemos APIs robustas e integrações com sistemas externos para conectar seu negócio",
+        "services.apis_integrations_desc": "Criamos APIs robustas e integrações seguras entre sistemas, facilitando a comunicação entre plataformas",
         
         // About Section  
         "about.learn_more": "Saiba Mais",
         "about.about_us": "Sobre Nós",
-        "about.main_title": "Criamos aplicações premium que estabelecem novos padrões da indústria e impulsionam a transformação global dos negócios.",
+        "about.main_title": "Desenvolvimento de Aplicativos Empresariais",
+        "about.description": "Desenvolvemos soluções digitais robustas que impulsionam o crescimento dos seus negócios.",
+        "about.projects": "200+",
+        "about.projects_label": "projetos entregues",
+        "about.experience": "15 anos", 
+        "about.experience_label": "de experiência no mercado",
+        "about.clients": "150+",
+        "about.clients_label": "clientes atendidos",
         // Common Elements
         "common.more_details": "Mais Detalhes",
         "common.loading": "Carregando",
@@ -1383,91 +2060,112 @@
         "meta.description": "Empresa multinacional líder especializada em desenvolvimento premium de aplicativos. Entregamos soluções digitais de classe mundial com padrões de qualidade incomparáveis em mercados globais.",
         "meta.keywords": "desenvolvimento premium de apps, empresa global de software, tecnologia multinacional, aplicações empresariais, apps mobile, soluções de software de qualidade, desenvolvimento internacional",
         
-        // Featured Services
-        "Sistemas Web": "Sistemas Web",
-        "Desenvolvemos aplicações web modernas e responsivas usando as melhores tecnologias do mercado": "Desenvolvemos aplicações web modernas e responsivas usando as melhores tecnologias do mercado",
-        "Apps Mobile": "Apps Mobile",
-        "Criamos aplicativos móveis nativos e híbridos para iOS e Android com excelente UX": "Criamos aplicativos móveis nativos e híbridos para iOS e Android com excelente UX",
-        "Sistemas Corporativos": "Sistemas Corporativos",
-        "Desenvolvemos ERPs, CRMs e sistemas personalizados para otimizar seus processos": "Desenvolvemos ERPs, CRMs e sistemas personalizados para otimizar seus processos",
-        "APIs e Integrações": "APIs e Integrações",
-        "Desenvolvemos APIs robustas e integrações com sistemas externos para conectar seu negócio": "Desenvolvemos APIs robustas e integrações com sistemas externos para conectar seu negócio",
+        // Hero Section
+        "Excelência Global em Apps Premium": "Excelência Global em Apps Premium", 
+        "Empresa multinacional líder em software, entregando aplicações de classe mundial com padrões de qualidade incomparáveis. Transformamos sua visão em soluções digitais premium que impulsionam o sucesso global.": "Empresa multinacional líder em software, entregando aplicações de classe mundial com padrões de qualidade incomparáveis. Transformamos sua visão em soluções digitais premium que impulsionam o sucesso global.",
         
         // About Section
-        "Saiba Mais": "Saiba Mais",
-        "Sobre Nós": "Sobre Nós",
-        "Criamos aplicações premium que estabelecem novos padrões da indústria e impulsionam a transformação global dos negócios.": "Criamos aplicações premium que estabelecem novos padrões da indústria e impulsionam a transformação global dos negócios.",
-        "Somos uma empresa multinacional de tecnologia líder com presença global, especializada em desenvolvimento premium de apps, design de ponta e excelência digital para empresas mundiais.": "Somos uma empresa multinacional de tecnologia líder com presença global, especializada em desenvolvimento premium de apps, design de ponta e excelência digital para empresas mundiais.",
-        "Liderança no Mercado Global": "Liderança no Mercado Global",
-        "Mais de 15 anos entregando aplicações premium para empresas Fortune 500 em mais de 40 países mundialmente": "Mais de 15 anos entregando aplicações premium para empresas Fortune 500 em mais de 40 países mundialmente",
-        "Tecnologias modernas e atualizadas": "Tecnologias modernas e atualizadas",
-        "Utilizamos as melhores práticas e tecnologias mais recentes do mercado para garantir qualidade": "Utilizamos as melhores práticas e tecnologias mais recentes do mercado para garantir qualidade",
-        "Nossa missão é transformar ideias em realidade digital, criando experiências únicas para usuários e resultados excepcionais para nossos clientes. Trabalhamos com metodologias ágeis e mantemos comunicação transparente em todas as etapas do projeto.": "Nossa missão é transformar ideias em realidade digital, criando experiências únicas para usuários e resultados excepcionais para nossos clientes. Trabalhamos com metodologias ágeis e mantemos comunicação transparente em todas as etapas do projeto.",
+        "about.cta_button": "Saiba Mais",
+        "about.title": "Sobre Nós",
+        "about.mission_title": "Liderança no Mercado Global",
+        "about.mission_description": "Mais de 15 anos entregando aplicações premium para empresas Fortune 500 em mais de 40 países mundialmente",
+        "about.tech_title": "Tecnologias modernas e atualizadas",
+        "about.tech_description": "Utilizamos as melhores práticas e tecnologias mais recentes do mercado para garantir qualidade",
+        "about.full_description": "Nossa missão é transformar ideias em realidade digital, criando experiências únicas para usuários e resultados excepcionais para nossos clientes. Trabalhamos com metodologias ágeis e mantemos comunicação transparente em todas as etapas do projeto.",
         
         // Stats Section
-        "Clientes Satisfeitos": "Clientes Satisfeitos",
-        "Projetos": "Projetos",
-        "Horas de Suporte": "Horas de Suporte",
-        "Profissionais": "Profissionais",
+        "stats.projects_delivered": "Projetos Entregues",
+        "stats.satisfied_clients": "Clientes Satisfeitos",
+        "stats.technologies_used": "Tecnologias Dominadas",
+        "stats.years_experience": "Anos de Experiência",
         
-        // Services Section  
-        "Nossos": "Nossos",
-        "Serviços de Desenvolvimento": "Serviços de Desenvolvimento",
-        "Desenvolvimento Web": "Desenvolvimento Web",
-        "Criamos aplicações web modernas, responsivas e otimizadas usando React, Vue.js, Node.js e outras tecnologias avançadas.": "Criamos aplicações web modernas, responsivas e otimizadas usando React, Vue.js, Node.js e outras tecnologias avançadas.",
-        "Desenvolvemos aplicativos móveis nativos e híbridos para iOS e Android com React Native, Flutter e Swift.": "Desenvolvemos aplicativos móveis nativos e híbridos para iOS e Android com React Native, Flutter e Swift.",
-        "Aplicações empresariais premium, sistemas de gestão com IA e soluções de automação de ponta projetadas para corporações globais.": "Aplicações empresariais premium, sistemas de gestão com IA e soluções de automação de ponta projetadas para corporações globais.",
-        "E-commerce & Marketplaces": "E-commerce & Marketplaces",
-        "Plataformas de comércio eletrônico completas, marketplaces e sistemas de pagamento integrados.": "Plataformas de comércio eletrônico completas, marketplaces e sistemas de pagamento integrados.",
-        "APIs & Integrações": "APIs & Integrações",
-        "Desenvolvimento de APIs REST/GraphQL e integrações com sistemas externos, ERPs e serviços de terceiros.": "Desenvolvimento de APIs REST/GraphQL e integrações com sistemas externos, ERPs e serviços de terceiros.",
-        "DevOps & Infraestrutura": "DevOps & Infraestrutura",
-        "Configuração de servidores, CI/CD, containerização com Docker, deploy automatizado e infraestrutura na nuvem.": "Configuração de servidores, CI/CD, containerização com Docker, deploy automatizado e infraestrutura na nuvem.",
+        // Services Section
+        "services.title": "Nossos",
+        "services.subtitle": "Serviços de Desenvolvimento",
+        "services.web.title": "Desenvolvimento Web",
+        "services.web.description": "Criamos aplicações web modernas, responsivas e otimizadas usando React, Vue.js, Node.js e outras tecnologias avançadas.",
+        "services.mobile.title": "Apps Mobile",
+        "services.mobile.description": "Desenvolvemos aplicativos móveis nativos e híbridos para iOS e Android com React Native, Flutter e Swift.",
+        "services.enterprise.title": "Sistemas Corporativos",
+        "services.enterprise.description": "Aplicações empresariais premium, sistemas de gestão com IA e soluções de automação de ponta projetadas para corporações globais.",
+        "services.ecommerce.title": "E-commerce & Marketplaces",
+        "services.ecommerce.description": "Plataformas de comércio eletrônico completas, marketplaces e sistemas de pagamento integrados.",
+        "services.apis.title": "APIs & Integrações",
+        "services.apis.description": "Desenvolvimento de APIs REST/GraphQL e integrações com sistemas externos, ERPs e serviços de terceiros.",
+        "services.devops.title": "DevOps & Infraestrutura",
+        "services.devops.description": "Configuração de servidores, CI/CD, containerização com Docker, deploy automatizado e infraestrutura na nuvem.",
         
         // Videos Section
-        "Material Explicativo": "Material Explicativo",
-        "Nossos": "Nossos",
-        "Vídeos Educativos": "Vídeos Educativos",
-        "Ver Todos os Vídeos no YouTube": "Ver Todos os Vídeos no YouTube",
+        "videos.badge": "Material Explicativo",
+        "videos.title": "Nossos",
+        "videos.subtitle": "Vídeos Educativos",
+        
+        // Startup 360° Section
+        "startup360.nav": "Startup 360°",
+        "startup360.title": "Solução Empresarial Completa",
+        "startup360.subtitle1": "Ecossistema",
+        "startup360.subtitle2": "Integrado para Sua Empresa",
+        "startup360.main_title": "Solução completa para acelerar o crescimento do seu negócio",
+        "startup360.description": "Oferecemos um conjunto completo de serviços profissionais para empresas que desejam desenvolver soluções digitais robustas. Nossa abordagem integrada cobre todos os aspectos técnicos e operacionais, permitindo que você se concentre na estratégia do seu negócio.",
+        "Serviço Jurídico": "Legal Service",
+        "Constituição da empresa, contratos, compliance e assessoria jurídica especializada em startups e tecnologia.": "Company incorporation, contracts, compliance and legal advice specialized in startups and technology.",
+        "Serviço Contábil": "Accounting Service", 
+        "Contabilidade completa, planejamento tributário, gestão fiscal e relatórios financeiros personalizados.": "Complete accounting, tax planning, fiscal management and customized financial reports.",
+        "Programação Completa": "Complete Programming",
+        "Desenvolvimento full-stack, arquitetura de software, aplicações web e mobile com as melhores tecnologias.": "Full-stack development, software architecture, web and mobile applications with the best technologies.",
+        "Hosting & Infraestrutura": "Hosting & Infrastructure",
+        "Servidores dedicados, cloud computing, CDN global, backup automático e monitoramento 24/7.": "Dedicated servers, cloud computing, global CDN, automatic backup and 24/7 monitoring.",
+        "Time de TI Terceirizado": "Outsourced IT Team",
+        "Equipe especializada de desenvolvedores, designers e analistas para acelerar seu crescimento.": "Specialized team of developers, designers and analysts to accelerate your growth.",
+        "Sua Startup": "Your Startup",
+        "360°": "360°",
+        "Jurídico": "Legal",
+        "Contábil": "Accounting", 
+        "Programação": "Programming",
+        "Hosting": "Hosting",
+        "Time TI": "IT Team",
+        "Pronto para transformar sua ideia em realidade?": "Ready to transform your idea into reality?",
+        "Agende uma consultoria gratuita e descubra como podemos acelerar o crescimento da sua startup": "Schedule a free consultation and discover how we can accelerate your startup's growth",
+        "Agendar Consultoria Gratuita": "Schedule Free Consultation",
         
         // Team Section
-        "Nossa Dedicada": "Nossa Dedicada",
-        "Equipe": "Equipe",
-        "Roberto Silva": "Roberto Silva",
-        "Diretor Executivo": "Diretor Executivo",
-        "Carla Oliveira": "Carla Oliveira",
-        "Gerente de Produto": "Gerente de Produto",
-        "Fernando Santos": "Fernando Santos",
-        "Diretor de Tecnologia": "Diretor de Tecnologia",
-        "Marina Costa": "Marina Costa",
-        "Contadora": "Contadora",
+        "team.title": "Nossa Dedicada",
+        "team.subtitle": "Equipe",
+        "team.member1.name": "Roberto Silva",
+        "team.member1.role": "Diretor Executivo",
+        "team.member2.name": "Carla Oliveira",
+        "team.member2.role": "Gerente de Produto",
+        "team.member3.name": "Fernando Santos",
+        "team.member3.role": "Diretor de Tecnologia",
+        "team.member4.name": "Marina Costa",
+        "team.member4.role": "Contadora",
         
         // FAQ Section
-        "Perguntas Frequentes": "Perguntas Frequentes",
-        "Dúvidas": "Dúvidas",
-        "Frequentes": "Frequentes",
+        "faq.title": "Perguntas Frequentes",
+        "faq.subtitle1": "Dúvidas",
+        "faq.subtitle2": "Frequentes",
         
         
         // Footer
-        "Assine Nossa Newsletter": "Assine Nossa Newsletter",
-        "Inscreva-se em nossa newsletter e receba as últimas novidades sobre nossos produtos e serviços!": "Inscreva-se em nossa newsletter e receba as últimas novidades sobre nossos produtos e serviços!",
-        "Seu email": "Seu email",
-        "Inscrever-se": "Inscrever-se",
-        "Sua solicitação de inscrição foi enviada. Obrigado!": "Sua solicitação de inscrição foi enviada. Obrigado!",
-        "Links Úteis": "Links Úteis",
-        "Sobre Nós": "Sobre Nós",
-        "Termos de Serviço": "Termos de Serviço",
-        "Nossos Serviços": "Nossos Serviços",
-        "Web Design": "Web Design",
-        "Desenvolvimento Web": "Desenvolvimento Web",
-        "Gestão de Produtos": "Gestão de Produtos",
-        "Marketing Digital": "Marketing Digital",
-        "Siga-nos": "Siga-nos",
-        "Acompanhe nossas redes sociais e fique por dentro das novidades, dicas e projetos da Evo Softwares": "Acompanhe nossas redes sociais e fique por dentro das novidades, dicas e projetos da Evo Softwares",
-        "Todos os Direitos Reservados": "Todos os Direitos Reservados",
-        "Mais Detalhes": "Mais Detalhes",
-        "Seu e-mail": "Seu e-mail",
-        "Carregando": "Carregando",
+        "footer.newsletter.title": "Assine Nossa Newsletter",
+        "footer.newsletter.description": "Inscreva-se em nossa newsletter e receba as últimas novidades sobre nossos produtos e serviços!",
+        "footer.newsletter.placeholder": "Seu email",
+        "footer.newsletter.button": "Inscrever-se",
+        "footer.newsletter.success": "Sua solicitação de inscrição foi enviada. Obrigado!",
+        "footer.links.title": "Links Úteis",
+        "footer.links.about": "Sobre Nós",
+        "footer.links.terms": "Termos de Serviço",
+        "footer.services.title": "Nossos Serviços",
+        "footer.services.web_design": "Web Design",
+        "footer.services.web_dev": "Desenvolvimento Web",
+        "footer.services.product_management": "Gestão de Produtos",
+        "footer.services.digital_marketing": "Marketing Digital",
+        "footer.social.title": "Siga-nos",
+        "footer.social.description": "Acompanhe nossas redes sociais e fique por dentro das novidades, dicas e projetos da Evo Softwares",
+        "footer.copyright": "Todos os Direitos Reservados",
+        "common.more_details": "Mais Detalhes",
+        "common.email_placeholder": "Seu e-mail",
+        "common.loading": "Carregando",
         "Evo Softwares": "Evo Softwares",
         
         // Additional translations
@@ -1488,11 +2186,12 @@
         "São Paulo, SP 01234-567": "São Paulo, SP 01234-567",
         "Telefone:": "Telefone:",
         "Email:": "Email:",
-        "Conheça Nosso": "Conheça Nosso",
-        "Todos": "Todos",
-        "Apps": "Apps",
-        "Produtos": "Produtos",
-        "Sites": "Sites",
+        // Portfolio Section
+        "portfolio.title": "Conheça Nosso",
+        "portfolio.filter_all": "Todos",
+        "portfolio.filter_apps": "Apps",
+        "portfolio.filter_products": "Produtos", 
+        "portfolio.filter_sites": "Sites",
         "Aplicativo nativo para iOS e Android": "Aplicativo nativo para iOS e Android",
         "Loja virtual completa e otimizada": "Loja virtual completa e otimizada",
         "Website corporativo responsivo": "Website corporativo responsivo",
@@ -1502,74 +2201,78 @@
         "Aplicativo para ensino online": "Aplicativo para ensino online",
         "Plataforma de vendas online": "Plataforma de vendas online",
         "Site de conteúdo e marketing": "Site de conteúdo e marketing",
-        "Carlos Mendes": "Carlos Mendes",
-        "CEO & Fundador - TechCorp": "CEO & Fundador - TechCorp",
-        "Ana Beatriz": "Ana Beatriz",
-        "Diretora - Creative Studio": "Diretora - Creative Studio",
-        "João Ricardo": "João Ricardo",
-        "CEO - MegaStore E-commerce": "CEO - MegaStore E-commerce",
-        "Marcos Silva": "Marcos Silva",
-        "Consultor Digital": "Consultor Digital",
-        "Luciana Santos": "Luciana Santos",
-        "Fundadora - StartupTech": "Fundadora - StartupTech",
-        "A Evo entregou nossa plataforma empresarial global com padrões de qualidade excepcionais. Sua solução premium aumentou nossa eficiência operacional em 65% em todos os mercados internacionais.": "A Evo entregou nossa plataforma empresarial global com padrões de qualidade excepcionais. Sua solução premium aumentou nossa eficiência operacional em 65% em todos os mercados internacionais.",
-        "O app mobile que a Evo criou para nosso estúdio revolucionou nosso atendimento. Interface linda e funcionalidade perfeita!": "O app mobile que a Evo criou para nosso estúdio revolucionou nosso atendimento. Interface linda e funcionalidade perfeita!",
-        "O marketplace que a Evo desenvolveu aumentou nossas vendas em 300%! Sistema robusto, seguro e com ótima UX.": "O marketplace que a Evo desenvolveu aumentou nossas vendas em 300%! Sistema robusto, seguro e com ótima UX.",
-        "A API que a Evo desenvolveu integrou todos nossos sistemas. Agora temos dados centralizados e decisões mais rápidas.": "A API que a Evo desenvolveu integrou todos nossos sistemas. Agora temos dados centralizados e decisões mais rápidas.",
-        "O sistema corporativo da Evo automatizou nossos processos e triplicou nosso faturamento em 6 meses. Investimento que se pagou!": "O sistema corporativo da Evo automatizou nossos processos e triplicou nosso faturamento em 6 meses. Investimento que se pagou!",
-        "Como Desenvolver um Sistema Web Completo": "Como Desenvolver um Sistema Web Completo",
-        "Aprenda os conceitos fundamentais para criar sistemas web robustos e escaláveis do zero.": "Aprenda os conceitos fundamentais para criar sistemas web robustos e escaláveis do zero.",
-        "12.5k visualizações": "12.5k visualizações",
-        "React vs Vue.js: Qual Escolher?": "React vs Vue.js: Qual Escolher?",
-        "Comparação completa entre as principais tecnologias front-end do mercado.": "Comparação completa entre as principais tecnologias front-end do mercado.",
-        "8.9k visualizações": "8.9k visualizações",
-        "APIs RESTful: Melhores Práticas": "APIs RESTful: Melhores Práticas",
-        "Como criar APIs robustas, seguras e bem documentadas seguindo os padrões REST.": "Como criar APIs robustas, seguras e bem documentadas seguindo os padrões REST.",
-        "15.2k visualizações": "15.2k visualizações",
-        "Deploy e DevOps para Iniciantes": "Deploy e DevOps para Iniciantes",
-        "Aprenda a fazer deploy de aplicações e implementar CI/CD de forma simples e eficiente.": "Aprenda a fazer deploy de aplicações e implementar CI/CD de forma simples e eficiente.",
-        "9.7k visualizações": "9.7k visualizações",
-        "Banco de Dados: SQL vs NoSQL": "Banco de Dados: SQL vs NoSQL",
-        "Entenda quando usar cada tipo de banco de dados em seus projetos.": "Entenda quando usar cada tipo de banco de dados em seus projetos.",
-        "11.3k visualizações": "11.3k visualizações",
-        "Segurança em Aplicações Web": "Segurança em Aplicações Web",
-        "Principais vulnerabilidades e como proteger suas aplicações contra ataques.": "Principais vulnerabilidades e como proteger suas aplicações contra ataques.",
-        "7.4k visualizações": "7.4k visualizações",
-        "Quanto tempo leva para desenvolver um sistema corporativo?": "Quanto tempo leva para desenvolver um sistema corporativo?",
-        "Os prazos de desenvolvimento variam conforme a complexidade da aplicação e requisitos de qualidade premium. Apps empresariais padrão são entregues em 3-6 semanas, enquanto plataformas globais abrangentes podem requerer 3-8 meses. Mantemos rigorosos portões de qualidade e roadmaps detalhados durante todo o desenvolvimento.": "Os prazos de desenvolvimento variam conforme a complexidade da aplicação e requisitos de qualidade premium. Apps empresariais padrão são entregues em 3-6 semanas, enquanto plataformas globais abrangentes podem requerer 3-8 meses. Mantemos rigorosos portões de qualidade e roadmaps detalhados durante todo o desenvolvimento.",
-        "Vocês oferecem suporte após a entrega do sistema?": "Vocês oferecem suporte após a entrega do sistema?",
-        "Sim! Oferecemos suporte técnico completo com garantia de 6 meses para correções de bugs, além de planos de manutenção que incluem atualizações de segurança, backup automático, monitoramento de performance e suporte técnico 24/7.": "Sim! Oferecemos suporte técnico completo com garantia de 6 meses para correções de bugs, além de planos de manutenção que incluem atualizações de segurança, backup automático, monitoramento de performance e suporte técnico 24/7.",
-        "Vocês desenvolvem aplicativos móveis nativos?": "Vocês desenvolvem aplicativos móveis nativos?",
-        "Sim! Desenvolvemos apps nativos para iOS e Android, além de aplicações híbridas usando React Native e Flutter. Todos os apps são otimizados para performance, incluem integração com APIs e são testados extensivamente em diferentes dispositivos.": "Sim! Desenvolvemos apps nativos para iOS e Android, além de aplicações híbridas usando React Native e Flutter. Todos os apps são otimizados para performance, incluem integração com APIs e são testados extensivamente em diferentes dispositivos.",
-        "Posso solicitar novas funcionalidades após a entrega?": "Posso solicitar novas funcionalidades após a entrega?",
-        "Claro! Desenvolvemos sistemas modulares que permitem expansão. Oferecemos painéis administrativos completos para gestão de dados e relatórios. Para novas funcionalidades, módulos e integrações, temos equipes dedicadas para evolução contínua do seu sistema.": "Claro! Desenvolvemos sistemas modulares que permitem expansão. Oferecemos painéis administrativos completos para gestão de dados e relatórios. Para novas funcionalidades, módulos e integrações, temos equipes dedicadas para evolução contínua do seu sistema.",
-        "Vocês desenvolvem integrações com sistemas externos?": "Vocês desenvolvem integrações com sistemas externos?",
-        "Sim! Especializamo-nos em integrações complexas: ERPs, CRMs, sistemas de pagamento, APIs de terceiros, bancos de dados legados e serviços na nuvem. Criamos APIs robustas e implementamos arquiteturas de microserviços para máxima escalabilidade.": "Sim! Especializamo-nos em integrações complexas: ERPs, CRMs, sistemas de pagamento, APIs de terceiros, bancos de dados legados e serviços na nuvem. Criamos APIs robustas e implementamos arquiteturas de microserviços para máxima escalabilidade.",
-        "Qual é nossa metodologia premium de desenvolvimento de apps?": "Qual é nossa metodologia premium de desenvolvimento de apps?",
-        "Seguimos nosso Framework Premium de Desenvolvimento proprietário: 1) Análise estratégica com planejamento de arquitetura empresarial, 2) Design UX/UI de classe mundial com padrões globais, 3) Desenvolvimento ágil com garantia de qualidade rigorosa, 4) Implantação global e certificação de conformidade, 5) Monitoramento 24/7 com otimização proativa. Mantemos comunicação em nível executivo durante todo o ciclo de vida.": "Seguimos nosso Framework Premium de Desenvolvimento proprietário: 1) Análise estratégica com planejamento de arquitetura empresarial, 2) Design UX/UI de classe mundial com padrões globais, 3) Desenvolvimento ágil com garantia de qualidade rigorosa, 4) Implantação global e certificação de conformidade, 5) Monitoramento 24/7 com otimização proativa. Mantemos comunicação em nível executivo durante todo o ciclo de vida.",
+        // Testimonials
+        "testimonials.member1.name": "Carlos Mendes",
+        "testimonials.member1.position": "CEO & Fundador - TechCorp",
+        "testimonials.member1.testimonial": "Trabalhamos com a Evo há 2 anos no desenvolvimento do nosso sistema corporativo. Entregaram uma solução robusta que aumentou nossa produtividade em 40% e melhorou significativamente nossa gestão interna.",
+        "testimonials.member2.name": "Ana Beatriz",
+        "testimonials.member2.position": "Diretora - Creative Studio",
+        "testimonials.member2.testimonial": "A Evo desenvolveu nossa plataforma de vendas online. O resultado foi excelente: aumento de 60% nas conversões e uma interface muito mais intuitiva para nossos clientes. Profissionais competentes e prazo cumprido.",
+        "testimonials.member3.name": "João Ricardo",
+        "testimonials.member3.position": "CEO - MegaStore E-commerce",
+        "testimonials.member3.testimonial": "Contratamos a Evo para desenvolver nosso marketplace B2B. Ficamos impressionados com a qualidade técnica e a atenção aos detalhes. A plataforma tem funcionado perfeitamente e nossos usuários elogiam a experiência.",
+        "testimonials.member4.name": "Marcos Silva",
+        "testimonials.member4.position": "Consultor Digital",
+        "testimonials.member4.testimonial": "Precisávamos de um sistema de gestão financeira personalizado. A Evo entregou uma solução que atendeu 100% nossas necessidades específicas. Recomendo pela seriedade e conhecimento técnico da equipe.",
+        "testimonials.member5.name": "Luciana Santos",
+        "testimonials.member5.position": "Fundadora - StartupTech",
+        "testimonials.member5.testimonial": "A Evo desenvolveu nosso aplicativo mobile do zero. Processo transparente, comunicação excelente e entrega no prazo. Nossos clientes adoraram a nova experiência e tivemos um crescimento consistente no engajamento.",
+        // Videos/Tutorials Section
+        "videos.web_systems.title": "Como Desenvolver um Sistema Web Completo",
+        "videos.web_systems.description": "Aprenda os conceitos fundamentais para criar sistemas web robustos e escaláveis do zero.",
+        "videos.web_systems.views": "12.5k visualizações",
+        "videos.react_vue.title": "React vs Vue.js: Qual Escolher?",
+        "videos.react_vue.description": "Comparação completa entre as principais tecnologias front-end do mercado.",
+        "videos.react_vue.views": "8.9k visualizações",
+        "videos.apis_rest.title": "APIs RESTful: Melhores Práticas",
+        "videos.apis_rest.description": "Como criar APIs robustas, seguras e bem documentadas seguindo os padrões REST.",
+        "videos.apis_rest.views": "15.2k visualizações",
+        "videos.deploy_devops.title": "Deploy e DevOps para Iniciantes",
+        "videos.deploy_devops.description": "Aprenda a fazer deploy de aplicações e implementar CI/CD de forma simples e eficiente.",
+        "videos.deploy_devops.views": "9.7k visualizações",
+        "videos.databases.title": "Banco de Dados: SQL vs NoSQL",
+        "videos.databases.description": "Entenda quando usar cada tipo de banco de dados em seus projetos.",
+        "videos.databases.views": "11.3k visualizações",
+        "videos.security.title": "Segurança em Aplicações Web",
+        "videos.security.description": "Principais vulnerabilidades e como proteger suas aplicações contra ataques.",
+        "videos.security.views": "7.4k visualizações",
+        "videos.cta_button": "Ver Todos os Vídeos no YouTube",
         
-        // Location Cards
-        "Hub Tecnológico do Atlântico": "Hub Tecnológico do Atlântico",
-        "Charlottetown, Prince Edward Island, Canadá": "Charlottetown, Prince Edward Island, Canadá",
-        "Portal do Agronegócio Digital": "Portal do Agronegócio Digital",
-        "Cuiabá, Mato Grosso, Brasil": "Cuiabá, Mato Grosso, Brasil",
-        "Vale do Silício Brasileiro": "Vale do Silício Brasileiro",
-        "São Bernardo do Campo, São Paulo, Brasil": "São Bernardo do Campo, São Paulo, Brasil",
-        "Tecnologia Marinha": "Tecnologia Marinha",
-        "IoT Sustentável": "IoT Sustentável",
-        "Agricultura 4.0": "Agricultura 4.0",
-        "AgTech": "AgTech",
-        "Blockchain Rural": "Blockchain Rural",
-        "Drones Agrícolas": "Drones Agrícolas",
-        "Indústria 4.0": "Indústria 4.0",
-        "FinTech": "FinTech",
-        "Inteligência Artificial": "Inteligência Artificial",
+        // FAQ Section Questions & Answers
+        "faq.q1.question": "Quanto tempo leva para desenvolver um sistema corporativo?",
+        "faq.q1.answer": "Os prazos de desenvolvimento variam conforme a complexidade da aplicação e requisitos de qualidade premium. Apps empresariais padrão são entregues em 3-6 semanas, enquanto plataformas globais abrangentes podem requerer 3-8 meses. Mantemos rigorosos portões de qualidade e roadmaps detalhados durante todo o desenvolvimento.",
+        "faq.q2.question": "Vocês oferecem suporte após a entrega do sistema?",
+        "faq.q2.answer": "Sim! Oferecemos suporte técnico completo com garantia de 6 meses para correções de bugs, além de planos de manutenção que incluem atualizações de segurança, backup automático, monitoramento de performance e suporte técnico 24/7.",
+        "faq.q3.question": "Vocês desenvolvem aplicativos móveis nativos?",
+        "faq.q3.answer": "Sim! Desenvolvemos apps nativos para iOS e Android, além de aplicações híbridas usando React Native e Flutter. Todos os apps são otimizados para performance, incluem integração com APIs e são testados extensivamente em diferentes dispositivos.",
+        "faq.q4.question": "Posso solicitar novas funcionalidades após a entrega?",
+        "faq.q4.answer": "Claro! Desenvolvemos sistemas modulares que permitem expansão. Oferecemos painéis administrativos completos para gestão de dados e relatórios. Para novas funcionalidades, módulos e integrações, temos equipes dedicadas para evolução contínua do seu sistema.",
+        "faq.q5.question": "Vocês desenvolvem integrações com sistemas externos?",
+        "faq.q5.answer": "Sim! Especializamo-nos em integrações complexas: ERPs, CRMs, sistemas de pagamento, APIs de terceiros, bancos de dados legados e serviços na nuvem. Criamos APIs robustas e implementamos arquiteturas de microserviços para máxima escalabilidade.",
+        "faq.q6.question": "Qual é nossa metodologia premium de desenvolvimento de apps?",
+        "faq.q6.answer": "Seguimos nosso Framework Premium de Desenvolvimento proprietário: 1) Análise estratégica com planejamento de arquitetura empresarial, 2) Design UX/UI de classe mundial com padrões globais, 3) Desenvolvimento ágil com garantia de qualidade rigorosa, 4) Implantação global e certificação de conformidade, 5) Monitoramento 24/7 com otimização proativa. Mantemos comunicação em nível executivo durante todo o ciclo de vida.",
         
-        // Map-specific translations
-        "Centro de inovação em tecnologia marinha e agricultura sustentável.": "Centro de inovação em tecnologia marinha e agricultura sustentável.",
-        "Epicentro da revolução AgTech brasileira com sistemas de precisão.": "Epicentro da revolução AgTech brasileira com sistemas de precisão.",
-        "Global center of excellence in premium enterprise applications.": "Centro global de excelência em aplicações empresariais premium.",
-        "ÁREAS DE INTERESSE": "ÁREAS DE INTERESSE",
+        // Locations Section
+        "locations.atlantic.name": "Hub Tecnológico do Atlântico",
+        "locations.atlantic.address": "Charlottetown, Prince Edward Island, Canadá",
+        "locations.agribusiness.name": "Portal do Agronegócio Digital",
+        "locations.agribusiness.address": "Cuiabá, Mato Grosso, Brasil",
+        "locations.silicon_valley.name": "Vale do Silício Brasileiro",
+        "locations.silicon_valley.address": "São Bernardo do Campo, São Paulo, Brasil",
+        "locations.specialties.marine_tech": "Tecnologia Marinha",
+        "locations.specialties.iot_sustainable": "IoT Sustentável",
+        "locations.specialties.agriculture_4": "Agricultura 4.0",
+        "locations.specialties.agtech": "AgTech",
+        "locations.specialties.blockchain_rural": "Blockchain Rural",
+        "locations.specialties.drones_agricultural": "Drones Agrícolas",
+        "locations.specialties.industry_4": "Indústria 4.0",
+        "locations.specialties.fintech": "FinTech",
+        "locations.specialties.artificial_intelligence": "Inteligência Artificial",
+        
+        "locations.atlantic.description": "Centro de inovação em tecnologia marinha e agricultura sustentável.",
+        "locations.agribusiness.description": "Epicentro da revolução AgTech brasileira com sistemas de precisão.",
+        "locations.silicon_valley.description": "Centro global de excelência em aplicações empresariais premium.",
+        "locations.areas_of_interest": "ÁREAS DE INTERESSE",
         
         // Location Section
         "Nossas Localizações": "Nossas Localizações",
@@ -1598,23 +2301,36 @@
         "nav.option4": "Option 4",
         
         // Hero Section
-        "hero.title": "Global Excellence in <span>Premium Apps</span>",
-        "hero.subtitle": "Multinational software leader delivering world-class applications with unmatched quality standards. We transform your vision into premium digital solutions that drive global success.",
+        "hero.title": "We Create Mobile & Web Apps for Entrepreneurs",
+        "hero.subtitle": "Mobile app development, websites and corporate systems with professional quality.",
+        
+        // Stats Section
+        "stats.projects_delivered": "Projects Delivered",
+        "stats.satisfied_clients": "Satisfied Clients", 
+        "stats.technologies_used": "Technologies Mastered",
+        "stats.years_experience": "Years of Experience",
         
         // Featured Services  
         "services.web_systems": "Web Systems",
-        "services.web_systems_desc": "We develop modern and responsive web applications using the best market technologies",
+        "services.web_systems_desc": "We develop robust and scalable web platforms focused on user experience and optimized performance",
         "services.mobile_apps": "Mobile Apps",
-        "services.mobile_apps_desc": "We create native and hybrid mobile apps for iOS and Android with excellent UX",
+        "services.mobile_apps_desc": "We create native and hybrid mobile apps for iOS and Android with intuitive interfaces and advanced features",
         "services.corporate_systems": "Corporate Systems",
-        "services.corporate_systems_desc": "We develop ERPs, CRMs and custom systems to optimize your processes",
+        "services.corporate_systems_desc": "We develop custom enterprise solutions that optimize processes and increase operational efficiency",
         "services.apis_integrations": "APIs & Integrations",
-        "services.apis_integrations_desc": "We develop robust APIs and integrations with external systems to connect your business",
+        "services.apis_integrations_desc": "We create robust APIs and secure integrations between systems, facilitating communication between platforms",
         
         // About Section  
         "about.learn_more": "Learn More",
         "about.about_us": "About Us",
-        "about.main_title": "We create premium applications that set new industry standards and drive global business transformation.",
+        "about.main_title": "Enterprise Application Development",
+        "about.description": "We develop robust digital solutions that drive your business growth.",
+        "about.projects": "200+",
+        "about.projects_label": "delivered projects", 
+        "about.experience": "15 years",
+        "about.experience_label": "of market experience",
+        "about.clients": "150+", 
+        "about.clients_label": "satisfied clients",
         
         // Common Elements
         "common.more_details": "More Details",
@@ -1631,90 +2347,106 @@
         "Excelência Global em Apps Premium": "Global Excellence in Premium Apps Development",
         "Empresa multinacional líder em software, entregando aplicações de classe mundial com padrões de qualidade incomparáveis. Transformamos sua visão em soluções digitais premium que impulsionam o sucesso global.": "Multinational software leader delivering world-class applications with unmatched quality standards. We transform your vision into premium digital solutions that drive global success.",
         
-        // Featured Services
-        "Sistemas Web": "Web Systems",
-        "Desenvolvemos aplicações web modernas e responsivas usando as melhores tecnologias do mercado": "We develop modern and responsive web applications using the best market technologies",
-        "Apps Mobile": "Mobile Apps",
-        "Criamos aplicativos móveis nativos e híbridos para iOS e Android com excelente UX": "We create native and hybrid mobile apps for iOS and Android with excellent UX",
-        "Sistemas Corporativos": "Corporate Systems",
-        "Desenvolvemos ERPs, CRMs e sistemas personalizados para otimizar seus processos": "We develop ERPs, CRMs and custom systems to optimize your processes",
-        "APIs e Integrações": "APIs & Integrations",
-        "Desenvolvemos APIs robustas e integrações com sistemas externos para conectar seu negócio": "We develop robust APIs and integrations with external systems to connect your business",
         
         // About Section
-        "Saiba Mais": "Learn More",
-        "Sobre Nós": "About Us",
-        "Criamos aplicações premium que estabelecem novos padrões da indústria e impulsionam a transformação global dos negócios.": "We create premium applications that set new industry standards and drive global business transformation.",
-        "Somos uma empresa multinacional de tecnologia líder com presença global, especializada em desenvolvimento premium de apps, design de ponta e excelência digital para empresas mundiais.": "We are a leading multinational technology company with global presence, specialized in premium app development, cutting-edge design and digital excellence for worldwide enterprises.",
-        "Liderança no Mercado Global": "Global Market Leadership",
-        "Mais de 15 anos entregando aplicações premium para empresas Fortune 500 em mais de 40 países mundialmente": "Over 15 years delivering premium applications for Fortune 500 companies in more than 40 countries worldwide",
-        "Tecnologias modernas e atualizadas": "Modern and updated technologies",
-        "Utilizamos as melhores práticas e tecnologias mais recentes do mercado para garantir qualidade": "We use best practices and the latest market technologies to ensure quality",
-        "Nossa missão é transformar ideias em realidade digital, criando experiências únicas para usuários e resultados excepcionais para nossos clientes. Trabalhamos com metodologias ágeis e mantemos comunicação transparente em todas as etapas do projeto.": "Our mission is to transform ideas into digital reality, creating unique user experiences and exceptional results for our clients. We work with agile methodologies and maintain transparent communication throughout all project phases.",
-        
-        // Stats Section
-        "Clientes Satisfeitos": "Satisfied Clients",
-        "Projetos": "Projects",
-        "Horas de Suporte": "Support Hours",
-        "Profissionais": "Professionals",
+        "about.cta_button": "Learn More",
+        "about.title": "About Us",
+        "about.main_title": "Enterprise Application Development",
+        "about.description": "We develop robust digital solutions that drive your business growth.",
+        "about.mission_title": "Global Market Leadership",
+        "about.mission_description": "Over 15 years delivering premium applications for Fortune 500 companies in more than 40 countries worldwide",
+        "about.tech_title": "Modern and updated technologies",
+        "about.tech_description": "We use best practices and the latest market technologies to ensure quality",
+        "about.full_description": "Our mission is to transform ideas into digital reality, creating unique user experiences and exceptional results for our clients. We work with agile methodologies and maintain transparent communication throughout all project phases.",
         
         // Services Section
-        "Nossos": "Our",
-        "Serviços de Desenvolvimento": "Development Services",
-        "Desenvolvimento Web": "Web Development",
-        "Criamos aplicações web modernas, responsivas e otimizadas usando React, Vue.js, Node.js e outras tecnologias avançadas.": "We create modern, responsive and optimized web applications using React, Vue.js, Node.js and other advanced technologies.",
-        "Desenvolvemos aplicativos móveis nativos e híbridos para iOS e Android com React Native, Flutter e Swift.": "We develop native and hybrid mobile apps for iOS and Android with React Native, Flutter and Swift.",
-        "Aplicações empresariais premium, sistemas de gestão com IA e soluções de automação de ponta projetadas para corporações globais.": "Premium enterprise applications, AI-powered management systems and cutting-edge automation solutions designed for global corporations.",
-        "E-commerce & Marketplaces": "E-commerce & Marketplaces",
-        "Plataformas de comércio eletrônico completas, marketplaces e sistemas de pagamento integrados.": "Complete e-commerce platforms, marketplaces and integrated payment systems.",
-        "APIs & Integrações": "APIs & Integrations",
-        "Desenvolvimento de APIs REST/GraphQL e integrações com sistemas externos, ERPs e serviços de terceiros.": "Development of REST/GraphQL APIs and integrations with external systems, ERPs and third-party services.",
-        "DevOps & Infraestrutura": "DevOps & Infrastructure",
-        "Configuração de servidores, CI/CD, containerização com Docker, deploy automatizado e infraestrutura na nuvem.": "Server configuration, CI/CD, Docker containerization, automated deployment and cloud infrastructure.",
+        "services.title": "Our",
+        "services.subtitle": "Development Services",
+        "services.web.title": "Web Development",
+        "services.web.description": "We create modern, responsive and optimized web applications using React, Vue.js, Node.js and other advanced technologies.",
+        "services.mobile.title": "Mobile Apps",
+        "services.mobile.description": "We develop native and hybrid mobile apps for iOS and Android with React Native, Flutter and Swift.",
+        "services.enterprise.title": "Corporate Systems",
+        "services.enterprise.description": "Premium enterprise applications, AI-powered management systems and cutting-edge automation solutions designed for global corporations.",
+        "services.ecommerce.title": "E-commerce & Marketplaces",
+        "services.ecommerce.description": "Complete e-commerce platforms, marketplaces and integrated payment systems.",
+        "services.apis.title": "APIs & Integrations",
+        "services.apis.description": "Development of REST/GraphQL APIs and integrations with external systems, ERPs and third-party services.",
+        "services.devops.title": "DevOps & Infrastructure",
+        "services.devops.description": "Server configuration, CI/CD, Docker containerization, automated deployment and cloud infrastructure.",
         
         // Videos Section
-        "Material Explicativo": "Educational Material",
-        "Vídeos Educativos": "Educational Videos",
-        "Ver Todos os Vídeos no YouTube": "Watch All Videos on YouTube",
+        "videos.badge": "Educational Material",
+        "videos.title": "Our",
+        "videos.subtitle": "Educational Videos",
+        "videos.cta_button": "Watch All Videos on YouTube",
+        
+        // Startup 360° Section
+        "startup360.nav": "Startup 360°",
+        "startup360.title": "Complete Business Solution",
+        "startup360.subtitle1": "Integrated",
+        "startup360.subtitle2": "Ecosystem for Your Business",
+        "startup360.main_title": "Complete solution to accelerate your business growth",
+        "startup360.description": "We offer a complete set of professional services for companies looking to develop robust digital solutions. Our integrated approach covers all technical and operational aspects, allowing you to focus on your business strategy.",
+        "Serviço Jurídico": "Legal Service",
+        "Constituição da empresa, contratos, compliance e assessoria jurídica especializada em startups e tecnologia.": "Company incorporation, contracts, compliance and legal advice specialized in startups and technology.",
+        "Serviço Contábil": "Accounting Service", 
+        "Contabilidade completa, planejamento tributário, gestão fiscal e relatórios financeiros personalizados.": "Complete accounting, tax planning, fiscal management and customized financial reports.",
+        "Programação Completa": "Complete Programming",
+        "Desenvolvimento full-stack, arquitetura de software, aplicações web e mobile com as melhores tecnologias.": "Full-stack development, software architecture, web and mobile applications with the best technologies.",
+        "Hosting & Infraestrutura": "Hosting & Infrastructure",
+        "Servidores dedicados, cloud computing, CDN global, backup automático e monitoramento 24/7.": "Dedicated servers, cloud computing, global CDN, automatic backup and 24/7 monitoring.",
+        "Time de TI Terceirizado": "Outsourced IT Team",
+        "Equipe especializada de desenvolvedores, designers e analistas para acelerar seu crescimento.": "Specialized team of developers, designers and analysts to accelerate your growth.",
+        "Sua Startup": "Your Startup",
+        "360°": "360°",
+        "Jurídico": "Legal",
+        "Contábil": "Accounting", 
+        "Programação": "Programming",
+        "Hosting": "Hosting",
+        "Time TI": "IT Team",
+        "Pronto para transformar sua ideia em realidade?": "Ready to transform your idea into reality?",
+        "Agende uma consultoria gratuita e descubra como podemos acelerar o crescimento da sua startup": "Schedule a free consultation and discover how we can accelerate your startup's growth",
+        "Agendar Consultoria Gratuita": "Schedule Free Consultation",
         
         // Team Section
-        "Nossa Dedicada": "Our Dedicated",
-        "Equipe": "Team",
-        "Roberto Silva": "Robert Silva",
-        "Diretor Executivo": "Executive Director",
-        "Carla Oliveira": "Carla Oliveira",
-        "Gerente de Produto": "Product Manager",
-        "Fernando Santos": "Fernando Santos",
-        "Diretor de Tecnologia": "Technology Director",
-        "Marina Costa": "Marina Costa",
-        "Contadora": "Accountant",
+        "team.title": "Our Dedicated",
+        "team.subtitle": "Team",
+        "team.member1.name": "Robert Silva",
+        "team.member1.role": "Executive Director",
+        "team.member2.name": "Carla Oliveira",
+        "team.member2.role": "Product Manager",
+        "team.member3.name": "Fernando Santos",
+        "team.member3.role": "Technology Director",
+        "team.member4.name": "Marina Costa",
+        "team.member4.role": "Accountant",
         
         // FAQ Section
-        "Perguntas Frequentes": "Frequently Asked Questions",
-        "Dúvidas": "Common",
-        "Frequentes": "Questions",
+        "faq.title": "Frequently Asked Questions",
+        "faq.subtitle1": "Common",
+        "faq.subtitle2": "Questions",
         
         
         // Footer
-        "Assine Nossa Newsletter": "Subscribe to Our Newsletter",
-        "Inscreva-se em nossa newsletter e receba as últimas novidades sobre nossos produtos e serviços!": "Subscribe to our newsletter and receive the latest news about our products and services!",
-        "Seu email": "Your email",
-        "Inscrever-se": "Subscribe",
-        "Sua solicitação de inscrição foi enviada. Obrigado!": "Your subscription request has been sent. Thank you!",
-        "Links Úteis": "Useful Links",
-        "Sobre Nós": "About Us",
-        "Termos de Serviço": "Terms of Service",
-        "Nossos Serviços": "Our Services",
-        "Web Design": "Web Design",
-        "Desenvolvimento Web": "Web Development",
-        "Gestão de Produtos": "Product Management",
-        "Marketing Digital": "Digital Marketing",
-        "Siga-nos": "Follow Us",
-        "Acompanhe nossas redes sociais e fique por dentro das novidades, dicas e projetos da Evo Softwares": "Follow our social networks and stay updated on Evo Softwares' news, tips and projects",
-        "Todos os Direitos Reservados": "All Rights Reserved",
-        "Mais Detalhes": "More Details",
-        "Seu e-mail": "Your email",
-        "Carregando": "Loading",
+        "footer.newsletter.title": "Subscribe to Our Newsletter",
+        "footer.newsletter.description": "Subscribe to our newsletter and receive the latest news about our products and services!",
+        "footer.newsletter.placeholder": "Your email",
+        "footer.newsletter.button": "Subscribe",
+        "footer.newsletter.success": "Your subscription request has been sent. Thank you!",
+        "footer.links.title": "Useful Links",
+        "footer.links.about": "About Us",
+        "footer.links.terms": "Terms of Service",
+        "footer.services.title": "Our Services",
+        "footer.services.web_design": "Web Design",
+        "footer.services.web_dev": "Web Development",
+        "footer.services.product_management": "Product Management",
+        "footer.services.digital_marketing": "Digital Marketing",
+        "footer.social.title": "Follow Us",
+        "footer.social.description": "Follow our social networks and stay updated on Evo Softwares' news, tips and projects",
+        "footer.copyright": "All Rights Reserved",
+        "common.more_details": "More Details",
+        "common.email_placeholder": "Your email",
+        "common.loading": "Loading",
         "Evo Softwares": "Evo Softwares",
         
         // Additional translations
@@ -1735,11 +2467,12 @@
         "São Paulo, SP 01234-567": "Toronto, ON M5V 3A8",
         "Telefone:": "Phone:",
         "Email:": "Email:",
-        "Conheça Nosso": "Discover Our",
-        "Todos": "All",
-        "Apps": "Apps",
-        "Produtos": "Products",
-        "Sites": "Websites",
+        // Portfolio Section  
+        "portfolio.title": "Discover Our",
+        "portfolio.filter_all": "All",
+        "portfolio.filter_apps": "Apps",
+        "portfolio.filter_products": "Products",
+        "portfolio.filter_sites": "Websites",
         "Aplicativo nativo para iOS e Android": "Native application for iOS and Android",
         "Loja virtual completa e otimizada": "Complete and optimized online store",
         "Website corporativo responsivo": "Responsive corporate website",
@@ -1749,74 +2482,75 @@
         "Aplicativo para ensino online": "Online learning application",
         "Plataforma de vendas online": "Online sales platform",
         "Site de conteúdo e marketing": "Content and marketing website",
-        "Carlos Mendes": "Carlos Mendes",
-        "CEO & Fundador - TechCorp": "CEO & Founder - TechCorp",
-        "Ana Beatriz": "Ana Beatriz",
-        "Diretora - Creative Studio": "Director - Creative Studio",
-        "João Ricardo": "João Ricardo",
-        "CEO - MegaStore E-commerce": "CEO - MegaStore E-commerce",
-        "Marcos Silva": "Marcos Silva",
-        "Consultor Digital": "Digital Consultant",
-        "Luciana Santos": "Luciana Santos",
-        "Fundadora - StartupTech": "Founder - StartupTech",
-        "A Evo entregou nossa plataforma empresarial global com padrões de qualidade excepcionais. Sua solução premium aumentou nossa eficiência operacional em 65% em todos os mercados internacionais.": "A Evo entregou nossa plataforma empresarial global com padrões de qualidade excepcionais. Sua solução premium aumentou nossa eficiência operacional em 65% em todos os mercados internacionais.",
-        "O app mobile que a Evo criou para nosso estúdio revolucionou nosso atendimento. Interface linda e funcionalidade perfeita!": "The mobile app that Evo created for our studio revolutionized our service. Beautiful interface and perfect functionality!",
-        "O marketplace que a Evo desenvolveu aumentou nossas vendas em 300%! Sistema robusto, seguro e com ótima UX.": "The marketplace that Evo developed increased our sales by 300%! Robust, secure system with great UX.",
-        "A API que a Evo desenvolveu integrou todos nossos sistemas. Agora temos dados centralizados e decisões mais rápidas.": "The API that Evo developed integrated all our systems. Now we have centralized data and faster decisions.",
-        "O sistema corporativo da Evo automatizou nossos processos e triplicou nosso faturamento em 6 meses. Investimento que se pagou!": "Evo's corporate system automated our processes and tripled our revenue in 6 months. Investment that paid off!",
-        "Como Desenvolver um Sistema Web Completo": "How to Develop a Complete Web System",
-        "Aprenda os conceitos fundamentais para criar sistemas web robustos e escaláveis do zero.": "Learn the fundamental concepts to create robust and scalable web systems from scratch.",
-        "12.5k visualizações": "12.5k views",
-        "React vs Vue.js: Qual Escolher?": "React vs Vue.js: Which to Choose?",
-        "Comparação completa entre as principais tecnologias front-end do mercado.": "Complete comparison between the main front-end technologies in the market.",
-        "8.9k visualizações": "8.9k views",
-        "APIs RESTful: Melhores Práticas": "RESTful APIs: Best Practices",
-        "Como criar APIs robustas, seguras e bem documentadas seguindo os padrões REST.": "How to create robust, secure and well-documented APIs following REST standards.",
-        "15.2k visualizações": "15.2k views",
-        "Deploy e DevOps para Iniciantes": "Deploy and DevOps for Beginners",
-        "Aprenda a fazer deploy de aplicações e implementar CI/CD de forma simples e eficiente.": "Learn to deploy applications and implement CI/CD in a simple and efficient way.",
-        "9.7k visualizações": "9.7k views",
-        "Banco de Dados: SQL vs NoSQL": "Databases: SQL vs NoSQL",
-        "Entenda quando usar cada tipo de banco de dados em seus projetos.": "Understand when to use each type of database in your projects.",
-        "11.3k visualizações": "11.3k views",
-        "Segurança em Aplicações Web": "Web Application Security",
-        "Principais vulnerabilidades e como proteger suas aplicações contra ataques.": "Main vulnerabilities and how to protect your applications against attacks.",
-        "7.4k visualizações": "7.4k views",
-        "Quanto tempo leva para desenvolver um sistema corporativo?": "How long does it take to develop a corporate system?",
-        "Os prazos de desenvolvimento variam conforme a complexidade da aplicação e requisitos de qualidade premium. Apps empresariais padrão são entregues em 3-6 semanas, enquanto plataformas globais abrangentes podem requerer 3-8 meses. Mantemos rigorosos portões de qualidade e roadmaps detalhados durante todo o desenvolvimento.": "Development timelines vary according to application complexity and premium quality requirements. Standard enterprise apps are delivered in 3-6 weeks, while comprehensive global platforms may require 3-8 months. We maintain rigorous quality gates and detailed roadmaps throughout development.",
-        "Vocês oferecem suporte após a entrega do sistema?": "Do you offer support after system delivery?",
-        "Sim! Oferecemos suporte técnico completo com garantia de 6 meses para correções de bugs, além de planos de manutenção que incluem atualizações de segurança, backup automático, monitoramento de performance e suporte técnico 24/7.": "Yes! We offer complete technical support with a 6-month warranty for bug fixes, plus maintenance plans that include security updates, automatic backup, performance monitoring and 24/7 technical support.",
-        "Vocês desenvolvem aplicativos móveis nativos?": "Do you develop native mobile applications?",
-        "Sim! Desenvolvemos apps nativos para iOS e Android, além de aplicações híbridas usando React Native e Flutter. Todos os apps são otimizados para performance, incluem integração com APIs e são testados extensivamente em diferentes dispositivos.": "Yes! We develop native apps for iOS and Android, as well as hybrid applications using React Native and Flutter. All apps are optimized for performance, include API integration and are extensively tested on different devices.",
-        "Posso solicitar novas funcionalidades após a entrega?": "Can I request new features after delivery?",
-        "Claro! Desenvolvemos sistemas modulares que permitem expansão. Oferecemos painéis administrativos completos para gestão de dados e relatórios. Para novas funcionalidades, módulos e integrações, temos equipes dedicadas para evolução contínua do seu sistema.": "Of course! We develop modular systems that allow expansion. We offer complete administrative panels for data management and reports. For new features, modules and integrations, we have dedicated teams for continuous evolution of your system.",
-        "Vocês desenvolvem integrações com sistemas externos?": "Do you develop integrations with external systems?",
-        "Sim! Especializamo-nos em integrações complexas: ERPs, CRMs, sistemas de pagamento, APIs de terceiros, bancos de dados legados e serviços na nuvem. Criamos APIs robustas e implementamos arquiteturas de microserviços para máxima escalabilidade.": "Yes! We specialize in complex integrations: ERPs, CRMs, payment systems, third-party APIs, legacy databases and cloud services. We create robust APIs and implement microservices architectures for maximum scalability.",
-        "Qual é nossa metodologia premium de desenvolvimento de apps?": "What is our premium app development methodology?",
-        "Seguimos nosso Framework Premium de Desenvolvimento proprietário: 1) Análise estratégica com planejamento de arquitetura empresarial, 2) Design UX/UI de classe mundial com padrões globais, 3) Desenvolvimento ágil com garantia de qualidade rigorosa, 4) Implantação global e certificação de conformidade, 5) Monitoramento 24/7 com otimização proativa. Mantemos comunicação em nível executivo durante todo o ciclo de vida.": "We follow our proprietary Premium Development Framework: 1) Strategic analysis with enterprise architecture planning, 2) World-class UX/UI design with global standards, 3) Agile development with rigorous quality assurance, 4) Global deployment and compliance certification, 5) 24/7 monitoring with proactive optimization. We maintain executive-level communication throughout the entire lifecycle.",
+        // Testimonials
+        "testimonials.member1.name": "Carlos Mendes",
+        "testimonials.member1.position": "CEO & Founder - TechCorp",
+        "testimonials.member1.testimonial": "We've been working with Evo for 2 years on developing our corporate system. They delivered a robust solution that increased our productivity by 40% and significantly improved our internal management.",
+        "testimonials.member2.name": "Ana Beatriz",
+        "testimonials.member2.position": "Director - Creative Studio",
+        "testimonials.member2.testimonial": "Evo developed our online sales platform. The result was excellent: 60% increase in conversions and a much more intuitive interface for our customers. Competent professionals who met deadlines.",
+        "testimonials.member3.name": "João Ricardo",
+        "testimonials.member3.position": "CEO - MegaStore E-commerce",
+        "testimonials.member3.testimonial": "We hired Evo to develop our B2B marketplace. We were impressed with the technical quality and attention to detail. The platform has been working perfectly and our users praise the experience.",
+        "testimonials.member4.name": "Marcos Silva",
+        "testimonials.member4.position": "Digital Consultant",
+        "testimonials.member4.testimonial": "We needed a custom financial management system. Evo delivered a solution that met 100% of our specific needs. I recommend them for their seriousness and technical knowledge.",
+        "testimonials.member5.name": "Luciana Santos",
+        "testimonials.member5.position": "Founder - StartupTech",
+        "testimonials.member5.testimonial": "Evo developed our mobile app from scratch. Transparent process, excellent communication and on-time delivery. Our customers loved the new experience and we had consistent growth in engagement.",
+        // Videos/Tutorials Section
+        "videos.web_systems.title": "How to Develop a Complete Web System",
+        "videos.web_systems.description": "Learn the fundamental concepts to create robust and scalable web systems from scratch.",
+        "videos.web_systems.views": "12.5k views",
+        "videos.react_vue.title": "React vs Vue.js: Which to Choose?",
+        "videos.react_vue.description": "Complete comparison between the main front-end technologies in the market.",
+        "videos.react_vue.views": "8.9k views",
+        "videos.apis_rest.title": "RESTful APIs: Best Practices",
+        "videos.apis_rest.description": "How to create robust, secure and well-documented APIs following REST standards.",
+        "videos.apis_rest.views": "15.2k views",
+        "videos.deploy_devops.title": "Deploy and DevOps for Beginners",
+        "videos.deploy_devops.description": "Learn to deploy applications and implement CI/CD in a simple and efficient way.",
+        "videos.deploy_devops.views": "9.7k views",
+        "videos.databases.title": "Databases: SQL vs NoSQL",
+        "videos.databases.description": "Understand when to use each type of database in your projects.",
+        "videos.databases.views": "11.3k views",
+        "videos.security.title": "Web Application Security",
+        "videos.security.description": "Main vulnerabilities and how to protect your applications against attacks.",
+        "videos.security.views": "7.4k views",
+        "faq.q1.question": "How long does it take to develop a corporate system?",
+        "faq.q1.answer": "Development timelines vary according to application complexity and premium quality requirements. Standard enterprise apps are delivered in 3-6 weeks, while comprehensive global platforms may require 3-8 months. We maintain rigorous quality gates and detailed roadmaps throughout development.",
+        "faq.q2.question": "Do you offer support after system delivery?",
+        "faq.q2.answer": "Yes! We offer complete technical support with a 6-month warranty for bug fixes, plus maintenance plans that include security updates, automatic backup, performance monitoring and 24/7 technical support.",
+        "faq.q3.question": "Do you develop native mobile applications?",
+        "faq.q3.answer": "Yes! We develop native apps for iOS and Android, as well as hybrid applications using React Native and Flutter. All apps are optimized for performance, include API integration and are extensively tested on different devices.",
+        "faq.q4.question": "Can I request new features after delivery?",
+        "faq.q4.answer": "Of course! We develop modular systems that allow expansion. We offer complete administrative panels for data management and reports. For new features, modules and integrations, we have dedicated teams for continuous evolution of your system.",
+        "faq.q5.question": "Do you develop integrations with external systems?",
+        "faq.q5.answer": "Yes! We specialize in complex integrations: ERPs, CRMs, payment systems, third-party APIs, legacy databases and cloud services. We create robust APIs and implement microservices architectures for maximum scalability.",
+        "faq.q6.question": "What is our premium app development methodology?",
+        "faq.q6.answer": "We follow our proprietary Premium Development Framework: 1) Strategic analysis with enterprise architecture planning, 2) World-class UX/UI design with global standards, 3) Agile development with rigorous quality assurance, 4) Global deployment and compliance certification, 5) 24/7 monitoring with proactive optimization. We maintain executive-level communication throughout the entire lifecycle.",
         
-        // Location Cards
-        "Hub Tecnológico do Atlântico": "Atlantic Technology Hub",
-        "Charlottetown, Prince Edward Island, Canadá": "Charlottetown, Prince Edward Island, Canada",
-        "Portal do Agronegócio Digital": "Digital Agribusiness Portal",
-        "Cuiabá, Mato Grosso, Brasil": "Cuiabá, Mato Grosso, Brazil",
-        "Vale do Silício Brasileiro": "Brazilian Silicon Valley",
-        "São Bernardo do Campo, São Paulo, Brasil": "São Bernardo do Campo, São Paulo, Brazil",
-        "Tecnologia Marinha": "Marine Technology",
-        "IoT Sustentável": "Sustainable IoT",
-        "Agricultura 4.0": "Agriculture 4.0",
-        "AgTech": "AgTech",
-        "Blockchain Rural": "Rural Blockchain",
-        "Drones Agrícolas": "Agricultural Drones",
-        "Indústria 4.0": "Industry 4.0",
-        "FinTech": "FinTech",
-        "Inteligência Artificial": "Artificial Intelligence",
+        // Locations Section
+        "locations.atlantic.name": "Atlantic Technology Hub",
+        "locations.atlantic.address": "Charlottetown, Prince Edward Island, Canada",
+        "locations.agribusiness.name": "Digital Agribusiness Portal",
+        "locations.agribusiness.address": "Cuiabá, Mato Grosso, Brazil",
+        "locations.silicon_valley.name": "Brazilian Silicon Valley",
+        "locations.silicon_valley.address": "São Bernardo do Campo, São Paulo, Brazil",
+        "locations.specialties.marine_tech": "Marine Technology",
+        "locations.specialties.iot_sustainable": "Sustainable IoT",
+        "locations.specialties.agriculture_4": "Agriculture 4.0",
+        "locations.specialties.agtech": "AgTech",
+        "locations.specialties.blockchain_rural": "Rural Blockchain",
+        "locations.specialties.drones_agricultural": "Agricultural Drones",
+        "locations.specialties.industry_4": "Industry 4.0",
+        "locations.specialties.fintech": "FinTech",
+        "locations.specialties.artificial_intelligence": "Artificial Intelligence",
         
-        // Map-specific translations
-        "Centro de inovação em tecnologia marinha e agricultura sustentável.": "Innovation center in marine technology and sustainable agriculture.",
-        "Epicentro da revolução AgTech brasileira com sistemas de precisão.": "Epicenter of the Brazilian AgTech revolution with precision systems.",
-        "Centro global de excelência em aplicações empresariais premium.": "Global center of excellence in premium enterprise applications.",
-        "ÁREAS DE INTERESSE": "AREAS OF INTEREST",
+        "locations.atlantic.description": "Innovation center in marine technology and sustainable agriculture.",
+        "locations.agribusiness.description": "Epicenter of the Brazilian AgTech revolution with precision systems.",
+        "locations.silicon_valley.description": "Global center of excellence in premium enterprise applications.",
+        "locations.areas_of_interest": "AREAS OF INTEREST",
         
         // Location Section
         "Nossas Localizações": "Our Locations",

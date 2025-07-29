@@ -30,6 +30,7 @@ Criar vários pequenos sites institucionais para compor nosso portfolio profissi
 3. **MãoNaMassa** - Marketplace de Serviços de Reforma Colaborativa
 4. **TrocaTroca Kids** - Marketplace Circular de Produtos Infantis
 5. **BicoBot** - Marketplace de Micro-trabalhos Rápidos
+6. **EvoMarketplace** - Ecossistema completo para criação de Marketplaces: arquitetura de marketplace, sistema de matching entre compradores/vendedores, gestão de transações, algoritmos de recomendação, analytics de marketplace, e suporte técnico especializado
 
 ### Apps Tipo Uber (10 projetos)
 6. **ChurrasUber** - Churrasqueiros On-Demand

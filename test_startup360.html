@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>🧪 Teste Startup 360° - PT/EN</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; background: #f5f5f5; }
+        .container { max-width: 800px; margin: 0 auto; background: white; padding: 20px; border-radius: 10px; }
+        .test-section { margin: 20px 0; padding: 15px; border: 1px solid #ddd; border-radius: 5px; }
+        .success { color: #28a745; font-weight: bold; }
+        .error { color: #dc3545; font-weight: bold; }
+        .controls { text-align: center; margin: 20px 0; }
+        button { margin: 5px; padding: 12px 24px; border: none; border-radius: 5px; cursor: pointer; font-size: 16px; }
+        .btn-pt { background: #28a745; color: white; }
+        .btn-en { background: #007bff; color: white; }
+        .lang-indicator { text-align: center; font-size: 20px; margin: 10px 0; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🧪 Teste Específico - Startup 360°</h1>
+        
+        <div class="controls">
+            <button class="btn-pt" onclick="switchLanguage('pt')" id="pt-btn">🇧🇷 Português</button>
+            <button class="btn-en" onclick="switchLanguage('en')" id="en-btn">🇺🇸 English</button>
+        </div>
+        
+        <div class="lang-indicator" id="lang-indicator">Idioma atual: Português</div>
+        
+        <div class="test-section">
+            <h2>🚀 Startup 360° Section</h2>
+            
+            <h3 data-translate="startup360.title">Sua Startup 360 Graus</h3>
+            <p>
+                <span data-translate="startup360.subtitle1">Solução</span> 
+                <span data-translate="startup360.subtitle2">Completa para sua Startup</span>
+            </p>
+            
+            <h4 data-translate="startup360.main_title">Título Principal</h4>
+            <p data-translate="startup360.description">Descrição completa...</p>
+            
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-top: 20px;">
+                <div>
+                    <h5 data-translate="startup360.legal.title">Jurídico</h5>
+                    <p data-translate="startup360.legal.description">Descrição jurídico...</p>
+                </div>
+                <div>
+                    <h5 data-translate="startup360.accounting.title">Contábil</h5>
+                    <p data-translate="startup360.accounting.description">Descrição contábil...</p>
+                </div>
+                <div>
+                    <h5 data-translate="startup360.development.title">Programação</h5>
+                    <p data-translate="startup360.development.description">Descrição programação...</p>
+                </div>
+                <div>
+                    <h5 data-translate="startup360.hosting.title">Hosting</h5>
+                    <p data-translate="startup360.hosting.description">Descrição hosting...</p>
+                </div>
+            </div>
+            
+            <div style="margin-top: 20px;">
+                <h4 data-translate="startup360.cta_title">CTA Título</h4>
+                <p data-translate="startup360.cta_description">CTA Descrição</p>
+                <button data-translate="startup360.cta_button">Botão CTA</button>
+            </div>
+        </div>
+        
+        <div class="test-section" id="results">
+            <h3>📊 Resultados do Teste</h3>
+            <p>Clique nos botões de idioma para testar a tradução!</p>
+        </div>
+    </div>
+    
+    <script>
+        // Traduções para teste
+        const translations = {
+            pt: {
+                "startup360.title": "Sua Startup 360 Graus",
+                "startup360.subtitle1": "Solução",
+                "startup360.subtitle2": "Completa para sua Startup",
+                "startup360.main_title": "Transforme sua ideia em realidade com nosso ecossistema completo",
+                "startup360.description": "Da concepção à execução, oferecemos todos os serviços necessários para tirar sua startup do papel. Uma solução integrada que cuida de cada aspecto do seu negócio, permitindo que você foque no que realmente importa: crescer.",
+                "startup360.legal.title": "Serviço Jurídico",
+                "startup360.legal.description": "Constituição da empresa, contratos, compliance e assessoria jurídica especializada em startups e tecnologia.",
+                "startup360.accounting.title": "Serviço Contábil",
+                "startup360.accounting.description": "Contabilidade completa, planejamento tributário, gestão fiscal e relatórios financeiros personalizados.",
+                "startup360.development.title": "Programação Completa",
+                "startup360.development.description": "Desenvolvimento full-stack, arquitetura de software, aplicações web e mobile com as melhores tecnologias.",
+                "startup360.hosting.title": "Hosting & Infraestrutura",
+                "startup360.hosting.description": "Servidores dedicados, cloud computing, CDN global, backup automático e monitoramento 24/7.",
+                "startup360.cta_title": "Pronto para transformar sua ideia em realidade?",
+                "startup360.cta_description": "Agende uma consultoria gratuita e descubra como podemos acelerar o crescimento da sua startup",
+                "startup360.cta_button": "Agendar Consultoria Gratuita"
+            },
+            en: {
+                "startup360.title": "Your 360 Degree Startup",
+                "startup360.subtitle1": "Complete",
+                "startup360.subtitle2": "Solution for your Startup",
+                "startup360.main_title": "Transform your idea into reality with our complete ecosystem",
+                "startup360.description": "From conception to execution, we offer all the necessary services to get your startup off the ground. An integrated solution that takes care of every aspect of your business, allowing you to focus on what really matters: growing.",
+                "startup360.legal.title": "Legal Service",
+                "startup360.legal.description": "Company incorporation, contracts, compliance and legal advice specialized in startups and technology.",
+                "startup360.accounting.title": "Accounting Service",
+                "startup360.accounting.description": "Complete accounting, tax planning, fiscal management and customized financial reports.",
+                "startup360.development.title": "Complete Programming",
+                "startup360.development.description": "Full-stack development, software architecture, web and mobile applications with the best technologies.",
+                "startup360.hosting.title": "Hosting & Infrastructure",
+                "startup360.hosting.description": "Dedicated servers, cloud computing, global CDN, automatic backup and 24/7 monitoring.",
+                "startup360.cta_title": "Ready to transform your idea into reality?",
+                "startup360.cta_description": "Schedule a free consultation and discover how we can accelerate your startup's growth",
+                "startup360.cta_button": "Schedule Free Consultation"
+            }
+        };
+        
+        let currentLang = 'pt';
+        
+        function switchLanguage(lang) {
+            currentLang = lang;
+            
+            const elements = document.querySelectorAll('[data-translate]');
+            let successful = 0;
+            let failed = 0;
+            let failedKeys = [];
+            
+            elements.forEach(element => {
+                const key = element.getAttribute('data-translate');
+                if (translations[lang] && translations[lang][key]) {
+                    element.textContent = translations[lang][key];
+                    successful++;
+                } else {
+                    failed++;
+                    failedKeys.push(key);
+                }
+            });
+            
+            // Update language indicator
+            document.getElementById('lang-indicator').textContent = 
+                `Idioma atual: ${lang === 'pt' ? 'Português' : 'English'}`;
+            
+            // Update button states
+            document.getElementById('pt-btn').style.opacity = lang === 'pt' ? '1' : '0.6';
+            document.getElementById('en-btn').style.opacity = lang === 'en' ? '1' : '0.6';
+            
+            // Show results
+            const results = document.getElementById('results');
+            let html = '<h3>📊 Resultados do Teste</h3>';
+            html += `<p><strong>Idioma:</strong> ${lang === 'pt' ? 'Português' : 'English'}</p>`;
+            html += `<p class="success">✅ Sucessos: ${successful}</p>`;
+            if (failed > 0) {
+                html += `<p class="error">❌ Falhas: ${failed}</p>`;
+                html += `<p>Chaves com problema: ${failedKeys.join(', ')}</p>`;
+            } else {
+                html += `<p class="success">🎉 TODAS AS CHAVES FUNCIONANDO!</p>`;
+            }
+            results.innerHTML = html;
+            
+            return { successful, failed, failedKeys };
+        }
+        
+        // Initialize
+        switchLanguage('pt');
+    </script>
+</body>
+</html>

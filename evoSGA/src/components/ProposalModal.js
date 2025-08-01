@@ -4,7 +4,6 @@ import aiGenerator from '../services/ai/AIGeneratorService.js';
 import { saveProposal, linkProposalToCard, getLatestProposalByCard } from '../lib/proposalService';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
-import IFPUGTab from './ifpug/IFPUGTab';
 
 const ProposalModal = ({ isOpen, onClose, cardData }) => {
   const [activeTab, setActiveTab] = useState('config');
@@ -105,11 +104,6 @@ const ProposalModal = ({ isOpen, onClose, cardData }) => {
       id: 'preview',
       label: 'Visualização',
       icon: <i className="fi fi-rr-eye"></i>
-    },
-    {
-      id: 'ifpug',
-      label: 'IFPUG',
-      icon: <i className="fi fi-rr-calculator"></i>
     }
   ];
 
@@ -275,18 +269,6 @@ const ProposalModal = ({ isOpen, onClose, cardData }) => {
         estimatedHours: formData.estimatedHours
       });
       
-      // Validação prévia de configuração
-      if (!aiGenerator.isConfigured()) {
-        console.error('❌ Serviço de IA não configurado corretamente');
-        setErrors({ 
-          aiGeneration: 'Serviço de IA não configurado. Verifique as variáveis de ambiente NEXT_PUBLIC_OPENAI_API_KEY e NEXT_PUBLIC_OPENAI_BASE_URL no arquivo .env.local',
-          aiGenerationType: 'error'
-        });
-        return;
-      }
-      
-      console.log('✅ Serviço de IA configurado corretamente');
-      
       // Usar a função real de geração de proposta
       // Usar o novo serviço de geração de análise
       const analysisResult = await aiGenerator.generateAnalysisWithRetry({
@@ -382,68 +364,26 @@ const ProposalModal = ({ isOpen, onClose, cardData }) => {
       console.error('🔍 Detalhes do erro:', {
         message: error.message,
         stack: error.stack,
-        name: error.name,
-        code: error.code,
-        details: error.details
+        name: error.name
       });
       
       // Feedback detalhado de erro para o usuário
-      let errorMessage = '';
-      let errorType = 'error';
+      let errorMessage = 'Erro na geração automática. ';
       
-      if (error.name === 'AIRateLimitError' || error.message.includes('Rate limit') || error.message.includes('429')) {
-        errorMessage = '⏳ Limite de requisições atingido. O sistema tentou usar modelos alternativos, mas todos estão temporariamente indisponíveis. ';
-        
-        if (error.details?.suggestion) {
-          errorMessage += error.details.suggestion;
-        } else {
-          errorMessage += 'Aguarde alguns minutos e tente novamente, ou configure sua própria API key para evitar limitações.';
-        }
-        
-        errorType = 'warning';
-        
-        // Log adicional para rate limiting
-        console.log('📊 Informações de Rate Limiting:', {
-          attempts: error.details?.attempts,
-          rateLimitInfo: error.details?.rateLimitInfo,
-          suggestion: error.details?.suggestion
-        });
-        
-      } else if (error.message.includes('API Key')) {
-        errorMessage = '🔑 Problema de autenticação. Verifique se a API Key está configurada corretamente.';
-        errorType = 'error';
-        
+      if (error.message.includes('API Key')) {
+        errorMessage += 'Verifique se a API Key está configurada corretamente.';
       } else if (error.message.includes('empty') || error.message.includes('vazia')) {
-        errorMessage = '📝 A IA retornou uma resposta vazia. Isso pode ser temporário - tente novamente.';
-        errorType = 'warning';
-        
-      } else if (error.message.includes('Todos os modelos falharam')) {
-        errorMessage = '🤖 Todos os modelos de IA estão temporariamente indisponíveis. Aguarde alguns minutos e tente novamente.';
-        errorType = 'warning';
-        
-      } else if (error.code === 'ANALYSIS_FAILED_AFTER_RETRIES') {
-        errorMessage = `🔄 Falha após ${error.details?.attempts || 'múltiplas'} tentativas. O serviço pode estar sobrecarregado. Tente novamente em alguns minutos.`;
-        errorType = 'warning';
-        
+        errorMessage += 'A IA retornou uma resposta vazia. Tente novamente.';
+      } else if (error.message.includes('Rate limit') || error.message.includes('429')) {
+        errorMessage += 'Limite de requisições atingido. Aguarde alguns minutos.';
       } else {
-        errorMessage = '❌ Erro inesperado na geração automática. Você pode continuar manualmente ou tentar novamente.';
-        errorType = 'error';
+        errorMessage += 'Você pode continuar manualmente ou tentar novamente.';
       }
       
       setErrors({
         ...errors,
-        aiGeneration: errorMessage,
-        aiGenerationType: errorType
+        aiGeneration: errorMessage
       });
-      
-      // Se for rate limiting, mostrar informações adicionais no console
-      if (errorType === 'warning') {
-        console.log('💡 Dica: Para evitar limitações de rate limiting, considere:');
-        console.log('   • Aguardar alguns minutos entre tentativas');
-        console.log('   • Configurar sua própria API key do OpenRouter');
-        console.log('   • Usar o sistema em horários de menor demanda');
-      }
-      
     } finally {
       setAiGenerating(false);
     }
@@ -678,7 +618,7 @@ const ProposalModal = ({ isOpen, onClose, cardData }) => {
                 <i className="fi fi-rr-lightbulb text-white text-lg"></i>
               </div>
               <div>
-                <h4 className="font-semibold text-blue-900 mb-2"><i className="fi fi-rr-bulb text-yellow-500 mr-2"></i>Dica Profissional</h4>
+                <h4 className="font-semibold text-blue-900 mb-2">💡 Dica Profissional</h4>
                 <p className="text-blue-800 text-sm">
                   Nossa IA está analisando sua descrição usando metodologia IFPUG para garantir estimativas precisas. 
                   Em breve você terá acesso à proposta comercial completa com todos os detalhes técnicos.
@@ -736,7 +676,7 @@ const ProposalModal = ({ isOpen, onClose, cardData }) => {
         <div className="bg-gradient-to-r from-blue-600 to-purple-600 text-white p-8 rounded-3xl">
           <div className="flex items-center justify-between">
             <div>
-              <h2 className="text-2xl font-bold mb-2"><i className="fi fi-rr-document text-white mr-2"></i>Proposta Comercial</h2>
+              <h2 className="text-2xl font-bold mb-2">📋 Proposta Comercial</h2>
               <p className="text-blue-100">Gerada automaticamente pela IA em {new Date().toLocaleDateString('pt-BR')}</p>
             </div>
             <div className="text-right">
@@ -812,87 +752,16 @@ const ProposalModal = ({ isOpen, onClose, cardData }) => {
     }
   };
 
-  // Função para download PDF
+  // Função para download PDF (placeholder)
   const downloadAsPDF = () => {
-    try {
-      // Criar conteúdo HTML da proposta
-      const proposalContent = aiResults?.proposal || '';
-      const htmlContent = `
-        <!DOCTYPE html>
-        <html>
-        <head>
-          <meta charset="utf-8">
-          <title>Proposta de Projeto</title>
-          <style>
-            body { font-family: Arial, sans-serif; margin: 40px; line-height: 1.6; }
-            h1, h2 { color: #333; }
-            .header { border-bottom: 2px solid #eee; padding-bottom: 20px; margin-bottom: 30px; }
-            .content { white-space: pre-wrap; }
-            .footer { margin-top: 50px; padding-top: 20px; border-top: 1px solid #eee; }
-          </style>
-        </head>
-        <body>
-          <div class="header">
-            <h1>Proposta de Projeto</h1>
-            <p>Gerado em: ${new Date().toLocaleDateString('pt-BR')}</p>
-          </div>
-          <div class="content">${proposalContent.replace(/\n/g, '<br>')}</div>
-          <div class="footer">
-            <p><small>Documento gerado automaticamente pelo Sistema de Análise de Projetos</small></p>
-          </div>
-        </body>
-        </html>
-      `;
-
-      // Criar blob e fazer download
-      const blob = new Blob([htmlContent], { type: 'text/html' });
-      const url = URL.createObjectURL(blob);
-      const a = document.createElement('a');
-      a.href = url;
-      a.download = `proposta-projeto-${new Date().toISOString().split('T')[0]}.html`;
-      document.body.appendChild(a);
-      a.click();
-      document.body.removeChild(a);
-      URL.revokeObjectURL(url);
-      
-      alert('Proposta baixada como arquivo HTML! Você pode abri-lo no navegador e imprimir como PDF.');
-    } catch (error) {
-      console.error('Erro ao gerar arquivo:', error);
-      alert('Erro ao gerar arquivo para download. Tente novamente.');
-    }
+    // TODO: Implementar geração de PDF
+    alert('Funcionalidade de PDF será implementada em breve!');
   };
 
-  // Função para enviar por email
+  // Função para enviar por email (placeholder)
   const sendProposal = () => {
-    try {
-      const proposalContent = aiResults?.proposal || '';
-      const projectTitle = formData?.description?.substring(0, 50) || 'Projeto';
-      
-      // Criar conteúdo do email
-      const subject = encodeURIComponent(`Proposta: ${projectTitle}`);
-      const emailBody = encodeURIComponent(`
-Olá,
-
-Segue a proposta para o projeto solicitado:
-
-${proposalContent}
-
----
-Documento gerado automaticamente pelo Sistema de Análise de Projetos
-Data: ${new Date().toLocaleDateString('pt-BR')}
-
-Atenciosamente,
-Equipe de Desenvolvimento
-      `);
-
-      // Abrir cliente de email padrão
-      const mailtoLink = `mailto:?subject=${subject}&body=${emailBody}`;
-      window.location.href = mailtoLink;
-      
-    } catch (error) {
-      console.error('Erro ao abrir cliente de email:', error);
-      alert('Erro ao abrir cliente de email. Tente copiar a proposta e enviar manualmente.');
-    }
+    // TODO: Implementar envio por email
+    alert('Funcionalidade de envio por email será implementada em breve!');
   };
 
   const renderTabContent = () => {
@@ -901,14 +770,6 @@ Equipe de Desenvolvimento
         return renderConfigTab();
       case 'preview':
         return renderPreviewTab();
-      case 'ifpug':
-        return (
-          <IFPUGTab 
-            ifpugData={ifpugData}
-            onDataChange={setIfpugData}
-            aiResults={aiResults}
-          />
-        );
       default:
         return renderConfigTab();
     }
@@ -968,7 +829,7 @@ Equipe de Desenvolvimento
             Cancelar
           </button>
           
-          <div className="flex gap-3">
+            
             {activeTab === 'config' && (
               <button
                 onClick={handleGenerateProposal}
@@ -1006,35 +867,6 @@ Equipe de Desenvolvimento
                 )}
               </button>
             )}
-
-            {(activeTab === 'preview' || activeTab === 'ifpug') && aiResults && aiResults.success && (
-              <button
-                onClick={handleSave}
-                disabled={savingProposal}
-                className={`w-full sm:w-auto px-8 py-3 rounded-2xl transition-all duration-300 font-medium shadow-lg hover:shadow-xl disabled:shadow-none transform hover:scale-[1.02] disabled:transform-none ${
-                  savingProposal 
-                    ? 'bg-gradient-to-r from-green-500 to-blue-500 text-white animate-pulse' 
-                    : 'bg-gradient-to-r from-green-500 to-emerald-500 hover:from-green-600 hover:to-emerald-600 text-white'
-                }`}
-              >
-                {savingProposal ? (
-                  <>
-                    <div className="flex items-center justify-center">
-                      <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-white mr-3"></div>
-                      <span>Salvando...</span>
-                    </div>
-                  </>
-                ) : (
-                  <>
-                    <div className="flex items-center justify-center">
-                      <i className="fi fi-rr-disk mr-3 text-lg"></i>
-                      <span>Salvar Proposta</span>
-                    </div>
-                  </>
-                )}
-              </button>
-            )}
-          </div>
         </div>
       </div>
     </Modal>
